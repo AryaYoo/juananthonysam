@@ -27,13 +27,13 @@
                 <div class="p-8 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll">
                     <div>
                         <div class="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-[#222222] border border-gray-200 dark:border-[#333333] rounded text-xs font-normal text-gray-900 dark:text-white uppercase tracking-wider mb-6">
-                            <span>Visi Kami</span>
+                            <span>Visi Gereja</span>
                         </div>
                         <h2 class="text-2xl sm:text-3xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-snug mb-4">
-                            "Menjadi Gereja Keluarga yang Sehat dan Memuridkan dalam Yesus Kristus"
+                            "Menjadi Gereja Keluarga yang sehat dan memuridkan dalam Yesus Kristus."
                         </h2>
                         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
-                            Kami percaya bahwa rencana Allah atas gereja bermula dari keluarga. Gereja yang sehat adalah gereja di mana setiap generasi terhubung, saling menopang dalam kasih karunia, dan aktif memuridkan orang lain menjadi pengikut Kristus yang sejati.
+                            Kami percaya bahwa kebangunan rohani sejati bermula dari keluarga. Ekklesia Surabaya berkomitmen menghadirkan keluarga rohani yang bertumbuh sehat, saling menopang dalam kasih karunia, dan aktif memuridkan generasi bagi kemuliaan Kristus.
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-200 dark:border-[#222222] text-xs text-gray-400 font-light">
@@ -45,28 +45,28 @@
                 <div class="p-8 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-200">
                     <div>
                         <div class="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-[#222222] border border-gray-200 dark:border-[#333333] rounded text-xs font-normal text-gray-900 dark:text-white uppercase tracking-wider mb-6">
-                            <span>Misi Kami</span>
+                            <span>Misi Gereja</span>
                         </div>
                         <h2 class="text-xl sm:text-2xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-snug mb-4">
-                            "Menjadi pribadi-pribadi yang unggul dan profesional yang menghadirkan Kerajaan Allah di setiap bidang kehidupan."
+                            "Menjadi pribadi-pribadi yang unggul dan profesional, membangun setiap generasi di segala usia, serta membangun keluarga yang kuat, sehat, dan berpusat pada Kristus."
                         </h2>
                         <ul class="space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-light">
                             <li class="flex items-start gap-2.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Menyediakan pengajaran firman yang murni, berakar kuat, dan relevan dalam kehidupan sehari-hari.</span>
+                                <span>Membina kepribadian yang unggul, berintegritas, dan profesional dalam setiap karya dan profesi.</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Membangun komunitas sel (My Home) sebagai wadah persekutuan dan kepedulian jemaat secara nyata.</span>
+                                <span>Menjangkau dan memperlengkapi seluruh generasi usia: anak-anak (Ekidz), remaja (E-Teens), hingga dewasa.</span>
                             </li>
                             <li class="flex items-start gap-2.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Memperlengkapi generasi muda dan anak-anak melalui pelayanan Ekidz dan E-Teens yang inspiratif.</span>
+                                <span>Mendirikan mezbah doa keluarga dan persekutuan sel My Home yang berpusat pada Kristus.</span>
                             </li>
                         </ul>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-200 dark:border-[#222222] text-xs text-gray-400 font-light">
-                        Kolose 3:23–24 • 1 Timotius 4:12
+                        Kolose 3:23–24 • Yosua 24:15
                     </div>
                 </div>
             </div>
@@ -81,10 +81,10 @@
                     KEPEMIMPINAN GEREJA
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Tim Pastoral Ekklesia
+                    Pastors & Pelayanan
                 </h2>
                 <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
-                    Dipimpin oleh para hamba Tuhan yang setia melayani dengan kasih dan dedikasi
+                    Dipimpin oleh Pastor Juan Anthony Sam & Ps Samuel bersama seluruh tim pelayan jemaat
                 </p>
             </div>
 
@@ -112,7 +112,7 @@
                         </div>
                         <div class="pt-6 mt-6 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between text-xs">
                             <span class="text-gray-400 font-light">Pastoral Care</span>
-                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', env('WHATSAPP_NUMBER', '6281234567890')) }}" 
+                            <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
                                target="_blank" 
                                rel="noopener noreferrer"
                                class="text-gray-950 dark:text-white hover:underline flex items-center gap-1 font-normal">
@@ -139,11 +139,11 @@
                     Divisi Pelayanan Jemaat
                 </h2>
                 <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
-                    Setiap anggota tubuh Kristus memiliki talenta untuk kemuliaan nama-Nya
+                    Volunteer, Creative, dan Usher siap melayani dan memperlengkapi tubuh Kristus
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($divisions as $index => $div)
                     <div class="p-6 rounded-xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
                         <div class="w-10 h-10 rounded-lg bg-white dark:bg-[#222222] border border-gray-200 dark:border-[#333333] flex items-center justify-center text-gray-900 dark:text-white mb-4">
@@ -169,7 +169,7 @@
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-4 font-light">
                     Bergabunglah sebagai volunteer dan kembangkan talenta Anda di rumah Tuhan.
                 </p>
-                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', env('WHATSAPP_NUMBER', '6281234567890')) }}?text=Halo%20Pastoral%20Ekklesia,%20saya%20tertarik%20bergabung%20sebagai%20volunteer" 
+                <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia,%20saya%20tertarik%20bergabung%20sebagai%20volunteer" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm">

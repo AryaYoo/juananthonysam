@@ -9,6 +9,8 @@ class ProfileController extends Controller
     public function index(): View
     {
         $profileData = [
+            'vision' => 'Menjadi Gereja Keluarga yang sehat dan memuridkan dalam Yesus Kristus.',
+            'mission' => 'Menjadi pribadi-pribadi yang unggul dan profesional, membangun setiap generasi di segala usia, serta membangun keluarga yang kuat, sehat, dan berpusat pada Kristus.',
             'pastors' => [
                 [
                     'name' => 'Pastor Juan Anthony Sam',
@@ -35,13 +37,8 @@ class ProfileController extends Controller
                     'icon' => 'heart-handshake',
                 ],
                 [
-                    'name' => 'Worship & Praise',
-                    'desc' => 'Memimpin jemaat masuk ke dalam hadirat Tuhan melalui pujian, penyembahan, dan musik yang intim.',
-                    'icon' => 'music',
-                ],
-                [
-                    'name' => 'Volunteer General',
-                    'desc' => 'Pelayanan operasional, perlengkapan, koordinasi acara, dan dukungan logistik seluruh kegiatan ibadah.',
+                    'name' => 'Volunteer Pelayanan',
+                    'desc' => 'Pelayanan operasional, perlengkapan, koordinasi acara, dan dukungan logistik seluruh kegiatan ibadah jemaat.',
                     'icon' => 'hands',
                 ],
             ],
@@ -49,7 +46,7 @@ class ProfileController extends Controller
                 'name' => 'Ekklesia Surabaya',
                 'address' => 'Jln Ruko Ngaglik 2 No 15, Surabaya, Jawa Timur',
                 'google_maps_url' => 'https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya',
-                'whatsapp' => env('WHATSAPP_NUMBER', '+6281234567890'),
+                'whatsapp' => env('WHATSAPP_NUMBER', '+6281213131060'),
             ],
         ];
 

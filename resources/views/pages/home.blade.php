@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Beranda — Ekklesia Surabaya')
-@section('meta_description', 'Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan.')
+@section('meta_description', 'Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan. Welcome Home.')
 
 @section('content')
     <!-- =========================================================
@@ -9,16 +9,16 @@
          ========================================================= -->
     <section class="relative bg-[#111111] dark:bg-[#0D0D0D] text-white overflow-hidden select-none" id="heroCarouselSection">
         <!-- Carousel Slides Container -->
-        <div class="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center">
+        <div class="relative w-full min-h-[600px] sm:min-h-[660px] lg:min-h-[740px] flex items-center">
             
-            <!-- SLIDE 1: Saat Teduh Bersama (Direct Inspiration from Reference) -->
+            <!-- SLIDE 1: Saat Teduh Bersama & Slogan Welcome Home -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex flex-col justify-between" data-slide="0">
                 <!-- Background Textured Panels & Ambient Glow -->
                 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#242424] via-[#141414] to-[#0A0A0A] z-0"></div>
-                <!-- Subtle Vertical Ribbed Panel Lines (Aesthetic from reference) -->
+                <!-- Subtle Vertical Ribbed Panel Lines -->
                 <div class="absolute inset-0 bg-[linear-gradient(to_right,#222222_1px,transparent_1px)] bg-[size:32px_100%] opacity-25 z-0"></div>
 
-                <!-- Big Stylized Brand Background Monogram (like "PMB" in reference) -->
+                <!-- Big Stylized Brand Background Monogram -->
                 <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center pointer-events-none z-0 overflow-hidden">
                     <span class="text-[120px] sm:text-[180px] lg:text-[260px] font-light font-['Stack_Sans_Notch',sans-serif] tracking-tighter text-white opacity-[0.03] select-none">
                         EKKLESIA
@@ -28,19 +28,18 @@
                 <!-- Slide Content Container -->
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-4 flex-1 flex flex-col justify-center items-center text-center">
                     
-                    <!-- Emblem & Pastoral Name Eyebrow -->
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-6 h-6 rounded-full bg-[#2A2A2A] border border-[#3D3D3D] flex items-center justify-center">
-                            <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v20M7 8h10"/>
-                            </svg>
-                        </div>
+                    <!-- Welcome Home Slogan & Pastoral Eyebrow -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+                        <span class="px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-[11px] tracking-[0.25em] uppercase font-normal text-white backdrop-blur-xs">
+                            WELCOME HOME
+                        </span>
+                        <span class="text-white/30 hidden sm:inline">•</span>
                         <span class="text-xs tracking-[0.2em] uppercase font-normal text-gray-300">
                             PS. JUAN ANTHONY SAM & PS. SAMUEL
                         </span>
                     </div>
 
-                    <!-- Main Headline: "SAAT TEDUH Bersama" (Lightweight Typography as requested) -->
+                    <!-- Main Headline: "SAAT TEDUH Bersama" (Lightweight Typography) -->
                     <div class="mb-4">
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white leading-none font-['Stack_Sans_Notch',sans-serif]">
                             SAAT TEDUH
@@ -56,7 +55,7 @@
                         <span class="font-light">Tema 2026: <strong class="font-normal text-white">Tahun Pemulihan bagi Kemuliaan Tuhan</strong></span>
                     </div>
 
-                    <!-- Portrait Graphic Representation / Sanctuary Visual -->
+                    <!-- Portrait Graphic Representation -->
                     <div class="relative w-48 sm:w-60 lg:w-72 mx-auto my-2 group">
                         <div class="aspect-[3/4] rounded-2xl bg-gradient-to-b from-[#282828] to-[#181818] border border-white/15 shadow-2xl overflow-hidden relative flex items-end justify-center">
                             <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop" 
@@ -65,18 +64,18 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent"></div>
                             <div class="absolute bottom-3 inset-x-0 px-2 text-center">
                                 <span class="text-[11px] font-normal text-white tracking-wider uppercase bg-black/70 px-3 py-1 rounded-md border border-white/10 backdrop-blur-xs">
-                                    Pastoral Ekklesia
+                                    Pastoral Ekklesia Surabaya
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ribbon 1: Service Schedule Strip (Direct reference layout match) -->
+                <!-- Ribbon 1: Service Schedule Strip -->
                 <div class="relative z-10 w-full bg-[#181818] border-y border-white/10 py-3 px-4">
                     <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center">
                         <div>
-                            <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">SETIAP</span>
+                            <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">DOA BERSAMA</span>
                             <span class="text-sm sm:text-base font-normal text-white font-['Stack_Sans_Notch',sans-serif]">
                                 SENIN & JUMAT
                             </span>
@@ -92,34 +91,27 @@
                         <div>
                             <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">TEMPAT & BROADCAST</span>
                             <span class="text-xs sm:text-sm font-normal text-gray-200">
-                                Sanctuary & YouTube Live
+                                Sanctuary Lt. 2 & YouTube Live
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ribbon 2: Social Media Channel Links Bar (Direct reference layout match) -->
+                <!-- Ribbon 2: Social Media Channel Links Bar -->
                 <div class="relative z-10 w-full bg-[#111111] py-2.5 px-4 text-xs text-gray-400 border-b border-white/10">
                     <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                        <a href="{{ route('media') }}" class="flex items-center gap-1.5 hover:text-white transition-colors">
+                        <a href="https://www.youtube.com/@ekklesiaministrysurabaya174" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-white transition-colors">
                             <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
-                            <span>Ekklesia Ministry</span>
+                            <span>Ekklesia Ministry (@ekklesiaministrysurabaya174)</span>
                         </a>
                         <span class="text-white/20 hidden sm:inline">•</span>
-                        <a href="{{ route('media') }}" class="flex items-center gap-1.5 hover:text-white transition-colors">
+                        <a href="https://www.youtube.com/@ekklesiaworship927" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-white transition-colors">
                             <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
-                            <span>Ekklesia Worship</span>
-                        </a>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-white transition-colors">
-                            <svg class="w-3.5 h-3.5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                            <span>@ekklesiasurabaya</span>
+                            <span>Ekklesia Worship (@ekklesiaworship927)</span>
                         </a>
                     </div>
                 </div>
@@ -147,25 +139,25 @@
                             Baca Visi & Misi Gereja
                         </a>
                         <a href="{{ route('events') }}" class="px-5 py-2.5 bg-white/10 border border-white/20 text-white font-medium text-xs rounded-md hover:bg-white/20 transition-all">
-                            Jadwal Ibadah
+                            Jadwal Acara & Ibadah
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 3: Ibadah Keluarga (Sunday Service) -->
+            <!-- SLIDE 3: Welcome Home & Ibadah Keluarga -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex flex-col justify-between" data-slide="2">
                 <div class="absolute inset-0 bg-gradient-to-b from-[#222222] via-[#141414] to-[#0A0A0A] z-0"></div>
                 
                 <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 flex-1 flex flex-col justify-center items-center text-center">
                     <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-400 mb-3">
-                        SUNDAY FAMILY WORSHIP
+                        WELCOME HOME • SUNDAY FAMILY SERVICE
                     </span>
                     <h2 class="text-3xl sm:text-5xl lg:text-6xl font-light text-white font-['Stack_Sans_Notch',sans-serif] mb-4">
                         Gereja Keluarga Yang Sehat
                     </h2>
                     <p class="text-sm sm:text-base text-gray-300 max-w-xl mb-8 leading-relaxed font-light">
-                        Bergabunglah bersama kami setiap hari Minggu. Ruang ibadah yang hangat bagi seluruh anggota keluarga dari anak-anak, remaja, hingga dewasa.
+                        Selamat datang di rumah keluarga Allah. Bergabunglah bersama kami setiap hari Minggu pagi di Jln Ruko Ngaglik 2 No 15, Surabaya.
                     </p>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-lg mb-8 text-left">
                         <div class="p-3 bg-white/10 border border-white/15 rounded-lg backdrop-blur-xs">
@@ -219,7 +211,7 @@
     </section>
 
     <!-- =========================================================
-         2. SEKILAS PROFIL & VISI MISI SECTION (With Scroll Reveal)
+         2. PROFIL RINGKAS: SEKILAS EKKLESIA CHURCH
          ========================================================= -->
     <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,16 +222,16 @@
                     <div class="flex items-center gap-2">
                         <span class="w-8 h-px bg-gray-950 dark:bg-white"></span>
                         <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400">
-                            TENTANG EKKLESIA SURABAYA
+                            SEKILAS EKKLESIA CHURCH
                         </span>
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white tracking-tight leading-tight font-['Stack_Sans_Notch',sans-serif]">
-                        Menjadi Gereja Keluarga yang Sehat dan Memuridkan
+                        Gereja Keluarga yang Sehat dan Memuridkan
                     </h2>
 
                     <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
-                        Ekklesia Surabaya bertumbuh di bawah kepemimpinan gembala <strong class="text-gray-950 dark:text-white font-medium">Pastor Juan Anthony Sam</strong> dan <strong class="text-gray-950 dark:text-white font-medium">Ps Samuel</strong>. Kami rindu melihat setiap pribadi dan keluarga dipulihkan, mengalami kepenuhan kasih Kristus, serta memancarkan kemuliaan Tuhan dalam panggilan hidup sehari-hari.
+                        Ekklesia Surabaya (GKRI Jemaat Ekklesia) bertumbuh di bawah kepemimpinan gembala <strong class="text-gray-950 dark:text-white font-medium">Pastor Juan Anthony Sam</strong> dan <strong class="text-gray-950 dark:text-white font-medium">Ps Samuel</strong>. Kami bertekad membangun pribadi-pribadi yang unggul dan profesional, memperlengkapi setiap generasi di segala usia, serta menghadirkan keluarga Allah yang kuat dan berakar di dalam Kristus.
                     </p>
 
                     <!-- Core Pillars -->
@@ -251,8 +243,8 @@
                                 </svg>
                             </div>
                             <h3 class="text-base font-normal text-gray-950 dark:text-white mb-1">Gereja Keluarga</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Tempat bertumbuh yang hangat dan aman bagi setiap generasi dari anak hingga lanjut usia.
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                                Komunitas yang hangat, ramah, dan aman bagi setiap generasi dari anak-anak hingga orang tua.
                             </p>
                         </div>
 
@@ -263,8 +255,8 @@
                                 </svg>
                             </div>
                             <h3 class="text-base font-normal text-gray-950 dark:text-white mb-1">Pemuridan Nyata</h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                                Membentuk pribadi unggul, berkarakter Kristus, dan profesional dalam masyarakat.
+                            <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                                Memuridkan jemaat menjadi pribadi yang unggul, berintegritas, dan profesional di dunia kerja.
                             </p>
                         </div>
                     </div>
@@ -295,7 +287,7 @@
                                 <h3 class="text-lg font-light text-white mt-1 font-['Stack_Sans_Notch',sans-serif]">
                                     Ibadah yang Mengubahkan
                                 </h3>
-                                <p class="text-xs text-gray-300 mt-0.5">
+                                <p class="text-xs text-gray-300 mt-0.5 font-light">
                                     Jln Ruko Ngaglik 2 No 15, Surabaya
                                 </p>
                             </div>
@@ -307,7 +299,8 @@
     </section>
 
     <!-- =========================================================
-         3. RINGKASAN JADWAL IBADAH SECTION (With Scroll Reveal)
+         3. JADWAL IBADAH (5 Jadwal Lengkap Sesuai Permintaan)
+         Sunday Service (09.00), Ekidz (09.30), E-Teens (11.00), Doa Senin (19.00), Doa Jumat (19.00)
          ========================================================= -->
     <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -319,42 +312,42 @@
                     Jadwal Ibadah Ekklesia
                 </h2>
                 <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
-                    Kami menantikan kehadiran Anda dan keluarga dalam persekutuan tubuh Kristus
+                    Kami menantikan kehadiran Anda dan keluarga dalam setiap jam persekutuan jemaat
                 </p>
             </div>
 
-            <!-- Schedule Cards Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Schedule Cards Grid (5 Jadwal) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
                 @foreach($schedules as $index => $schedule)
-                    <div class="p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
+                    <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] font-normal uppercase tracking-wider px-2.5 py-1 rounded bg-gray-100 dark:bg-[#242424] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">
+                                <span class="text-[10px] font-normal uppercase tracking-wider px-2 py-0.5 rounded bg-gray-100 dark:bg-[#242424] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">
                                     {{ $schedule['badge'] }}
                                 </span>
-                                <span class="text-xs text-gray-500 font-normal">
-                                    {{ $schedule['day'] }}
-                                </span>
                             </div>
-                            <h3 class="text-lg font-normal text-gray-950 dark:text-white mb-1">
+                            <h3 class="text-base sm:text-lg font-normal text-gray-950 dark:text-white mb-1">
                                 {{ $schedule['name'] }}
                             </h3>
-                            <div class="text-2xl font-light text-gray-900 dark:text-white font-['Stack_Sans_Notch',sans-serif] my-3">
+                            <div class="text-xs text-gray-500 font-normal mb-2">
+                                {{ $schedule['day'] }}
+                            </div>
+                            <div class="text-2xl font-light text-gray-900 dark:text-white font-['Stack_Sans_Notch',sans-serif] my-2">
                                 {{ $schedule['time'] }}
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                                Diperuntukkan bagi: <span class="text-gray-900 dark:text-gray-200 font-normal">{{ $schedule['target'] }}</span>
+                            <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-2">
+                                {{ $schedule['target'] }}
                             </p>
                         </div>
                         
-                        <div class="pt-6 mt-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between">
-                            <span class="text-[11px] text-gray-400">Sanctuary Lt. 2</span>
+                        <div class="pt-4 mt-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between">
+                            <span class="text-[10px] text-gray-400">Sanctuary Lt. 2</span>
                             <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya" 
                                target="_blank" 
                                rel="noopener noreferrer"
                                class="text-xs text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white font-normal flex items-center gap-1 transition-colors">
-                                <span>Lokasi</span>
-                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <span>Peta</span>
+                                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
                             </a>
@@ -366,22 +359,81 @@
     </section>
 
     <!-- =========================================================
-         4. GIVING / PERSEMBAHAN SECTION (With Scroll Reveal)
+         4. CTA WHATSAPP LAYANAN JEMAAT (+62 812-1313-1060)
+         Baptisan, Pernikahan, Penyerahan Anak, Penghiburan/Dukacita
          ========================================================= -->
-    <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300" id="giving">
+    <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
+                    LAYANAN PASTORAL CARE
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
+                    Layanan Pastoral WhatsApp
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                    Tim Pastoral Ekklesia Surabaya siap melayani kebutuhan rohani dan momen berharga Anda
+                </p>
+                <div class="mt-3">
+                    <a href="https://wa.me/6281213131060" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+                        <span>WhatsApp Center: +62 812-1313-1060</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4 Specific Pastoral Service Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                @foreach($pastoral_services as $index => $service)
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
+                        <div>
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 flex items-center justify-center text-emerald-700 dark:text-emerald-400 mb-4">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-normal text-gray-950 dark:text-white mb-2">
+                                {{ $service['title'] }}
+                            </h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-6">
+                                {{ $service['desc'] }}
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-200 dark:border-[#242424]">
+                            <a href="https://wa.me/6281213131060?text={{ urlencode($service['whatsapp_text']) }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 bg-white dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2C2C2C] text-gray-900 dark:text-white text-xs font-normal rounded-lg transition-all border border-gray-300 dark:border-[#383838]">
+                                <span>Hubungi via WhatsApp</span>
+                                <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         5. GIVING / PERSEMBAHAN M3 (Bank Danamon 3620.989.776 a.n. GKRI JEMAAT EKKLESIA)
+         Untuk lahan/bangunan, gedung, dan sarana + QRIS
+         ========================================================= -->
+    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300" id="giving">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
                 <!-- Left Intro -->
                 <div class="lg:col-span-5 space-y-4 reveal-on-scroll">
                     <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
-                        GIVING & TITHES
+                        GIVING & PERSEMBAHAN M3
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-tight">
-                        Persembahan & Persepuluhan
+                        Persembahan M3
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
-                        Memberi dengan sukacita dan kerelaan hati demi mendukung pekerjaan pelayanan pekerjaan Tuhan, penjangkauan jiwa-jiwa, dan misi keluarga Allah melalui Ekklesia Surabaya.
+                        Dukungan persembahan jemaat dialokasikan khusus untuk pembangunan <strong class="text-gray-950 dark:text-white font-medium">lahan/bangunan, gedung, dan sarana</strong> pekerjaan Tuhan melalui GKRI Jemaat Ekklesia Surabaya.
                     </p>
                     <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">
                         "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." — 2 Korintus 9:7
@@ -390,20 +442,20 @@
 
                 <!-- Right Giving Cards -->
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-on-scroll delay-200">
-                    <!-- Bank Danamon M3 Card -->
-                    <div class="p-6 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
+                    <!-- Bank Danamon M3 Card (Exact Client Details) -->
+                    <div class="p-6 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <span class="text-xs font-medium text-gray-900 dark:text-white tracking-wider">BANK DANAMON</span>
-                                <span class="text-[10px] font-normal uppercase bg-white dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
-                                    M3 Account
+                                <span class="text-[10px] font-normal uppercase bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
+                                    Persembahan M3
                                 </span>
                             </div>
                             <div class="text-xs text-gray-500">Nomor Rekening Resmi:</div>
-                            <div class="font-mono text-xl sm:text-2xl font-light text-gray-950 dark:text-white tracking-widest bg-white dark:bg-[#121212] p-3 rounded-lg border border-gray-200 dark:border-[#252525] flex items-center justify-between shadow-2xs">
+                            <div class="font-mono text-xl sm:text-2xl font-light text-gray-950 dark:text-white tracking-widest bg-gray-50 dark:bg-[#121212] p-3 rounded-lg border border-gray-200 dark:border-[#252525] flex items-center justify-between shadow-2xs">
                                 <span id="accountNumberText">{{ $giving['account_number'] }}</span>
                                 <button type="button" 
-                                        onclick="navigator.clipboard.writeText('{{ preg_replace('/\s+/', '', $giving['account_number']) }}'); alert('Nomor rekening disalin!');" 
+                                        onclick="navigator.clipboard.writeText('{{ $giving['account_number_raw'] }}'); alert('Nomor rekening disalin: {{ $giving['account_number'] }}');" 
                                         class="text-xs p-1 text-gray-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                                         title="Salin Nomor Rekening">
                                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -412,28 +464,28 @@
                                 </button>
                             </div>
                             <div class="text-xs text-gray-600 dark:text-gray-300 font-light">
-                                a.n. <strong class="text-gray-900 dark:text-white font-medium">{{ $giving['account_holder'] }}</strong>
+                                a.n. <strong class="text-gray-950 dark:text-white font-medium">{{ $giving['account_holder'] }}</strong>
                             </div>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-[#222222] text-[11px] text-gray-400 font-light">
-                            Gunakan keterangan: Persembahan / Persepuluhan
+                        <div class="mt-4 pt-3 border-t border-gray-100 dark:border-[#222222] text-[11px] text-gray-500 font-light">
+                            Peruntukan: {{ $giving['purpose'] }}
                         </div>
                     </div>
 
                     <!-- QRIS Card Presentation -->
-                    <div class="p-6 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
+                    <div class="p-6 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="text-xs font-medium text-gray-900 dark:text-white tracking-wider">QRIS NASIONAL</span>
-                                <span class="text-[10px] font-normal uppercase bg-white dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
+                                <span class="text-xs font-medium text-gray-900 dark:text-white tracking-wider">QRIS STANDAR NASIONAL</span>
+                                <span class="text-[10px] font-normal uppercase bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
                                     Semua E-Wallet
                                 </span>
                             </div>
                             <div class="aspect-square w-32 mx-auto bg-white p-2.5 rounded-lg border border-gray-200 flex items-center justify-center shadow-xs">
                                 <div class="w-full h-full border border-gray-950 flex flex-col items-center justify-center text-center text-[10px] text-black font-mono font-normal leading-tight">
                                     <span class="text-base font-light font-['Stack_Sans_Notch',sans-serif]">QRIS</span>
+                                    <span>GKRI JEMAAT</span>
                                     <span>EKKLESIA</span>
-                                    <span>SURABAYA</span>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -441,8 +493,8 @@
                                 <span class="text-[10px] text-gray-500 font-mono">{{ $giving['qris_info'] }}</span>
                             </div>
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-[#222222] text-center text-[11px] text-gray-400 font-light">
-                            BCA, Mandiri, BNI, GoPay, OVO, Dana, ShopeePay
+                        <div class="mt-4 pt-3 border-t border-gray-100 dark:border-[#222222] text-center text-[11px] text-gray-500 font-light">
+                            BCA, Mandiri, Danamon, GoPay, OVO, Dana, ShopeePay
                         </div>
                     </div>
                 </div>
@@ -451,147 +503,109 @@
     </section>
 
     <!-- =========================================================
-         5. FORM PERMOHONAN DOA & WHATSAPP COUNSELING CTA
+         6. FORM PERMOHONAN DOA (Online Submission)
          ========================================================= -->
-    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] transition-colors duration-300" id="doa">
+    <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] transition-colors duration-300" id="doa">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <!-- Left Column: Pastoral Care & WhatsApp Direct -->
-                <div class="lg:col-span-5 space-y-6 reveal-on-scroll">
-                    <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
-                        PASTORAL CARE & LAYANAN JEMAAT
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-tight">
-                        Kami Rindu Berdoa & Berjalan Bersama Anda
-                    </h2>
-                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
-                        Apapun beban pergumulan, kesehatan, keluarga, pekerjaan, atau kebutuhan rohani yang sedang Anda hadapi, ketahuilah bahwa Anda tidak sendirian. Tim pendoa dan pastoral Ekklesia Surabaya siap menopang Anda dalam doa.
-                    </p>
-
-                    <!-- Direct WhatsApp CTA Box -->
-                    <div class="p-5 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-sm font-medium text-gray-950 dark:text-white">Konseling & WhatsApp Pastoral</h3>
-                                <p class="text-xs text-gray-500 font-light">Layanan responsif tim pastoral Ekklesia</p>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', env('WHATSAPP_NUMBER', '6281234567890')) }}?text=Halo%20Pastoral%20Ekklesia%20Surabaya,%20saya%20ingin%20berkonsultasi%20/%20didokan" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm">
-                            <span>Hubungi via WhatsApp Sekarang</span>
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                            </svg>
-                        </a>
+            <div class="max-w-3xl mx-auto">
+                <div class="p-6 sm:p-10 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card shadow-sm reveal-on-scroll">
+                    <div class="text-center mb-8">
+                        <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
+                            KOTAK DOA JEMAAT
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
+                            Kirimkan Permohonan Doa Anda
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light max-w-xl mx-auto">
+                            Setiap pokok doa akan dijaga kerahasiaannya dan didoakan secara khusus oleh Pastor Juan Anthony Sam, Ps Samuel, dan tim pendoa syafaat.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Right Column: Prayer Request Form -->
-                <div class="lg:col-span-7 reveal-on-scroll delay-200">
-                    <div class="p-6 sm:p-8 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card shadow-sm">
-                        <div class="mb-6">
-                            <h3 class="text-xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                                Kirimkan Permohonan Doa Anda
-                            </h3>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 font-light">
-                                Setiap pokok doa akan dijaga kerahasiaannya dan didoakan dalam doa fajar serta mezbah doa pastoral.
-                            </p>
+                    <!-- Form -->
+                    <form action="{{ route('prayer.store') }}" method="POST" class="space-y-4">
+                        @csrf
+
+                        <div>
+                            <label for="name" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Nama Lengkap / Panggilan <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" 
+                                   id="name" 
+                                   name="name" 
+                                   required
+                                   value="{{ old('name') }}"
+                                   placeholder="Contoh: Yohanes"
+                                   class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
+                            @error('name')
+                                <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
+                            @enderror
                         </div>
 
-                        <!-- Form -->
-                        <form action="{{ route('prayer.store') }}" method="POST" class="space-y-4">
-                            @csrf
-
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="name" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                    Nama Lengkap / Panggilan <span class="text-red-500">*</span>
+                                <label for="phone" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Nomor WhatsApp / Telepon
                                 </label>
-                                <input type="text" 
-                                       id="name" 
-                                       name="name" 
-                                       required
-                                       value="{{ old('name') }}"
-                                       placeholder="Contoh: Budi Santoso"
-                                       class="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
-                                @error('name')
-                                    <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
-                                @enderror
+                                <input type="tel" 
+                                       id="phone" 
+                                       name="phone"
+                                       value="{{ old('phone') }}"
+                                       placeholder="0812xxxxxxxx"
+                                       class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
                             </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="phone" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        Nomor WhatsApp / Telepon
-                                    </label>
-                                    <input type="tel" 
-                                           id="phone" 
-                                           name="phone"
-                                           value="{{ old('phone') }}"
-                                           placeholder="0812xxxxxxxx"
-                                           class="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        Email (Opsional)
-                                    </label>
-                                    <input type="email" 
-                                           id="email" 
-                                           name="email"
-                                           value="{{ old('email') }}"
-                                           placeholder="nama@email.com"
-                                           class="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
-                                </div>
-                            </div>
-
                             <div>
-                                <label for="request_text" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                    Pokok Permohonan Doa <span class="text-red-500">*</span>
+                                <label for="email" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Email (Opsional)
                                 </label>
-                                <textarea id="request_text" 
-                                          name="request_text" 
-                                          rows="4" 
-                                          required
-                                          placeholder="Tuliskan pokok permohonan doa atau kebutuhan rohani Anda di sini..."
-                                          class="w-full px-3.5 py-2.5 bg-gray-50 dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">{{ old('request_text') }}</textarea>
-                                @error('request_text')
-                                    <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
-                                @enderror
+                                <input type="email" 
+                                       id="email" 
+                                       name="email"
+                                       value="{{ old('email') }}"
+                                       placeholder="nama@email.com"
+                                       class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
                             </div>
+                        </div>
 
-                            <div class="flex items-center gap-2 pt-1">
-                                <input type="checkbox" 
-                                       id="is_anonymous" 
-                                       name="is_anonymous" 
-                                       value="1" 
-                                       {{ old('is_anonymous') ? 'checked' : '' }}
-                                       class="rounded bg-gray-50 dark:bg-[#121212] border-gray-300 dark:border-[#333333] text-gray-900 dark:text-white focus:ring-0">
-                                <label for="is_anonymous" class="text-xs text-gray-500 font-light">
-                                    Kirimkan sebagai permohonan anonim (nama tidak diumumkan saat doa)
-                                </label>
-                            </div>
+                        <div>
+                            <label for="request_text" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Pokok Permohonan Doa <span class="text-red-500">*</span>
+                            </label>
+                            <textarea id="request_text" 
+                                      name="request_text" 
+                                      rows="4" 
+                                      required
+                                      placeholder="Tuliskan pokok permohonan doa atau kebutuhan rohani Anda di sini..."
+                                      class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">{{ old('request_text') }}</textarea>
+                            @error('request_text')
+                                <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                            <div class="pt-2">
-                                <button type="submit" 
-                                        class="w-full py-3 px-6 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm cursor-pointer">
-                                    Kirim Permohonan Doa
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="flex items-center gap-2 pt-1">
+                            <input type="checkbox" 
+                                   id="is_anonymous" 
+                                   name="is_anonymous" 
+                                   value="1" 
+                                   {{ old('is_anonymous') ? 'checked' : '' }}
+                                   class="rounded bg-white dark:bg-[#121212] border-gray-300 dark:border-[#333333] text-gray-900 dark:text-white focus:ring-0">
+                            <label for="is_anonymous" class="text-xs text-gray-500 font-light">
+                                Kirimkan sebagai permohonan anonim (nama dirahasiakan saat doa bersama)
+                            </label>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" 
+                                    class="w-full py-3 px-6 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm cursor-pointer">
+                                Kirimkan Pokok Doa
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Carousel Logic (Touch swipe & controls) -->
+    <!-- Carousel Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.carousel-slide');

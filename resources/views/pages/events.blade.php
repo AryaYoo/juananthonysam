@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="pt-2">
-                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', env('WHATSAPP_NUMBER', '6281234567890')) }}?text=Halo%20Pastoral%20Ekklesia,%20saya%20ingin%20informasi%20acara%20{{ urlencode($event->title) }}" 
+                                <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia,%20saya%20ingin%20informasi%20acara%20{{ urlencode($event->title) }}" 
                                    target="_blank" 
                                    rel="noopener noreferrer"
                                    class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black text-xs font-normal rounded-lg transition-all border border-black dark:border-white shadow-xs">
