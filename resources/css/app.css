@@ -1,0 +1,215 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/*
+ * =========================================================
+ *  EKKLESIA SURABAYA — DUAL THEME SYSTEM (LIGHT & DARK MODE)
+ *  Fonts  : Stack Sans Notch (lightweight heading) · Source Sans 3 (body)
+ *  Support: Instant Theme Toggle + Scroll Animations
+ * =========================================================
+ */
+
+:root {
+    /* ── Typography ─────────────────────────────────────── */
+    --font-heading: 'Stack Sans Notch', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-body:    'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+
+    /* ── Light Mode Palette (Default) ───────────────────── */
+    --bg-base:          #FFFFFF;
+    --bg-surface:       #FFFFFF;
+    --bg-elevated:      #F8F9FA;
+    --bg-subtle:        #F1F3F5;
+    --border-color:     #E5E7EB;
+    --border-hover:     #D1D5DB;
+    --text-primary:     #111827;
+    --text-secondary:   #4B5563;
+    --text-muted:       #6B7280;
+    --btn-primary-bg:   #111111;
+    --btn-primary-text: #FFFFFF;
+    --card-shadow:      0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+    --hero-strip-bg:    #F8F9FA;
+    --hero-strip-border:#E5E7EB;
+    --hero-text-sub:    #374151;
+}
+
+html.dark {
+    /* ── Dark Mode Palette (Soft Monochrome Dark) ────────── */
+    --bg-base:          #141414;
+    --bg-surface:       #1C1C1C;
+    --bg-elevated:      #242424;
+    --bg-subtle:        #181818;
+    --border-color:     #2B2B2B;
+    --border-hover:     #3D3D3D;
+    --text-primary:     #F5F5F5;
+    --text-secondary:   #C8C8C8;
+    --text-muted:       #8A8A8A;
+    --btn-primary-bg:   #FFFFFF;
+    --btn-primary-text: #141414;
+    --card-shadow:      0 4px 20px rgba(0, 0, 0, 0.4);
+    --hero-strip-bg:    #1A1A1A;
+    --hero-strip-border:#2A2A2A;
+    --hero-text-sub:    #B0B0B0;
+}
+
+@theme {
+    --font-heading: var(--font-heading);
+    --font-body:    var(--font-body);
+    --font-sans:    var(--font-body);
+}
+
+/* ── Base Styles ───────────────────────────────────────── */
+@layer base {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background-color: var(--bg-base);
+        color: var(--text-secondary);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Lightweight Headings as explicitly requested */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        color: var(--text-primary);
+        line-height: 1.25;
+        font-weight: 300; /* Lightweight */
+        letter-spacing: -0.015em;
+        transition: color 0.3s ease;
+    }
+
+    h1 {
+        font-weight: 300;
+        letter-spacing: -0.025em;
+    }
+
+    h2 {
+        font-weight: 300;
+        letter-spacing: -0.02em;
+    }
+
+    h3, h4 {
+        font-weight: 400;
+    }
+
+    p {
+        color: var(--text-secondary);
+        line-height: 1.75;
+        transition: color 0.3s ease;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    img, video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    ::selection {
+        background-color: rgba(100, 100, 100, 0.2);
+    }
+}
+
+/* ── Custom Component Utilities ────────────────────────── */
+@layer components {
+    .theme-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--card-shadow);
+        transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .theme-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+    }
+
+    .theme-elevated {
+        background-color: var(--bg-elevated);
+        border: 1px solid var(--border-color);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .theme-btn-primary {
+        background-color: var(--btn-primary-bg);
+        color: var(--btn-primary-text);
+        transition: all 0.2s ease;
+    }
+    .theme-btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+
+    .theme-btn-outline {
+        background-color: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        transition: all 0.2s ease;
+    }
+    .theme-btn-outline:hover {
+        border-color: var(--text-primary);
+        background-color: rgba(128, 128, 128, 0.06);
+    }
+
+    .theme-input {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+    .theme-input:focus {
+        border-color: var(--text-primary);
+        box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.1);
+    }
+}
+
+/* ── Scroll Animations System ──────────────────────────── */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Delays for Cards & Grids */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Scroll Progress Bar at very top of screen */
+#scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: currentColor;
+    z-index: 100001;
+    transition: width 0.1s ease-out;
+    pointer-events: none;
+}
