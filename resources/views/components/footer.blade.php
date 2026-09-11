@@ -11,7 +11,7 @@
 <footer class="bg-gray-50 dark:bg-[#0D0D0D] border-t border-gray-200 dark:border-[#222222] text-gray-600 dark:text-gray-400 transition-colors duration-300">
     <!-- Main Footer Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
             <!-- Col 1: Church Identity -->
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
@@ -76,30 +76,6 @@
                 </ul>
             </div>
 
-            <!-- Col 3: Giving / Persembahan M3 -->
-            <div class="space-y-4">
-                <h4 class="font-['Stack_Sans_Notch',sans-serif] text-sm font-normal uppercase tracking-wider text-gray-900 dark:text-white border-l-2 border-black dark:border-white pl-2.5">
-                    Giving & Persembahan M3
-                </h4>
-                <div class="p-3.5 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2C2C2C] rounded-lg space-y-2 shadow-2xs">
-                    <div class="text-xs font-medium text-gray-900 dark:text-white flex items-center justify-between">
-                        <span>Bank Danamon</span>
-                        <span class="text-[10px] px-1.5 py-0.5 bg-gray-100 dark:bg-[#252525] text-gray-600 dark:text-gray-300 rounded border border-gray-200 dark:border-[#333333]">Persembahan M3</span>
-                    </div>
-                    <div class="font-mono text-sm tracking-widest text-gray-950 dark:text-white font-medium select-all">
-                        3620.989.776
-                    </div>
-                    <div class="text-[11px] text-gray-600 dark:text-gray-400 font-light">
-                        a.n. <strong class="text-gray-950 dark:text-white font-medium">GKRI JEMAAT EKKLESIA</strong>
-                    </div>
-                    <div class="text-[10px] text-gray-500 dark:text-gray-500 pt-1 border-t border-gray-100 dark:border-[#222222]">
-                        Untuk lahan/bangunan, gedung, dan sarana
-                    </div>
-                </div>
-                <div class="text-xs text-gray-500 dark:text-gray-400 font-light">
-                    Tersedia juga opsi <strong class="text-gray-900 dark:text-white font-medium">scan QRIS</strong> di halaman Beranda dan ruang ibadah.
-                </div>
-            </div>
 
             <!-- Col 4: Lokasi & Kontak -->
             <div class="space-y-4">
@@ -123,6 +99,26 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                     </a>
+
+                    <!-- Email & TikTok Links -->
+                    <div class="pt-2 space-y-1.5">
+                        <a href="mailto:gkri.ekklesia@gmail.com" 
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-2 font-light">
+                            <svg class="w-4 h-4 text-gray-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span>gkri.ekklesia@gmail.com</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@ekklesiaministry_?_r=1&_t=ZS-99cXKPhkPXJ" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-2 font-light">
+                            <svg class="w-4 h-4 text-gray-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 00-1-.08A6.34 6.34 0 003 15.66a6.34 6.34 0 0010.82 4.47v-7.37a8.16 8.16 0 005.77 2.27v-3.45a4.85 4.85 0 010-4.89z"/>
+                            </svg>
+                            <span>TikTok: @ekklesiaministry_</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Fast WhatsApp CTA -->
@@ -145,25 +141,25 @@
             <div class="flex items-center gap-2">
                 <span class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-normal">Official YouTube:</span>
                 <div class="flex flex-wrap items-center gap-4 text-xs">
-                    <a href="https://www.youtube.com/@ekklesiaministrysurabaya174" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
+                    <a href="https://youtube.com/@ekklesiaministrysurabaya174?si=86xQ7dVvr-20WdTj" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
                         <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                         <span>Ekklesia Ministry (@ekklesiaministrysurabaya174)</span>
                     </a>
                     <span class="text-gray-300 dark:text-gray-600">•</span>
-                    <a href="https://www.youtube.com/@ekklesiaworship927" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
+                    <a href="https://youtube.com/@ekklesiaworship92?si=Shxy7Z3c8AMA4Eeq" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
                         <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                        <span>Ekklesia Worship (@ekklesiaworship927)</span>
+                        <span>Ekklesia Worship (@ekklesiaworship92)</span>
                     </a>
                     <span class="text-gray-300 dark:text-gray-600">•</span>
-                    <a href="https://www.youtube.com/@ekklesiaworld7" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
+                    <a href="https://youtube.com/@ekklesiaworld?si=aRE0kFO2YaNY2VSY" target="_blank" rel="noopener noreferrer" class="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
                         <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                        <span>Ekklesia World (@ekklesiaworld7)</span>
+                        <span>Ekklesia World (@ekklesiaworld)</span>
                     </a>
                 </div>
             </div>

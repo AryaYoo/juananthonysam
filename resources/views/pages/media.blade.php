@@ -55,12 +55,9 @@
                             <h3 class="text-xl font-normal text-gray-950 dark:text-white mb-2">
                                 {{ $channel['name'] }}
                             </h3>
-                            <div class="text-xs text-gray-500 mb-3 font-light">
+                            <div class="text-xs text-gray-500 mb-6 font-light">
                                 {{ $channel['handle'] }} • {{ $channel['subscribers'] }}
                             </div>
-                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-6 font-light">
-                                {{ $channel['description'] }}
-                            </p>
                         </div>
 
                         <div class="pt-4 border-t border-gray-200 dark:border-[#242424]">
