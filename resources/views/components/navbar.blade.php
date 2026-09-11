@@ -1,12 +1,26 @@
+@php
+    $churchLogo = null;
+    foreach(['images/logo.png', 'images/logo.svg', 'images/logo.webp', 'images/logo.jpg'] as $imgCandidate) {
+        if (file_exists(public_path($imgCandidate))) {
+            $churchLogo = $imgCandidate;
+            break;
+        }
+    }
+@endphp
+
 <nav class="sticky top-0 z-40 bg-white/90 dark:bg-[#141414]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#282828] transition-colors duration-300" id="mainNavbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
             <!-- Brand Logo (Left) -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform duration-200">
-                    <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2v20M7 8h10"/>
-                    </svg>
+                <div class="w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform duration-200 overflow-hidden">
+                    @if($churchLogo)
+                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-1 rounded-full">
+                    @else
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M7 8h10"/>
+                        </svg>
+                    @endif
                 </div>
                 <div class="flex flex-col">
                     <span class="font-['Stack_Sans_Notch',sans-serif] text-lg sm:text-xl font-light tracking-wider text-gray-950 dark:text-[#F5F5F5] group-hover:text-black dark:group-hover:text-white transition-colors">
@@ -51,19 +65,19 @@
                             </span>
                         </a>
                         <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
-                        <a href="{{ route('pastor.juan') }}" 
+                        <a href="{{ route('pastor.samuel') }}" 
                            class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors">
                             <span class="text-xs font-medium text-gray-900 dark:text-white">
-                                Ps Juan Anthony Sam
+                                Ps Samuel
                             </span>
                             <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
                                 Lead Pastor
                             </span>
                         </a>
-                        <a href="{{ route('pastor.samuel') }}" 
+                        <a href="{{ route('pastor.juan') }}" 
                            class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors">
                             <span class="text-xs font-medium text-gray-900 dark:text-white">
-                                Ps Samuel
+                                Ps Juan Anthony Sam
                             </span>
                             <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
                                 Associate Pastor
@@ -161,10 +175,14 @@
         <!-- Drawer Header -->
         <div class="p-5 border-b border-gray-200 dark:border-[#262626] bg-gray-50 dark:bg-[#1A1A1A] flex items-center justify-between">
             <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full bg-[#111111] dark:bg-[#222222] flex items-center justify-center text-white">
-                    <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2v20M7 8h10"/>
-                    </svg>
+                <div class="w-8 h-8 rounded-full bg-[#111111] dark:bg-[#222222] flex items-center justify-center text-white overflow-hidden">
+                    @if($churchLogo)
+                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-0.5 rounded-full">
+                    @else
+                        <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M7 8h10"/>
+                        </svg>
+                    @endif
                 </div>
                 <div>
                     <span class="font-['Stack_Sans_Notch',sans-serif] text-sm font-light text-gray-950 dark:text-white tracking-wider block">
@@ -245,22 +263,22 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="{{ route('pastor.juan') }}" 
+                    <a href="{{ route('pastor.samuel') }}" 
                        onclick="window.closeMobileNav()"
                        class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors">
                         <div class="flex flex-col">
-                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ps Juan Anthony Sam</span>
+                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ps Samuel</span>
                             <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Lead Pastor</span>
                         </div>
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="{{ route('pastor.samuel') }}" 
+                    <a href="{{ route('pastor.juan') }}" 
                        onclick="window.closeMobileNav()"
                        class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors">
                         <div class="flex flex-col">
-                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ps Samuel</span>
+                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ps Juan Anthony Sam</span>
                             <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Associate Pastor</span>
                         </div>
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

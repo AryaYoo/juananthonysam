@@ -1,3 +1,13 @@
+@php
+    $churchLogoFooter = null;
+    foreach(['images/logo.png', 'images/logo.svg', 'images/logo.webp', 'images/logo.jpg'] as $imgCand) {
+        if (file_exists(public_path($imgCand))) {
+            $churchLogoFooter = $imgCand;
+            break;
+        }
+    }
+@endphp
+
 <footer class="bg-gray-50 dark:bg-[#0D0D0D] border-t border-gray-200 dark:border-[#222222] text-gray-600 dark:text-gray-400 transition-colors duration-300">
     <!-- Main Footer Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -5,10 +15,14 @@
             <!-- Col 1: Church Identity -->
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white">
-                        <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2v20M7 8h10"/>
-                        </svg>
+                    <div class="w-9 h-9 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white overflow-hidden">
+                        @if($churchLogoFooter)
+                            <img src="{{ asset($churchLogoFooter) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-0.5 rounded-full">
+                        @else
+                            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M7 8h10"/>
+                            </svg>
+                        @endif
                     </div>
                     <div>
                         <span class="font-['Stack_Sans_Notch',sans-serif] text-base font-light text-gray-950 dark:text-white tracking-wider block">

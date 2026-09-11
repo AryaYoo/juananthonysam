@@ -79,7 +79,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 @foreach($pastors as $index => $pastor)
-                    <div id="{{ $index === 0 ? 'pastor-juan' : 'ps-samuel' }}" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }} scroll-mt-28">
+                    <div id="{{ str_contains($pastor['name'], 'Samuel') ? 'ps-samuel' : 'pastor-juan' }}" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }} scroll-mt-28">
                         <div class="space-y-4">
                             <div>
                                 <span class="text-xs uppercase tracking-widest text-gray-400 font-normal">
@@ -97,7 +97,7 @@
                             </p>
                         </div>
                         <div class="pt-6 mt-6 border-t border-gray-100 dark:border-[#222222] flex flex-wrap items-center justify-between gap-3 text-xs">
-                            <a href="{{ $index === 0 ? route('pastor.juan') : route('pastor.samuel') }}" 
+                            <a href="{{ str_contains($pastor['name'], 'Samuel') ? route('pastor.samuel') : route('pastor.juan') }}" 
                                class="inline-flex items-center gap-1.5 font-medium text-gray-950 dark:text-white hover:underline">
                                 <span>Lihat Profil Lengkap</span>
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -215,3 +215,41 @@ html.dark {
     transition: width 0.1s ease-out;
     pointer-events: none;
 }
+
+/* ── Mobile Typography & Readability Scaling ───────────── */
+@media (max-width: 640px) {
+    html {
+        font-size: 16.5px;
+    }
+
+    body {
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* Enlarge small typography on mobile screens for effortless reading */
+    .text-xs {
+        font-size: 0.84rem !important; /* ~13.8px instead of 12px */
+        line-height: 1.45 !important;
+    }
+
+    .text-\[10px\],
+    .text-\[9px\] {
+        font-size: 0.76rem !important; /* ~12.5px instead of 9-10px */
+    }
+
+    .text-\[11px\] {
+        font-size: 0.8rem !important; /* ~13.2px instead of 11px */
+    }
+
+    .text-sm {
+        font-size: 0.95rem !important; /* ~15.5px instead of 14px */
+        line-height: 1.6 !important;
+    }
+}
+
