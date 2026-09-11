@@ -211,6 +211,68 @@
     </section>
 
     <!-- =========================================================
+         1.5. PASTORAL GREETING SECTION (philipmantofa.com reference style)
+         "HELLO, THIS IS PASTOR JUAN ANTHONY SAM" (Aligned with max-w-7xl)
+         ========================================================= -->
+    <section class="bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 overflow-hidden">
+        <!-- Outer wrapper: max-w-7xl keeps left text aligned; right photo escapes via negative margin trick -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+
+                <!-- Left: Greeting Text -->
+                <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-2 lg:order-1 reveal-on-scroll">
+                    <div>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
+                            HELLO, THIS IS PASTOR JUAN ANTHONY SAM
+                        </h2>
+                        <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4"></div>
+                    </div>
+
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-xl">
+                        Welcome home! I pray that this point of contact with us will begin your exciting adventure with the Holy Spirit and His Word.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <a href="{{ route('pastor.juan') }}" 
+                           class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-[#111111] text-xs font-normal rounded-lg transition-all shadow-sm">
+                            <span>Baca Profil Pastor Juan</span>
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/6281213131060?text=Halo%20Pastor%20Juan%20Anthony%20Sam,%20salam%20dalam%20kasih%20Kristus" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-xs font-normal text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                            <span>Hubungi Pastoral via WA</span>
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Photo — full height of the row, object-cover, anchored to top -->
+                <div class="lg:col-span-5 relative order-1 lg:order-2 h-[360px] sm:h-[440px] lg:h-auto">
+                    @php
+                        $pastorJuanImg = file_exists(public_path('images/juan.png'))
+                            ? asset('images/juan.png')
+                            : (file_exists(public_path('images/pastor-juan.png'))
+                                ? asset('images/pastor-juan.png')
+                                : (file_exists(public_path('images/pastor-juan.jpg'))
+                                    ? asset('images/pastor-juan.jpg')
+                                    : 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop'));
+                    @endphp
+                    <img src="{{ $pastorJuanImg }}"
+                         alt="Pastor Juan Anthony Sam - Ekklesia Surabaya"
+                         class="absolute inset-0 w-full h-full object-cover object-top select-none">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
          2. PROFIL RINGKAS: SEKILAS EKKLESIA CHURCH
          ========================================================= -->
     <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">

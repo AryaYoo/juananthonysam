@@ -135,11 +135,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($divisions as $index => $div)
                     <div class="p-6 rounded-xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
-                        <div class="w-10 h-10 rounded-lg bg-white dark:bg-[#222222] border border-gray-200 dark:border-[#333333] flex items-center justify-center text-gray-900 dark:text-white mb-4">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
                         <h3 class="text-base font-normal text-gray-950 dark:text-white mb-2">
                             {{ $div['name'] }}
                         </h3>
