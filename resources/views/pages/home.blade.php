@@ -74,12 +74,12 @@
          "HELLO, THIS IS PASTOR JUAN ANTHONY SAM" (Aligned with max-w-7xl)
          ========================================================= -->
     <section class="bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 overflow-hidden">
-        <!-- Outer wrapper: max-w-7xl keeps left text aligned; right photo escapes via negative margin trick -->
+        <!-- Outer wrapper: max-w-7xl keeps left text aligned -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
 
-                <!-- Left: Greeting Text -->
-                <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-2 lg:order-1 reveal-on-scroll">
+                <!-- Left: Greeting Text — order-1 so it's ABOVE photo on mobile -->
+                <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-1 pastoral-slide-up">
                     <div>
                         <h2 class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
                             HELLO, THIS IS PASTOR JUAN ANTHONY SAM
@@ -111,8 +111,8 @@
                     </div>
                 </div>
 
-                <!-- Right: Photo — full height of the row, object-cover, anchored to top -->
-                <div class="lg:col-span-5 relative order-1 lg:order-2 h-[360px] sm:h-[440px] lg:h-auto">
+                <!-- Right: Photo — full height on desktop, full-bleed width on mobile (below text) -->
+                <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
                     @php
                         $pastorJuanImg = file_exists(public_path('images/juan.png'))
                             ? asset('images/juan.png')
@@ -130,6 +130,7 @@
             </div>
         </div>
     </section>
+
 
 
 
@@ -535,4 +536,39 @@
             startTimer();
         });
     </script>
+
+    {{-- Pastoral Greeting Slide-Up Animation --}}
+    <style>
+        .pastoral-slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .pastoral-slide-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pastoral-slide-up--delayed {
+            transition-delay: 0.2s;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const targets = document.querySelectorAll('.pastoral-slide-up');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                targets.forEach(el => observer.observe(el));
+            } else {
+                targets.forEach(el => el.classList.add('is-visible'));
+            }
+        });
+    </script>
 @endsection
+
