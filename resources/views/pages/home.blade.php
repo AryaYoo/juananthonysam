@@ -12,7 +12,8 @@
          ========================================================= -->
     <section class="relative bg-black text-white overflow-hidden select-none" id="heroCarouselSection">
         <!-- Carousel Slides Container -->
-        <div class="relative w-full min-h-[300px] sm:min-h-[480px] lg:min-h-[580px] flex items-center justify-center bg-black" style="height: calc(100vw * 9 / 16); max-height: 580px; min-height: 260px;">
+        <div class="relative w-full min-h-[420px] sm:min-h-[560px] lg:min-h-[720px] flex items-center justify-center bg-black" style="height: calc(100vw * 10 / 16); max-height: 780px; min-height: 420px;">
+
             
             <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center" data-slide="0">
