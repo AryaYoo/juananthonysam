@@ -12,27 +12,27 @@
          ========================================================= -->
     <section class="relative bg-black text-white overflow-hidden select-none" id="heroCarouselSection">
         <!-- Carousel Slides Container -->
-        <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[480px] lg:min-h-[580px] flex items-center justify-center bg-black">
+        <div class="relative w-full min-h-[300px] sm:min-h-[480px] lg:min-h-[580px] flex items-center justify-center bg-black" style="height: calc(100vw * 9 / 16); max-height: 580px; min-height: 260px;">
             
             <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center" data-slide="0">
                 <img src="{{ asset('images/Poster1.jpg') }}" 
                      alt="Saat Teduh Bersama - Ps Juan Anthony Sam" 
-                     class="w-full h-full object-contain sm:object-cover object-center">
+                     class="w-full h-full object-cover object-center">
             </div>
 
             <!-- SLIDE 2: Poster 2 - Jadwal Ibadah Ekklesia Surabaya -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="1">
                 <img src="{{ asset('images/Poster2.jpg') }}" 
                      alt="Jadwal Ibadah Ekklesia Surabaya" 
-                     class="w-full h-full object-contain sm:object-cover object-center">
+                     class="w-full h-full object-cover object-center">
             </div>
 
             <!-- SLIDE 3: Poster 3 - Himbauan Waspada Penipuan -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="2">
                 <img src="{{ asset('images/Poster3.jpg') }}" 
                      alt="Himbauan Kehati-hatian dan Waspada Penipuan" 
-                     class="w-full h-full object-contain sm:object-cover object-center">
+                     class="w-full h-full object-cover object-center">
             </div>
 
             <!-- Carousel Mobile Left & Right Arrows -->
