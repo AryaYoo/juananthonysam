@@ -44,7 +44,7 @@
             </div>
 
             <!-- Col 2: Service Schedules -->
-            <div class="space-y-4">
+            <div class="hidden md:block space-y-4">
                 <h4 class="font-['Stack_Sans_Notch',sans-serif] text-sm font-normal uppercase tracking-wider text-white border-l-2 border-white pl-2.5">
                     Jadwal Ibadah
                 </h4>

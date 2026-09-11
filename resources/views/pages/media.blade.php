@@ -104,12 +104,64 @@
             </div>
 
             <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {{-- MOBILE: Carousel Slider --}}
+            <div class="block sm:hidden relative" id="gallerySlider">
+                <div class="overflow-hidden rounded-xl">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="galleryTrack">
+                        @forelse($galleries as $index => $gallery)
+                            <div class="min-w-full px-1">
+                                <div class="group relative rounded-xl overflow-hidden bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2B2B2B] theme-card flex flex-col justify-between">
+                                    <div class="relative aspect-[4/3] overflow-hidden">
+                                        <img src="{{ $gallery->image_url }}"
+                                             alt="{{ $gallery->title }}"
+                                             class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+                                        <span class="absolute top-3 left-3 text-[10px] font-normal tracking-wider uppercase px-2 py-0.5 rounded bg-black/70 text-white backdrop-blur-xs border border-white/10">
+                                            {{ $gallery->category }}
+                                        </span>
+                                        <span class="absolute top-3 right-3 text-[10px] text-white/70">
+                                            {{ $index + 1 }}/{{ count($galleries) }}
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <h3 class="text-sm font-normal text-gray-950 dark:text-white leading-snug">
+                                            {{ $gallery->title }}
+                                        </h3>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2 font-light">
+                                            {{ $gallery->caption }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="min-w-full text-center py-12 text-sm text-gray-400 font-light">
+                                Belum ada foto dalam kategori ini.
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+                {{-- Dot Indicators --}}
+                @if(count($galleries) > 0)
+                <div class="flex justify-center items-center gap-2 mt-5" id="galleryDots">
+                    @foreach($galleries as $index => $gallery)
+                        <button type="button"
+                                data-gslide="{{ $index }}"
+                                class="gallery-dot h-2 rounded-full transition-all duration-300 {{ $index === 0 ? 'w-6 bg-gray-800 dark:bg-white' : 'w-2 bg-gray-300 dark:bg-gray-600' }}"
+                                aria-label="Foto {{ $index + 1 }}">
+                        </button>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+
+            {{-- DESKTOP: Grid --}}
+            <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse($galleries as $index => $gallery)
                     <div class="group relative rounded-xl overflow-hidden bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2B2B2B] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index % 4 + 1) * 100 }}">
                         <div class="relative aspect-[4/3] overflow-hidden">
-                            <img src="{{ $gallery->image_url }}" 
-                                 alt="{{ $gallery->title }}" 
+                            <img src="{{ $gallery->image_url }}"
+                                 alt="{{ $gallery->title }}"
                                  class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
                             <span class="absolute top-3 left-3 text-[10px] font-normal tracking-wider uppercase px-2 py-0.5 rounded bg-black/70 text-white backdrop-blur-xs border border-white/10">
@@ -131,6 +183,70 @@
                     </div>
                 @endforelse
             </div>
+
         </div>
     </section>
+
+    {{-- Mobile Gallery Slider Script --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gTrack = document.getElementById('galleryTrack');
+            const gDots  = document.querySelectorAll('.gallery-dot');
+            if (!gTrack || gDots.length === 0) return;
+
+            const total = gDots.length;
+            let current = 0;
+            let timer   = null;
+
+            function goTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                gTrack.style.transform = `translateX(-${current * 100}%)`;
+                gDots.forEach((dot, i) => {
+                    if (i === current) {
+                        dot.classList.remove('w-2', 'bg-gray-300', 'dark:bg-gray-600');
+                        dot.classList.add('w-6', 'bg-gray-800');
+                    } else {
+                        dot.classList.remove('w-6', 'bg-gray-800');
+                        dot.classList.add('w-2', 'bg-gray-300', 'dark:bg-gray-600');
+                    }
+                });
+            }
+
+            function startAuto() {
+                stopAuto();
+                timer = setInterval(() => goTo(current + 1), 4000);
+            }
+
+            function stopAuto() {
+                if (timer) clearInterval(timer);
+            }
+
+            gDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    goTo(parseInt(dot.dataset.gslide));
+                    startAuto();
+                });
+            });
+
+            // Touch swipe
+            let touchStartX = 0;
+            const slider = document.getElementById('gallerySlider');
+            if (slider) {
+                slider.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                slider.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].screenX;
+                    if (Math.abs(diff) > 40) {
+                        goTo(diff > 0 ? current + 1 : current - 1);
+                        startAuto();
+                    }
+                }, { passive: true });
+            }
+
+            startAuto();
+        });
+    </script>
 @endsection

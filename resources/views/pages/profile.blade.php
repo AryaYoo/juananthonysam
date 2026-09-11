@@ -181,7 +181,18 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {{-- MOBILE: satu baris per divisi, tanpa deskripsi --}}
+            <div class="flex flex-col gap-2 sm:hidden">
+                @foreach($divisions as $index => $div)
+                    <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828]">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-500 shrink-0"></span>
+                        <span class="text-sm font-normal text-gray-900 dark:text-white">{{ $div['name'] }}</span>
+                    </div>
+                @endforeach
+            </div>
+
+            {{-- DESKTOP: grid kartu dengan deskripsi --}}
+            <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($divisions as $index => $div)
                     <div class="p-6 rounded-xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
                         <h3 class="text-base font-normal text-gray-950 dark:text-white mb-2">
