@@ -50,20 +50,9 @@
                         <h2 class="text-xl sm:text-2xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-snug mb-4">
                             "Menjadi pribadi-pribadi yang unggul dan profesional, membangun setiap generasi di segala usia, serta membangun keluarga yang kuat, sehat, dan berpusat pada Kristus."
                         </h2>
-                        <ul class="space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-light">
-                            <li class="flex items-start gap-2.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Membina kepribadian yang unggul, berintegritas, dan profesional dalam setiap karya dan profesi.</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Menjangkau dan memperlengkapi seluruh generasi usia: anak-anak (Ekidz), remaja (E-Teens), hingga dewasa.</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gray-950 dark:bg-white mt-1.5 shrink-0"></span>
-                                <span>Mendirikan mezbah doa keluarga dan persekutuan sel My Home yang berpusat pada Kristus.</span>
-                            </li>
-                        </ul>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                            Melalui bimbingan Roh Kudus, kami rindu membina kepribadian jemaat yang unggul dan profesional di dunia kerja, memperlengkapi seluruh generasi usia, serta menegakkan mezbah keluarga yang berpusat pada Kristus.
+                        </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-200 dark:border-[#222222] text-xs text-gray-400 font-light">
                         Kolose 3:23–24 • Yosua 24:15
