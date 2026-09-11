@@ -194,63 +194,7 @@
         </div>
     </section>
 
-    <!-- =========================================================
-         4. CTA WHATSAPP LAYANAN JEMAAT (+62 812-1313-1060)
-         Baptisan, Pernikahan, Penyerahan Anak, Penghiburan/Dukacita
-         ========================================================= -->
-    <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12 reveal-on-scroll">
-                <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
-                    LAYANAN PASTORAL CARE
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Layanan Pastoral WhatsApp
-                </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
-                    Tim Pastoral Ekklesia Surabaya siap melayani kebutuhan rohani dan momen berharga Anda
-                </p>
-                <div class="mt-3">
-                    <a href="https://wa.me/6281213131060" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
-                        <span>WhatsApp Center: +62 812-1313-1060</span>
-                    </a>
-                </div>
-            </div>
 
-            <!-- 4 Specific Pastoral Service Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach($pastoral_services as $index => $service)
-                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 flex items-center justify-center text-emerald-700 dark:text-emerald-400 mb-4">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
-                                </svg>
-                            </div>
-                            <h3 class="text-base sm:text-lg font-normal text-gray-950 dark:text-white mb-2">
-                                {{ $service['title'] }}
-                            </h3>
-                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-6">
-                                {{ $service['desc'] }}
-                            </p>
-                        </div>
-
-                        <div class="pt-4 border-t border-gray-200 dark:border-[#242424]">
-                            <a href="https://wa.me/6281213131060?text={{ urlencode($service['whatsapp_text']) }}" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 bg-white dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2C2C2C] text-gray-900 dark:text-white text-xs font-normal rounded-lg transition-all border border-gray-300 dark:border-[#383838]">
-                                <span>Hubungi via WhatsApp</span>
-                                <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
     <!-- =========================================================
          5. GIVING / PERSEMBAHAN M3 (Bank Danamon 3620.989.776 a.n. GKRI JEMAAT EKKLESIA)
@@ -263,183 +207,74 @@
                 <!-- Left Intro -->
                 <div class="lg:col-span-5 space-y-4 reveal-on-scroll">
                     <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
-                        GIVING & PERSEMBAHAN M3
+                        GIVING & PERSEPULUHAN
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-tight">
-                        Persembahan M3
+                        Persembahan & Persepuluhan
                     </h2>
                     <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
-                        Dukungan persembahan jemaat dialokasikan khusus untuk pembangunan <strong class="text-gray-950 dark:text-white font-medium">lahan/bangunan, gedung, dan sarana</strong> pekerjaan Tuhan melalui GKRI Jemaat Ekklesia Surabaya.
+                        Dukungan persembahan dan persepuluhan jemaat dialokasikan untuk pekerjaan Tuhan, sarana ibadah, dan pembangunan pelayanan melalui GKRI Jemaat Ekklesia Surabaya.
                     </p>
                     <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">
                         "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." — 2 Korintus 9:7
                     </blockquote>
                 </div>
 
-                <!-- Right Giving Cards -->
+                <!-- Right Giving Cards: Perpuluhan & Persembahan Images -->
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-on-scroll delay-200">
-                    <!-- Bank Danamon M3 Card (Exact Client Details) -->
-                    <div class="p-6 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-medium text-gray-900 dark:text-white tracking-wider">BANK DANAMON</span>
-                                <span class="text-[10px] font-normal uppercase bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
-                                    Persembahan M3
-                                </span>
-                            </div>
-                            <div class="text-xs text-gray-500">Nomor Rekening Resmi:</div>
-                            <div class="font-mono text-xl sm:text-2xl font-light text-gray-950 dark:text-white tracking-widest bg-gray-50 dark:bg-[#121212] p-3 rounded-lg border border-gray-200 dark:border-[#252525] flex items-center justify-between shadow-2xs">
-                                <span id="accountNumberText">{{ $giving['account_number'] }}</span>
-                                <button type="button" 
-                                        onclick="navigator.clipboard.writeText('{{ $giving['account_number_raw'] }}'); alert('Nomor rekening disalin: {{ $giving['account_number'] }}');" 
-                                        class="text-xs p-1 text-gray-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
-                                        title="Salin Nomor Rekening">
-                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="text-xs text-gray-600 dark:text-gray-300 font-light">
-                                a.n. <strong class="text-gray-950 dark:text-white font-medium">{{ $giving['account_holder'] }}</strong>
-                            </div>
+                    <!-- Card 1: Perpuluhan -->
+                    <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
+                        <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
+                            <img src="{{ asset('images/Perpuluhan.png') }}" 
+                                 alt="Ekklesia Perpuluhan — BCA Aily Yunnita Wardhany" 
+                                 class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
-                        <div class="mt-4 pt-3 border-t border-gray-100 dark:border-[#222222] text-[11px] text-gray-500 font-light">
-                            Peruntukan: {{ $giving['purpose'] }}
-                        </div>
-                    </div>
-
-                    <!-- QRIS Card Presentation -->
-                    <div class="p-6 bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-medium text-gray-900 dark:text-white tracking-wider">QRIS STANDAR NASIONAL</span>
-                                <span class="text-[10px] font-normal uppercase bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded border border-gray-200 dark:border-[#333333]">
-                                    Semua E-Wallet
-                                </span>
-                            </div>
-                            <div class="aspect-square w-32 mx-auto bg-white p-2.5 rounded-lg border border-gray-200 flex items-center justify-center shadow-xs">
-                                <div class="w-full h-full border border-gray-950 flex flex-col items-center justify-center text-center text-[10px] text-black font-mono font-normal leading-tight">
-                                    <span class="text-base font-light font-['Stack_Sans_Notch',sans-serif]">QRIS</span>
-                                    <span>GKRI JEMAAT</span>
-                                    <span>EKKLESIA</span>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <span class="text-xs font-medium text-gray-900 dark:text-white block">{{ $giving['account_holder'] }}</span>
-                                <span class="text-[10px] text-gray-500 font-mono">{{ $giving['qris_info'] }}</span>
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-gray-100 dark:border-[#222222] text-center text-[11px] text-gray-500 font-light">
-                            BCA, Mandiri, Danamon, GoPay, OVO, Dana, ShopeePay
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         6. FORM PERMOHONAN DOA (Online Submission)
-         ========================================================= -->
-    <section class="py-16 sm:py-24 bg-white dark:bg-[#141414] transition-colors duration-300" id="doa">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <div class="p-6 sm:p-10 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl theme-card shadow-sm reveal-on-scroll">
-                    <div class="text-center mb-8">
-                        <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
-                            KOTAK DOA JEMAAT
-                        </span>
-                        <h2 class="text-2xl sm:text-3xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                            Kirimkan Permohonan Doa Anda
-                        </h2>
-                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light max-w-xl mx-auto">
-                            Setiap pokok doa akan dijaga kerahasiaannya dan didoakan secara khusus oleh Pastor Juan Anthony Sam, Ps Samuel, dan tim pendoa syafaat.
-                        </p>
-                    </div>
-
-                    <!-- Form -->
-                    <form action="{{ route('prayer.store') }}" method="POST" class="space-y-4">
-                        @csrf
-
-                        <div>
-                            <label for="name" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Nama Lengkap / Panggilan <span class="text-red-500">*</span>
-                            </label>
-                            <input type="text" 
-                                   id="name" 
-                                   name="name" 
-                                   required
-                                   value="{{ old('name') }}"
-                                   placeholder="Contoh: Yohanes"
-                                   class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
-                            @error('name')
-                                <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
                             <div>
-                                <label for="phone" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                    Nomor WhatsApp / Telepon
-                                </label>
-                                <input type="tel" 
-                                       id="phone" 
-                                       name="phone"
-                                       value="{{ old('phone') }}"
-                                       placeholder="0812xxxxxxxx"
-                                       class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-light">BCA Perpuluhan</span>
+                                <span class="font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider">1870099246</span>
                             </div>
-                            <div>
-                                <label for="email" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                    Email (Opsional)
-                                </label>
-                                <input type="email" 
-                                       id="email" 
-                                       name="email"
-                                       value="{{ old('email') }}"
-                                       placeholder="nama@email.com"
-                                       class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="request_text" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Pokok Permohonan Doa <span class="text-red-500">*</span>
-                            </label>
-                            <textarea id="request_text" 
-                                      name="request_text" 
-                                      rows="4" 
-                                      required
-                                      placeholder="Tuliskan pokok permohonan doa atau kebutuhan rohani Anda di sini..."
-                                      class="w-full px-3.5 py-2.5 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#333333] rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-gray-900 dark:focus:border-white transition-colors">{{ old('request_text') }}</textarea>
-                            @error('request_text')
-                                <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="flex items-center gap-2 pt-1">
-                            <input type="checkbox" 
-                                   id="is_anonymous" 
-                                   name="is_anonymous" 
-                                   value="1" 
-                                   {{ old('is_anonymous') ? 'checked' : '' }}
-                                   class="rounded bg-white dark:bg-[#121212] border-gray-300 dark:border-[#333333] text-gray-900 dark:text-white focus:ring-0">
-                            <label for="is_anonymous" class="text-xs text-gray-500 font-light">
-                                Kirimkan sebagai permohonan anonim (nama dirahasiakan saat doa bersama)
-                            </label>
-                        </div>
-
-                        <div class="pt-2">
-                            <button type="submit" 
-                                    class="w-full py-3 px-6 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm cursor-pointer">
-                                Kirimkan Pokok Doa
+                            <button type="button" 
+                                    onclick="navigator.clipboard.writeText('1870099246'); alert('Nomor rekening BCA Perpuluhan (1870099246) berhasil disalin!');" 
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0"
+                                    title="Salin Nomor Rekening">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Salin</span>
                             </button>
                         </div>
-                    </form>
+                    </div>
+
+                    <!-- Card 2: Persembahan -->
+                    <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
+                        <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
+                            <img src="{{ asset('images/Persembahan.png') }}" 
+                                 alt="Ekklesia Persembahan — BCA GKRI Jemaat Ekklesia" 
+                                 class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                        </div>
+                        <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
+                            <div>
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-light">BCA Persembahan</span>
+                                <span class="font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider">0888850123</span>
+                            </div>
+                            <button type="button" 
+                                    onclick="navigator.clipboard.writeText('0888850123'); alert('Nomor rekening BCA Persembahan (0888850123) berhasil disalin!');" 
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0"
+                                    title="Salin Nomor Rekening">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Carousel Logic -->
     <script>

@@ -113,11 +113,7 @@
                     </svg>
                 </button>
 
-                <a href="{{ route('home') }}#doa" 
-                   class="px-3.5 py-1.5 text-xs font-normal text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] rounded-md transition-colors border border-transparent hover:border-gray-300 dark:hover:border-[#3A3A3A]">
-                    Permohonan Doa
-                </a>
-                
+
                 <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
                    target="_blank" 
                    rel="noopener noreferrer"
@@ -311,15 +307,7 @@
                 <div class="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-3 mb-2">
                     Layanan & Aksi
                 </div>
-                
-                <a href="{{ route('home') }}#doa" 
-                   onclick="window.closeMobileNav()"
-                   class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-normal text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#222222] hover:text-black dark:hover:text-white transition-colors">
-                    <svg class="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                    <span>Form Permohonan Doa</span>
-                </a>
+
 
                 <a href="{{ route('home') }}#giving" 
                    onclick="window.closeMobileNav()"

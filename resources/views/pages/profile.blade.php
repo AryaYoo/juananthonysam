@@ -4,24 +4,70 @@
 @section('meta_description', 'Profil lengkap Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Visi gereja keluarga yang sehat dan memuridkan.')
 
 @section('content')
-    <!-- Header Banner -->
-    <section class="relative py-16 sm:py-24 bg-gray-50 dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] overflow-hidden transition-colors duration-300">
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
-            <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
-                TENTANG KAMI
-            </span>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
-                Membangun Keluarga Allah di Kota Surabaya
-            </h1>
-            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
-                Ekklesia Surabaya hadir sebagai rumah rohani yang hangat, tempat setiap jiwa bertumbuh dalam pengenalan akan Kristus, saling melayani dalam kasih, dan memuridkan generasi.
-            </p>
+    <!-- =========================================================
+         HERO SECTION: Welcome Home (Hero2.jpg)
+         ========================================================= -->
+    @php
+        $hero2Img = file_exists(public_path('images/Hero2.jpg'))
+            ? asset('images/Hero2.jpg')
+            : (file_exists(public_path('images/hero2.jpg')) ? asset('images/hero2.jpg') : asset('images/Hero2.jpg'));
+    @endphp
+    <section class="relative bg-black text-white overflow-hidden select-none border-b border-gray-200 dark:border-[#242424]" id="profileHeroSection">
+        <div class="relative w-full min-h-[360px] sm:min-h-[500px] lg:min-h-[640px] flex items-center justify-center bg-black"
+             style="height: calc(100vw * 10 / 16); max-height: 720px; min-height: 360px;">
+            <img src="{{ $hero2Img }}" 
+                 alt="Welcome Home — Gereja Ekklesia Surabaya" 
+                 class="w-full h-full object-cover object-center select-none">
         </div>
     </section>
+
+    <!-- =========================================================
+         TEMA GEREJA BERGERAK (Infinite Running Marquee Ticker)
+         "Tahun Pemulihan bagi Kemuliaan Tuhan"
+         ========================================================= -->
+    <div class="relative w-full bg-[#0A0A0A] text-white border-b border-white/10 py-3 sm:py-3.5 overflow-hidden select-none group"
+         style="mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);"
+         aria-label="Tema Gereja: Tahun Pemulihan bagi Kemuliaan Tuhan">
+        <div class="flex items-center gap-6 whitespace-nowrap animate-theme-marquee group-hover:[animation-play-state:paused]">
+            <!-- Set 1 -->
+            <div class="flex items-center gap-8 shrink-0">
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-amber-400 text-xs">✦</span>
+                        <span class="text-xs sm:text-sm font-light uppercase tracking-[0.25em] text-gray-200 font-['Stack_Sans_Notch',sans-serif]">
+                            TAHUN PEMULIHAN BAGI KEMULIAAN TUHAN
+                        </span>
+                    </div>
+                @endfor
+            </div>
+            <!-- Set 2 (Duplicate for smooth infinite scroll) -->
+            <div class="flex items-center gap-8 shrink-0" aria-hidden="true">
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="inline-flex items-center gap-3">
+                        <span class="text-amber-400 text-xs">✦</span>
+                        <span class="text-xs sm:text-sm font-light uppercase tracking-[0.25em] text-gray-200 font-['Stack_Sans_Notch',sans-serif]">
+                            TAHUN PEMULIHAN BAGI KEMULIAAN TUHAN
+                        </span>
+                    </div>
+                @endfor
+            </div>
+        </div>
+    </div>
 
     <!-- 1. Visi & Misi Section (EKKLESIA) -->
     <section id="ekklesia" class="py-16 sm:py-24 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
+                    TENTANG KAMI
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-tight leading-tight">
+                    Membangun Keluarga Allah di Kota Surabaya
+                </h1>
+                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
+                    Ekklesia Surabaya hadir sebagai rumah rohani yang hangat, tempat setiap jiwa bertumbuh dalam pengenalan akan Kristus, saling melayani dalam kasih, dan memuridkan generasi.
+                </p>
+            </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <!-- Visi Card -->
                 <div class="p-8 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll">
@@ -221,4 +267,29 @@
             </div>
         </div>
     </section>
+
+    {{-- Running Marquee Animation for Church Theme --}}
+    <style>
+        @keyframes themeMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .animate-theme-marquee {
+            display: flex;
+            width: max-content;
+            animation: themeMarquee 26s linear infinite;
+        }
+        .animate-theme-marquee:hover {
+            animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-theme-marquee {
+                animation-duration: 60s;
+            }
+        }
+    </style>
 @endsection
