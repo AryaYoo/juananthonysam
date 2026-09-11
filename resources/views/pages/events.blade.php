@@ -4,19 +4,36 @@
 @section('meta_description', 'Jadwal ibadah dan acara khusus Ekklesia Surabaya: Worship Night setiap Jumat Minggu ke-4, My Home komunitas sel, EFF Family Fellowship, dan Retreat 2026.')
 
 @section('content')
-    <!-- Header Banner -->
-    <section class="relative py-16 sm:py-24 bg-gray-50 dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] overflow-hidden transition-colors duration-300">
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal-on-scroll">
-            <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
-                AGENDA & PROGRAM
-            </span>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
-                ACARA & KEGIATAN JEMAAT
-            </h1>
-            <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
-            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
-                Temukan jadwal ibadah rutin, malam penyembahan, persekutuan keluarga, dan acara khusus tahun 2026.
-            </p>
+    <!-- =========================================================
+         HERO SECTION: WORSHIP NIGHT (Acara & Ibadah)
+         ========================================================= -->
+    <section class="relative bg-black text-white border-b border-gray-200 dark:border-[#222222] overflow-hidden" id="eventsHero">
+        {{-- Ambient blur glow effect --}}
+        <div class="absolute inset-0 opacity-25 pointer-events-none filter blur-3xl scale-110">
+            <img src="{{ asset_v('images/WorshipNight.png') }}" alt="" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            {{-- Worship Night Poster Card --}}
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#121212] max-w-5xl mx-auto reveal-on-scroll">
+                <img src="{{ asset_v('images/WorshipNight.png') }}" 
+                     alt="Worship Night — Ekklesia Surabaya" 
+                     class="w-full h-auto object-cover max-h-[580px]">
+            </div>
+
+            {{-- Title & Context Bar --}}
+            <div class="mt-8 sm:mt-12 text-center reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-400 block mb-2">
+                    AGENDA &amp; PROGRAM JEMAAT
+                </span>
+                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-light text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
+                    ACARA &amp; KEGIATAN JEMAAT
+                </h1>
+                <div class="w-16 h-0.5 bg-white mt-4 mx-auto"></div>
+                <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
+                    Temukan jadwal ibadah rutin, malam penyembahan Worship Night, persekutuan keluarga, dan acara khusus tahun 2026.
+                </p>
+            </div>
         </div>
     </section>
 
