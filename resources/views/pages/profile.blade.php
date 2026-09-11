@@ -61,9 +61,10 @@
                 <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
                     TENTANG KAMI
                 </span>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-tight leading-tight">
-                    Membangun Keluarga Allah di Kota Surabaya
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] tracking-tight leading-tight">
+                    MEMBANGUN KELUARGA ALLAH DI KOTA SURABAYA
                 </h1>
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
                 <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
                     Ekklesia Surabaya hadir sebagai rumah rohani yang hangat, tempat setiap jiwa bertumbuh dalam pengenalan akan Kristus, saling melayani dalam kasih, dan memuridkan generasi.
                 </p>
@@ -115,10 +116,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     KEPEMIMPINAN GEREJA
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Pastors & Pelayanan
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    PASTORS & PELAYANAN
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Dipimpin oleh Pastor Juan Anthony Sam & Ps Samuel bersama seluruh tim pelayan jemaat
                 </p>
             </div>
@@ -170,10 +172,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     MELAYANI BERSAMA
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Divisi Pelayanan Jemaat
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    DIVISI PELAYANAN JEMAAT
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Volunteer, Creative, dan Usher siap melayani dan memperlengkapi tubuh Kristus
                 </p>
             </div>
@@ -218,9 +221,10 @@
                     <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
                         LOKASI GEREJA
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                        Kunjungi Kami di Surabaya
+                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                        KUNJUNGI KAMI DI SURABAYA
                     </h2>
+                    <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4"></div>
                     <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
                         Kami berlokasi strategis di pusat kota Surabaya. Akses mudah dengan area parkir yang nyaman dan ruang ibadah yang ramah keluarga.
                     </p>

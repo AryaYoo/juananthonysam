@@ -10,9 +10,10 @@
             <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
                 AGENDA & PROGRAM
             </span>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
-                Acara & Kegiatan Jemaat
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
+                ACARA & KEGIATAN JEMAAT
             </h1>
+            <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
             <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
                 Temukan jadwal ibadah rutin, malam penyembahan, persekutuan keluarga, dan acara khusus tahun 2026.
             </p>
@@ -26,10 +27,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     PROGRAM UTAMA
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Acara Khusus Ekklesia
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    ACARA KHUSUS EKKLESIA
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Kegiatan yang dirancang untuk memperkuat iman, relasi keluarga, dan atmosfer hadirat Tuhan
                 </p>
             </div>
@@ -100,10 +102,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     JADWAL BERKALA
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Program Berkala Jemaat
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    PROGRAM BERKALA JEMAAT
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Kegiatan mingguan dan bulanan yang dapat Anda ikuti secara rutin
                 </p>
             </div>

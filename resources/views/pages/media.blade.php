@@ -10,9 +10,10 @@
             <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-500 dark:text-gray-400 block mb-3">
                 KONTEN DIGITAL & DOKUMENTASI
             </span>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
-                Media & Galeri Jemaat
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] tracking-tight max-w-3xl mx-auto leading-tight">
+                MEDIA & GALERI JEMAAT
             </h1>
+            <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
             <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4 leading-relaxed font-light">
                 Akses video khotbah, atmosfer pujian penyembahan, serta momen-momen indah persekutuan keluarga Allah di Ekklesia Surabaya.
             </p>
@@ -26,10 +27,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     OFFICIAL YOUTUBE
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Channel YouTube Ekklesia
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    CHANNEL YOUTUBE EKKLESIA
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Saksikan khotbah mingguan, live streaming ibadah, dan lagu-lagu penyembahan
                 </p>
             </div>
@@ -85,10 +87,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     DOKUMENTASI FOTO
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Galeri Pelayanan & Jemaat
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    GALERI PELAYANAN & JEMAAT
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Momen kebersamaan, hadirat Tuhan dalam ibadah, pembinaan anak, dan persekutuan
                 </p>
             </div>

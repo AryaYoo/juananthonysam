@@ -144,10 +144,11 @@
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
                     WAKTU PELAYANAN
                 </span>
-                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
-                    Jadwal Ibadah Ekklesia
+                <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                    JADWAL IBADAH EKKLESIA
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 font-light">
+                <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light">
                     Kami menantikan kehadiran Anda dan keluarga dalam setiap jam persekutuan jemaat
                 </p>
             </div>
@@ -209,9 +210,10 @@
                     <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
                         GIVING & PERSEPULUHAN
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] leading-tight">
-                        Persembahan & Persepuluhan
+                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
+                        PERSEMBAHAN & PERSEPULUHAN
                     </h2>
+                    <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4"></div>
                     <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
                         Dukungan persembahan dan persepuluhan jemaat dialokasikan untuk pekerjaan Tuhan, sarana ibadah, dan pembangunan pelayanan melalui GKRI Jemaat Ekklesia Surabaya.
                     </p>
