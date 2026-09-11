@@ -15,9 +15,9 @@
             <!-- Col 1: Church Identity -->
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white overflow-hidden">
+                    <div class="{{ $churchLogoFooter ? 'w-12 h-12 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] text-white' }} flex items-center justify-center shrink-0">
                         @if($churchLogoFooter)
-                            <img src="{{ asset($churchLogoFooter) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-0.5 rounded-full">
+                            <img src="{{ asset($churchLogoFooter) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                         @else
                             <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2v20M7 8h10"/>

@@ -30,6 +30,16 @@
     <meta property="og:description" content="@yield('meta_description', 'Website resmi Gereja Ekklesia Surabaya. Ibadah Minggu 09:00 WIB, Ekidz 09:30, E-Teens 11:00, Doa Senin & Jumat 19:00.')">
     <meta property="og:site_name" content="Ekklesia Surabaya">
 
+    <!-- Favicon / App Icon -->
+    @php
+        $faviconPath = file_exists(public_path('images/logo.png')) ? asset('images/logo.png') : (file_exists(public_path('favicon.ico')) ? asset('favicon.ico') : null);
+    @endphp
+    @if($faviconPath)
+        <link rel="icon" type="image/png" href="{{ $faviconPath }}">
+        <link rel="apple-touch-icon" href="{{ $faviconPath }}">
+        <link rel="shortcut icon" href="{{ $faviconPath }}">
+    @endif
+
     <!-- Google Fonts: Source Sans 3 + Plus Jakarta Sans (Lightweights) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

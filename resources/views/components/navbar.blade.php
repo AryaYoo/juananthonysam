@@ -13,9 +13,9 @@
         <div class="flex items-center justify-between h-20">
             <!-- Brand Logo (Left) -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform duration-200 overflow-hidden">
+                <div class="{{ $churchLogo ? 'w-12 h-12 sm:w-14 sm:h-14 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] shadow-sm text-white' }} flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
                     @if($churchLogo)
-                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-1 rounded-full">
+                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                     @else
                         <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2v20M7 8h10"/>
@@ -175,9 +175,9 @@
         <!-- Drawer Header -->
         <div class="p-5 border-b border-gray-200 dark:border-[#262626] bg-gray-50 dark:bg-[#1A1A1A] flex items-center justify-between">
             <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-full bg-[#111111] dark:bg-[#222222] flex items-center justify-center text-white overflow-hidden">
+                <div class="{{ $churchLogo ? 'w-12 h-12 bg-transparent' : 'w-9 h-9 rounded-full bg-[#111111] dark:bg-[#222222] text-white' }} flex items-center justify-center shrink-0">
                     @if($churchLogo)
-                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain p-0.5 rounded-full">
+                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                     @else
                         <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2v20M7 8h10"/>

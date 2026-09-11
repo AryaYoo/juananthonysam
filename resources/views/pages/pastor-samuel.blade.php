@@ -75,7 +75,7 @@
             </h2>
             <div class="w-12 h-0.5 bg-white/40 mx-auto my-4"></div>
 
-            <div class="space-y-5 text-sm sm:text-base text-gray-300 leading-relaxed font-light text-justify sm:text-center mt-8">
+            <div class="space-y-5 text-sm sm:text-base text-white/95 leading-relaxed font-normal text-justify sm:text-center mt-8">
                 @foreach($pastor['spiritual_journey'] as $paragraph)
                     <p>{{ $paragraph }}</p>
                 @endforeach
@@ -111,7 +111,7 @@
             </h2>
             <div class="w-12 h-0.5 bg-white/40 mx-auto my-4"></div>
 
-            <div class="space-y-5 text-sm sm:text-base text-gray-300 leading-relaxed font-light text-justify sm:text-center mt-8">
+            <div class="space-y-5 text-sm sm:text-base text-white/95 leading-relaxed font-normal text-justify sm:text-center mt-8">
                 @foreach($pastor['ministry'] as $paragraph)
                     <p>{{ $paragraph }}</p>
                 @endforeach
