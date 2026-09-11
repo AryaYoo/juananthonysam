@@ -7,187 +7,39 @@
     <!-- =========================================================
          1. HERO SECTION & CAROUSEL (Mobile-First, philipmantofa.com style)
          ========================================================= -->
-    <section class="relative bg-[#111111] dark:bg-[#0D0D0D] text-white overflow-hidden select-none" id="heroCarouselSection">
+    <!-- =========================================================
+         1. HERO SECTION & CAROUSEL (Poster Images 1-3)
+         ========================================================= -->
+    <section class="relative bg-black text-white overflow-hidden select-none" id="heroCarouselSection">
         <!-- Carousel Slides Container -->
-        <div class="relative w-full min-h-[600px] sm:min-h-[660px] lg:min-h-[740px] flex items-center">
+        <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[480px] lg:min-h-[580px] flex items-center justify-center bg-black">
             
-            <!-- SLIDE 1: Saat Teduh Bersama & Slogan Welcome Home -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex flex-col justify-between" data-slide="0">
-                <!-- Background Textured Panels & Ambient Glow -->
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#242424] via-[#141414] to-[#0A0A0A] z-0"></div>
-                <!-- Subtle Vertical Ribbed Panel Lines -->
-                <div class="absolute inset-0 bg-[linear-gradient(to_right,#222222_1px,transparent_1px)] bg-[size:32px_100%] opacity-25 z-0"></div>
-
-                <!-- Big Stylized Brand Background Monogram -->
-                <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center pointer-events-none z-0 overflow-hidden">
-                    <span class="text-[120px] sm:text-[180px] lg:text-[260px] font-light font-['Stack_Sans_Notch',sans-serif] tracking-tighter text-white opacity-[0.03] select-none">
-                        EKKLESIA
-                    </span>
-                </div>
-
-                <!-- Slide Content Container -->
-                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-4 flex-1 flex flex-col justify-center items-center text-center">
-                    
-                    <!-- Welcome Home Slogan & Pastoral Eyebrow -->
-                    <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
-                        <span class="px-3 py-0.5 rounded-full bg-white/10 border border-white/20 text-[11px] tracking-[0.25em] uppercase font-normal text-white backdrop-blur-xs">
-                            WELCOME HOME
-                        </span>
-                        <span class="text-white/30 hidden sm:inline">•</span>
-                        <span class="text-xs tracking-[0.2em] uppercase font-normal text-gray-300">
-                            PS. JUAN ANTHONY SAM & PS. SAMUEL
-                        </span>
-                    </div>
-
-                    <!-- Main Headline: "SAAT TEDUH Bersama" (Lightweight Typography) -->
-                    <div class="mb-4">
-                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white leading-none font-['Stack_Sans_Notch',sans-serif]">
-                            SAAT TEDUH
-                        </h1>
-                        <span class="block text-2xl sm:text-3xl lg:text-4xl italic text-gray-300 font-serif font-light -mt-1 sm:-mt-2">
-                            Bersama Hadirat Tuhan
-                        </span>
-                    </div>
-
-                    <!-- Year Theme Highlight Tag -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-white/10 border border-white/20 rounded-full text-xs text-gray-200 mb-6 backdrop-blur-xs">
-                        <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                        <span class="font-light">Tema 2026: <strong class="font-normal text-white">Tahun Pemulihan bagi Kemuliaan Tuhan</strong></span>
-                    </div>
-
-                    <!-- Portrait Graphic Representation -->
-                    <div class="relative w-48 sm:w-60 lg:w-72 mx-auto my-2 group">
-                        <div class="aspect-[3/4] rounded-2xl bg-gradient-to-b from-[#282828] to-[#181818] border border-white/15 shadow-2xl overflow-hidden relative flex items-end justify-center">
-                            <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=800&auto=format&fit=crop" 
-                                 alt="Pastor Juan Anthony Sam & Ps Samuel" 
-                                 class="w-full h-full object-cover grayscale brightness-90 contrast-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent"></div>
-                            <div class="absolute bottom-3 inset-x-0 px-2 text-center">
-                                <span class="text-[11px] font-normal text-white tracking-wider uppercase bg-black/70 px-3 py-1 rounded-md border border-white/10 backdrop-blur-xs">
-                                    Pastoral Ekklesia Surabaya
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ribbon 1: Service Schedule Strip -->
-                <div class="relative z-10 w-full bg-[#181818] border-y border-white/10 py-3 px-4">
-                    <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-around gap-4 text-center">
-                        <div>
-                            <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">DOA BERSAMA</span>
-                            <span class="text-sm sm:text-base font-normal text-white font-['Stack_Sans_Notch',sans-serif]">
-                                SENIN & JUMAT
-                            </span>
-                        </div>
-                        <div class="h-8 w-px bg-white/10 hidden sm:block"></div>
-                        <div>
-                            <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">WAKTU</span>
-                            <span class="text-sm sm:text-base font-normal text-white">
-                                19.00 <span class="text-xs text-gray-400">WIB</span>
-                            </span>
-                        </div>
-                        <div class="h-8 w-px bg-white/10 hidden sm:block"></div>
-                        <div>
-                            <span class="block text-[10px] uppercase tracking-widest text-gray-400 font-normal">TEMPAT & BROADCAST</span>
-                            <span class="text-xs sm:text-sm font-normal text-gray-200">
-                                Sanctuary Lt. 2 & YouTube Live
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ribbon 2: Social Media Channel Links Bar -->
-                <div class="relative z-10 w-full bg-[#111111] py-2.5 px-4 text-xs text-gray-400 border-b border-white/10">
-                    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                        <a href="https://www.youtube.com/@ekklesiaministrysurabaya174" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-white transition-colors">
-                            <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                            <span>Ekklesia Ministry (@ekklesiaministrysurabaya174)</span>
-                        </a>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <a href="https://www.youtube.com/@ekklesiaworship927" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-white transition-colors">
-                            <svg class="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                            <span>Ekklesia Worship (@ekklesiaworship927)</span>
-                        </a>
-                    </div>
-                </div>
+            <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center" data-slide="0">
+                <img src="{{ asset('images/Poster1.jpg') }}" 
+                     alt="Saat Teduh Bersama - Ps Juan Anthony Sam" 
+                     class="w-full h-full object-contain sm:object-cover object-center">
             </div>
 
-            <!-- SLIDE 2: Tema Tahun 2026 -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex flex-col justify-between" data-slide="1">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#222222] via-[#141414] to-[#0A0A0A] z-0"></div>
-                
-                <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 flex-1 flex flex-col justify-center items-center text-center">
-                    <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-400 mb-3">
-                        DEKLARASI PROFETIK TAHUN 2026
-                    </span>
-                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-light text-white font-['Stack_Sans_Notch',sans-serif] max-w-2xl leading-tight mb-6">
-                        Tahun Pemulihan bagi Kemuliaan Tuhan
-                    </h2>
-                    <blockquote class="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl italic leading-relaxed mb-6 font-serif font-light">
-                        {{ $theme_2026['verse'] }}
-                    </blockquote>
-                    <span class="text-xs font-normal text-white tracking-wider px-3 py-1 bg-white/10 border border-white/20 rounded">
-                        — {{ $theme_2026['reference'] }}
-                    </span>
-                    <div class="mt-8 flex gap-3">
-                        <a href="{{ route('profile') }}" class="px-5 py-2.5 bg-white text-gray-900 font-medium text-xs rounded-md hover:bg-gray-100 transition-all">
-                            Baca Visi & Misi Gereja
-                        </a>
-                        <a href="{{ route('events') }}" class="px-5 py-2.5 bg-white/10 border border-white/20 text-white font-medium text-xs rounded-md hover:bg-white/20 transition-all">
-                            Jadwal Acara & Ibadah
-                        </a>
-                    </div>
-                </div>
+            <!-- SLIDE 2: Poster 2 - Jadwal Ibadah Ekklesia Surabaya -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="1">
+                <img src="{{ asset('images/Poster2.jpg') }}" 
+                     alt="Jadwal Ibadah Ekklesia Surabaya" 
+                     class="w-full h-full object-contain sm:object-cover object-center">
             </div>
 
-            <!-- SLIDE 3: Welcome Home & Ibadah Keluarga -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex flex-col justify-between" data-slide="2">
-                <div class="absolute inset-0 bg-gradient-to-b from-[#222222] via-[#141414] to-[#0A0A0A] z-0"></div>
-                
-                <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 flex-1 flex flex-col justify-center items-center text-center">
-                    <span class="text-xs uppercase tracking-[0.3em] font-normal text-gray-400 mb-3">
-                        WELCOME HOME • SUNDAY FAMILY SERVICE
-                    </span>
-                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-light text-white font-['Stack_Sans_Notch',sans-serif] mb-4">
-                        Gereja Keluarga Yang Sehat
-                    </h2>
-                    <p class="text-sm sm:text-base text-gray-300 max-w-xl mb-8 leading-relaxed font-light">
-                        Selamat datang di rumah keluarga Allah. Bergabunglah bersama kami setiap hari Minggu pagi di Jln Ruko Ngaglik 2 No 15, Surabaya.
-                    </p>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-lg mb-8 text-left">
-                        <div class="p-3 bg-white/10 border border-white/15 rounded-lg backdrop-blur-xs">
-                            <div class="text-[11px] text-gray-300">Sunday Service</div>
-                            <div class="text-sm font-medium text-white">09.00 WIB</div>
-                        </div>
-                        <div class="p-3 bg-white/10 border border-white/15 rounded-lg backdrop-blur-xs">
-                            <div class="text-[11px] text-gray-300">Ekidz (Anak)</div>
-                            <div class="text-sm font-medium text-white">09.30 WIB</div>
-                        </div>
-                        <div class="p-3 bg-white/10 border border-white/15 rounded-lg col-span-2 sm:col-span-1 backdrop-blur-xs">
-                            <div class="text-[11px] text-gray-300">E-Teens (Remaja)</div>
-                            <div class="text-sm font-medium text-white">11.00 WIB</div>
-                        </div>
-                    </div>
-                    <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya" target="_blank" rel="noopener noreferrer" 
-                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-medium text-xs rounded-md hover:bg-gray-100 transition-all">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        </svg>
-                        <span>Petunjuk Arah ke Lokasi</span>
-                    </a>
-                </div>
+            <!-- SLIDE 3: Poster 3 - Himbauan Waspada Penipuan -->
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="2">
+                <img src="{{ asset('images/Poster3.jpg') }}" 
+                     alt="Himbauan Kehati-hatian dan Waspada Penipuan" 
+                     class="w-full h-full object-contain sm:object-cover object-center">
             </div>
 
             <!-- Carousel Mobile Left & Right Arrows -->
             <button type="button" 
                     id="carouselPrev" 
                     aria-label="Slide Sebelumnya" 
-                    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
+                    class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
@@ -195,14 +47,14 @@
             <button type="button" 
                     id="carouselNext" 
                     aria-label="Slide Berikutnya" 
-                    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
+                    class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </button>
 
             <!-- Carousel Slide Dots Indicator -->
-            <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+            <div class="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
                 <button type="button" class="carousel-dot w-6 h-1.5 rounded-full bg-white transition-all duration-300 cursor-pointer" data-index="0" aria-label="Slide 1"></button>
                 <button type="button" class="carousel-dot w-2 h-1.5 rounded-full bg-white/40 transition-all duration-300 cursor-pointer" data-index="1" aria-label="Slide 2"></button>
                 <button type="button" class="carousel-dot w-2 h-1.5 rounded-full bg-white/40 transition-all duration-300 cursor-pointer" data-index="2" aria-label="Slide 3"></button>
