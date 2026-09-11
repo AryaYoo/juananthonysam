@@ -371,7 +371,7 @@
     <section class="py-16 sm:py-20 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300" id="giving-misi">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                <div class="lg:col-span-6 reveal-on-scroll">
+                <div class="lg:col-span-6 reveal-on-scroll max-w-lg mx-auto lg:max-w-none w-full">
                     <div class="group bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all theme-card">
                         <div class="p-4 flex items-center justify-center">
                             <img src="{{ asset_v('images/PersembahanM3.png') }}" alt="Ekklesia Persembahan M3 - Bank Danamon" class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
@@ -388,7 +388,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-6 space-y-4 reveal-on-scroll delay-200">
+                <div class="hidden lg:block lg:col-span-6 space-y-4 reveal-on-scroll delay-200">
                     <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">PERSEMBAHAN MISI</span>
                     <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">GIVING M3 &mdash; MISI EKKLESIA</h2>
                     <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4"></div>
