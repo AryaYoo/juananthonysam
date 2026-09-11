@@ -9,8 +9,8 @@
          ========================================================= -->
     @php
         $hero2Img = file_exists(public_path('images/Hero2.jpg'))
-            ? asset('images/Hero2.jpg')
-            : (file_exists(public_path('images/hero2.jpg')) ? asset('images/hero2.jpg') : asset('images/Hero2.jpg'));
+            ? asset_v('images/Hero2.jpg')
+            : (file_exists(public_path('images/hero2.jpg')) ? asset_v('images/hero2.jpg') : asset_v('images/Hero2.jpg'));
     @endphp
     <section class="relative bg-black text-white overflow-hidden select-none border-b border-gray-200 dark:border-[#242424]" id="profileHeroSection">
         <div class="relative w-full min-h-[360px] sm:min-h-[500px] lg:min-h-[640px] flex items-center justify-center bg-black"

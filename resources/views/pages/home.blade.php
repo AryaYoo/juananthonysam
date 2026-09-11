@@ -17,21 +17,21 @@
             
             <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center" data-slide="0">
-                <img src="{{ asset('images/Poster1.jpg') }}" 
+                <img src="{{ asset_v('images/Poster1.jpg') }}" 
                      alt="Saat Teduh Bersama - Ps Juan Anthony Sam" 
                      class="w-full h-full object-cover object-center">
             </div>
 
             <!-- SLIDE 2: Poster 2 - Jadwal Ibadah Ekklesia Surabaya -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="1">
-                <img src="{{ asset('images/Poster2.jpg') }}" 
+                <img src="{{ asset_v('images/Poster2.jpg') }}" 
                      alt="Jadwal Ibadah Ekklesia Surabaya" 
                      class="w-full h-full object-cover object-center">
             </div>
 
             <!-- SLIDE 3: Poster 3 - Himbauan Waspada Penipuan -->
             <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="2">
-                <img src="{{ asset('images/Poster3.jpg') }}" 
+                <img src="{{ asset_v('images/Poster3.jpg') }}" 
                      alt="Himbauan Kehati-hatian dan Waspada Penipuan" 
                      class="w-full h-full object-cover object-center">
             </div>
@@ -115,11 +115,11 @@
                 <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
                     @php
                         $pastorJuanImg = file_exists(public_path('images/juan.png'))
-                            ? asset('images/juan.png')
+                            ? asset_v('images/juan.png')
                             : (file_exists(public_path('images/pastor-juan.png'))
-                                ? asset('images/pastor-juan.png')
+                                ? asset_v('images/pastor-juan.png')
                                 : (file_exists(public_path('images/pastor-juan.jpg'))
-                                    ? asset('images/pastor-juan.jpg')
+                                    ? asset_v('images/pastor-juan.jpg')
                                     : 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop'));
                     @endphp
                     <img src="{{ $pastorJuanImg }}"
@@ -227,7 +227,7 @@
                     <!-- Card 1: Perpuluhan -->
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
-                            <img src="{{ asset('images/Perpuluhan.png') }}" 
+                            <img src="{{ asset_v('images/Perpuluhan.png') }}" 
                                  alt="Ekklesia Perpuluhan — BCA Aily Yunnita Wardhany" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
@@ -251,7 +251,7 @@
                     <!-- Card 2: Persembahan -->
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
-                            <img src="{{ asset('images/Persembahan.png') }}" 
+                            <img src="{{ asset_v('images/Persembahan.png') }}" 
                                  alt="Ekklesia Persembahan — BCA GKRI Jemaat Ekklesia" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>

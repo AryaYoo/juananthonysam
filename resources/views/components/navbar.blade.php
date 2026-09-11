@@ -15,7 +15,7 @@
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                 <div class="{{ $churchLogo ? 'w-12 h-12 sm:w-14 sm:h-14 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] shadow-sm text-white' }} flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
                     @if($churchLogo)
-                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
+                        <img src="{{ asset_v($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                     @else
                         <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2v20M7 8h10"/>
@@ -173,7 +173,7 @@
             <div class="flex items-center gap-2.5">
                 <div class="{{ $churchLogo ? 'w-12 h-12 bg-transparent' : 'w-9 h-9 rounded-full bg-[#111111] dark:bg-[#222222] text-white' }} flex items-center justify-center shrink-0">
                     @if($churchLogo)
-                        <img src="{{ asset($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
+                        <img src="{{ asset_v($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                     @else
                         <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2v20M7 8h10"/>

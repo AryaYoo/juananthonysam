@@ -17,7 +17,7 @@
                 <div class="flex items-center gap-3">
                     <div class="{{ $churchLogoFooter ? 'w-12 h-12 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] text-white' }} flex items-center justify-center shrink-0">
                         @if($churchLogoFooter)
-                            <img src="{{ asset($churchLogoFooter) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
+                            <img src="{{ asset_v($churchLogoFooter) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                         @else
                             <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2v20M7 8h10"/>

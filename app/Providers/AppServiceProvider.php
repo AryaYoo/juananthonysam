@@ -3,6 +3,22 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+
+if (! function_exists('asset_v')) {
+    /**
+     * Generate an asset path for the application with automatic cache-busting timestamp.
+     */
+    function asset_v(?string $path): string
+    {
+        if (! $path) {
+            return '';
+        }
+        $realPath = public_path($path);
+        $version = file_exists($realPath) ? filemtime($realPath) : null;
+        return asset($path) . ($version ? '?v=' . $version : '');
+    }
+}
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +48,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Blade::directive('asset_v', function ($expression) {
+            return "<?php echo asset_v($expression); ?>";
+        });
     }
 }

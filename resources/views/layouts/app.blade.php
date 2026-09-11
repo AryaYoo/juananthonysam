@@ -32,7 +32,7 @@
 
     <!-- Favicon / App Icon -->
     @php
-        $faviconPath = file_exists(public_path('images/logo.png')) ? asset('images/logo.png') : (file_exists(public_path('favicon.ico')) ? asset('favicon.ico') : null);
+        $faviconPath = file_exists(public_path('images/logo.png')) ? asset_v('images/logo.png') : (file_exists(public_path('favicon.ico')) ? asset_v('favicon.ico') : null);
     @endphp
     @if($faviconPath)
         <link rel="icon" type="image/png" href="{{ $faviconPath }}">
