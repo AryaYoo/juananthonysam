@@ -96,16 +96,19 @@
                                 {{ $pastor['bio'] }}
                             </p>
                         </div>
-                        <div class="pt-6 mt-6 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between text-xs">
-                            <span class="text-gray-400 font-light">Pastoral Care</span>
-                            <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="text-gray-950 dark:text-white hover:underline flex items-center gap-1 font-normal">
-                                <span>Hubungi Pastoral</span>
+                        <div class="pt-6 mt-6 border-t border-gray-100 dark:border-[#222222] flex flex-wrap items-center justify-between gap-3 text-xs">
+                            <a href="{{ $index === 0 ? route('pastor.juan') : route('pastor.samuel') }}" 
+                               class="inline-flex items-center gap-1.5 font-medium text-gray-950 dark:text-white hover:underline">
+                                <span>Lihat Profil Lengkap</span>
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                 </svg>
+                            </a>
+                            <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white flex items-center gap-1 font-light">
+                                <span>Hubungi Pastoral</span>
                             </a>
                         </div>
                     </div>

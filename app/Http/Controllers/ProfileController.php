@@ -52,4 +52,70 @@ class ProfileController extends Controller
 
         return view('pages.profile', $profileData);
     }
+
+    public function juan(): View
+    {
+        $pastor = [
+            'name' => 'Pastor Juan Anthony Sam',
+            'role' => 'Lead Pastor of Ekklesia Surabaya',
+            'title_display' => "Pastor Juan Anthony Sam's Profile",
+            'quote' => 'Membangun gereja keluarga yang berakar dalam Firman, hidup dalam kasih Kristus, dan membawa dampak nyata bagi kota Surabaya.',
+            'overview' => [
+                'Pastor Juan Anthony Sam lahir dan melayani dengan panggilan mendalam bagi generasi dan keluarga di kota Surabaya. Bertumbuh dalam hadirat Tuhan dan keteladanan hamba-hamba Tuhan yang setia, beliau menyerahkan seluruh hidupnya untuk pekerjaan Kerajaan Allah.',
+                'Sebagai Lead Pastor Ekklesia Surabaya (GKRI Jemaat Ekklesia), beliau memimpin jemaat dengan visi melahirkan pribadi-pribadi yang unggul, berintegritas tinggi, dan profesional di berbagai bidang kehidupan. Pelayanannya menekankan pengajaran Firman yang murni, pemuridan otentik, dan kehadiran Roh Kudus yang memulihkan setiap hati.',
+                'Beliau percaya bahwa transformasi sebuah bangsa dan kota berawal dari mezbah keluarga yang kokoh. Bersama seluruh tim pastoral dan jemaat, Pastor Juan terus memperluas pelayanan misi, pembinaan generasi muda, dan kepedulian sosial di Surabaya dan sekitarnya.',
+            ],
+            'spiritual_journey' => [
+                'Perjumpaan pribadi dengan kasih karunia Yesus Kristus mengubah arah seluruh tujuan hidup Pastor Juan. Di tengah perjalanan mencari arti kehidupan sejati, jamahan Roh Kudus menyadarkannya akan panggilan ilahi untuk menggembalakan dan membangkitkan generasi pemenang.',
+                'Panggilan tersebut diteguhkan melalui masa-masa penyerahan diri dalam doa, perenungan firman, dan bimbingan rohani. Dari saat teduh yang intim di hadapan Tuhan, lahirlah kerinduan yang membara untuk mendirikan sebuah rumah rohani di mana setiap orang—tanpa memandang latar belakang—dapat merasakan kehangatan keluarga Allah dan dipulihkan seutuhnya.',
+            ],
+            'background' => [
+                'Pastor Juan menempuh pendidikan dan pembinaan teologis serta kepemimpinan Kristen dengan tekun. Latar belakang kedisiplinan dan kecintaan pada pembelajaran firman membentuk karakter kepemimpinannya yang rendah hati, berwibawa, dan dapat dipercaya.',
+                'Keluarga merupakan prioritas utama dalam kehidupan dan pelayanannya. Beliau bersama keluarga senantiasa menjadi teladan dalam membangun mezbah doa rumah tangga, hidup dalam kesederhanaan, dan memancarkan kasih Kristus kepada sesama.',
+            ],
+            'ministry' => [
+                'Pelayanan Pastor Juan berpusat pada kepemimpinan pastoral Ekklesia Surabaya, pembinaan khotbah mingguan, pemuridan generasi muda (E-Teens), dan penjangkauan keluarga melalui komunitas sel My Home.',
+                'Melalui ibadah doa Senin & Jumat serta Worship Night bulanan, pelayanan beliau senantiasa menghadirkan atmosfer doa dan pujian penyembahan yang sarat dengan hadirat dan pengurapan Roh Kudus. Banyak kesaksian hidup jemaat yang dipulihkan, pernikahan yang disembuhkan, dan anak-anak muda yang menemukan panggilan hidupnya melalui bimbingan pastoral beliau.',
+            ],
+            'vision_mission' => [
+                'Visi Pastor Juan berakar teguh pada amanat agung: "Menjadi Gereja Keluarga yang sehat dan memuridkan dalam Yesus Kristus."',
+                'Misi hidupnya adalah melatih setiap jemaat menjadi pribadi yang unggul dan profesional, membangun setiap generasi di segala usia, dan memastikan setiap keluarga berdiri teguh di atas dasar kasih karunia Tuhan Yesus Kristus hingga kedatangan-Nya yang kedua kali.',
+            ],
+        ];
+
+        return view('pages.pastor-juan', compact('pastor'));
+    }
+
+    public function samuel(): View
+    {
+        $pastor = [
+            'name' => 'Ps Samuel',
+            'role' => 'Associate Pastor of Ekklesia Surabaya',
+            'title_display' => "Ps Samuel's Profile",
+            'quote' => 'Pelayanan sejati berawal dari hati yang menyembah dan dedikasi untuk memperlengkapi setiap jemaat bertumbuh dewasa dalam iman.',
+            'overview' => [
+                'Ps Samuel melayani sebagai Associate Pastor di Ekklesia Surabaya dengan hati seorang hamba yang setia dan penuh dedikasi. Beliau mendampingi kepemimpinan pastoral dalam pengajaran firman, konseling, dan pembinaan rohani jemaat.',
+                'Dengan karunia pengajaran yang sistematis dan praktis, Ps Samuel giat memperlengkapi jemaat dari berbagai rentang usia untuk memahami kebenaran Alkitab dan mengaplikasikannya dalam keseharian, keluarga, dan lingkungan kerja.',
+                'Kerinduan terbesarnya adalah melihat setiap orang percaya bertumbuh dari bayi rohani menjadi murid Kristus yang dewasa, mandiri, dan berbuah lebat bagi kemuliaan Bapa di surga.',
+            ],
+            'spiritual_journey' => [
+                'Pengalaman pribadi akan kesetiaan Tuhan di masa-masa sulit membimbing Ps Samuel mengambil komitmen seumur hidup untuk melayani jemaat. Tuhan menaruh belas kasihan mendalam di hatinya bagi mereka yang bergumul dalam iman dan membutuhkan bimbingan firman.',
+                'Melalui ketekunan dalam doa dan persekutuan dengan firman Tuhan, Ps Samuel terus diteguhkan untuk menjadi tiang penopang dalam pergerakan rohani Ekklesia Surabaya, berdiri bersama para hamba Tuhan lainnya untuk membawa pemulihan bagi kota.',
+            ],
+            'background' => [
+                'Dengan latar belakang pembinaan rohani dan ketertarikan mendalam pada studi teologi dan Alkitabiah, Ps Samuel memiliki pendekatan penggembalaan yang hangat, penuh empati, dan mendengarkan.',
+                'Kehidupannya diwarnai oleh komitmen pada integritas moral dan kesetiaan pelayanan di balik layar maupun di atas mimbar, senantiasa mengutamakan kemuliaan nama Tuhan di atas segalanya.',
+            ],
+            'ministry' => [
+                'Dalam pelayanan sehari-hari di Ekklesia Surabaya, Ps Samuel aktif mengoordinasi pembinaan komunitas sel My Home, kelas katekisasi baptisan, serta pelayanan pastoral care bagi keluarga yang membutuhkan doa dan penghiburan.',
+                'Beliau juga secara berkala membagikan renungan firman dan pesan rohani melalui platform media dan pertemuan doa jemaat, memperkuat fondasi doktrin yang sehat di tengah tantangan zaman.',
+            ],
+            'vision_mission' => [
+                'Melihat setiap anggota keluarga Ekklesia Surabaya memiliki iman yang tangguh, berakar kokoh dalam kebenaran firman Tuhan, dan mempraktikkan kasih Kristus secara nyata.',
+                'Terus menjadi rekan sekerja Allah yang setia bersama Pastor Juan Anthony Sam untuk membangun gereja keluarga yang berdampak, memuridkan generasi masa depan, dan memuliakan Kristus di kota Surabaya.',
+            ],
+        ];
+
+        return view('pages.pastor-samuel', compact('pastor'));
+    }
 }

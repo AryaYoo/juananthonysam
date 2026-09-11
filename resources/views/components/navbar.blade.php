@@ -51,7 +51,7 @@
                             </span>
                         </a>
                         <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
-                        <a href="{{ route('profile') }}#pastor-juan" 
+                        <a href="{{ route('pastor.juan') }}" 
                            class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors">
                             <span class="text-xs font-medium text-gray-900 dark:text-white">
                                 Ps Juan Anthony Sam
@@ -60,7 +60,7 @@
                                 Lead Pastor
                             </span>
                         </a>
-                        <a href="{{ route('profile') }}#ps-samuel" 
+                        <a href="{{ route('pastor.samuel') }}" 
                            class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors">
                             <span class="text-xs font-medium text-gray-900 dark:text-white">
                                 Ps Samuel
@@ -245,7 +245,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="{{ route('profile') }}#pastor-juan" 
+                    <a href="{{ route('pastor.juan') }}" 
                        onclick="window.closeMobileNav()"
                        class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors">
                         <div class="flex flex-col">
@@ -256,7 +256,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="{{ route('profile') }}#ps-samuel" 
+                    <a href="{{ route('pastor.samuel') }}" 
                        onclick="window.closeMobileNav()"
                        class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors">
                         <div class="flex flex-col">
