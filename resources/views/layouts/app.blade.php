@@ -20,13 +20,13 @@
     </script>
 
     <!-- SEO Meta Tags -->
-    <title>@yield('title', 'Ekklesia Surabaya') — Gereja Keluarga & Pemulihan</title>
+    <title>@yield('title', 'Ekklesia Surabaya — Gereja Keluarga & Pemulihan')</title>
     <meta name="description" content="@yield('meta_description', 'Website resmi Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan.')">
     <meta name="author" content="Ekklesia Surabaya">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="@yield('title', 'Ekklesia Surabaya') — Gereja Keluarga & Pemulihan">
+    <meta property="og:title" content="@yield('title', 'Ekklesia Surabaya — Gereja Keluarga & Pemulihan')">
     <meta property="og:description" content="@yield('meta_description', 'Website resmi Gereja Ekklesia Surabaya. Ibadah Minggu 09:00 WIB, Ekidz 09:30, E-Teens 11:00, Doa Senin & Jumat 19:00.')">
     <meta property="og:site_name" content="Ekklesia Surabaya">
 

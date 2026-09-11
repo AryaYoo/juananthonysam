@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda â€” Ekklesia Surabaya')
+@section('title', 'Beranda - Ekklesia Surabaya')
 @section('meta_description', 'Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan. Welcome Home.')
 
 @section('content')
@@ -37,7 +37,7 @@
             </div>
 
 
-            <!-- Carousel Prev/Next Arrows â€” aligned with max-w-7xl header container -->
+            <!-- Carousel Prev/Next Arrows - aligned with max-w-7xl header container -->
             <div class="absolute inset-0 z-20 pointer-events-none flex items-center">
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                     <button type="button" 
@@ -78,7 +78,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
 
-                <!-- Left: Greeting Text â€” order-1 so it's ABOVE photo on mobile -->
+                <!-- Left: Greeting Text - order-1 so it's ABOVE photo on mobile -->
                 <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-1 pastoral-slide-up">
                     <div>
                         <h2 class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Photo â€” full height on desktop, full-bleed width on mobile (below text) -->
+                <!-- Right: Photo - full height on desktop, full-bleed width on mobile (below text) -->
                 <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
                     @php
                         $pastorJuanImg = file_exists(public_path('images/juan.png'))
@@ -304,7 +304,7 @@
                         Dukungan persembahan dan persepuluhan jemaat dialokasikan untuk pekerjaan Tuhan, sarana ibadah, dan pembangunan pelayanan melalui GKRI Jemaat Ekklesia Surabaya.
                     </p>
                     <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">
-                        "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." â€” 2 Korintus 9:7
+                        "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." &mdash; 2 Korintus 9:7
                     </blockquote>
                 </div>
 
@@ -314,7 +314,7 @@
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
                             <img src="{{ asset_v('images/Perpuluhan.png') }}" 
-                                 alt="Ekklesia Perpuluhan â€” BCA Aily Yunnita Wardhany" 
+                                 alt="Ekklesia Perpuluhan - BCA Aily Yunnita Wardhany" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
                         <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
@@ -338,7 +338,7 @@
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
                             <img src="{{ asset_v('images/Persembahan.png') }}" 
-                                 alt="Ekklesia Persembahan â€” BCA GKRI Jemaat Ekklesia" 
+                                 alt="Ekklesia Persembahan - BCA GKRI Jemaat Ekklesia" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
                         <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
