@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Media & Galeri — Ekklesia Surabaya')
-@section('meta_description', 'Konten media digital, khotbah, pujian penyembahan di channel YouTube Ekklesia Ministry, Ekklesia Worship, Ekklesia World, dan dokumentasi foto kegiatan.')
+@section('meta_description', 'Konten media digital, khotbah, pujian penyembahan di channel YouTube Ekklesia Ministry, Ekklesia Worship, dan dokumentasi foto kegiatan.')
 
 @section('content')
     <!-- Header Banner -->
@@ -36,7 +36,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 @foreach($channels as $index => $channel)
                     <div class="p-6 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }}">
                         <div>

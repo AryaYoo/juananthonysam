@@ -35,14 +35,6 @@ class MediaController extends Controller
                 'link' => 'https://youtube.com/@ekklesiaworship92?si=Shxy7Z3c8AMA4Eeq',
                 'badge' => 'Live Worship',
             ],
-            [
-                'name' => 'Ekklesia World',
-                'description' => 'Dokumenter misi, jangkauan komunitas sosial, kesaksian jemaat, dan dampak bagi bangsa-bangsa.',
-                'subscribers' => 'Official Mission Channel',
-                'handle' => '@ekklesiaworld',
-                'link' => 'https://youtube.com/@ekklesiaworld?si=aRE0kFO2YaNY2VSY',
-                'badge' => 'Global & Mission',
-            ],
         ];
 
         return view('pages.media', compact('galleries', 'categories', 'selectedCategory', 'channels'));
