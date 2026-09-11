@@ -132,6 +132,15 @@
     </section>
 
     <!-- =========================================================
+         2.4. SECTION TITLE: SEKILAS EKKLESIA
+         ========================================================= -->
+    <section class="w-full bg-[#0A0A0A] text-white py-6 sm:py-8 border-t border-b border-white/10 flex items-center justify-center select-none" aria-label="Sekilas Ekklesia">
+        <h2 class="text-sm sm:text-base md:text-lg font-normal uppercase tracking-[0.35em] text-white/90 font-['Stack_Sans_Notch',sans-serif] text-center">
+            SEKILAS EKKLESIA
+        </h2>
+    </section>
+
+    <!-- =========================================================
          2.5. VIDEO HIGHLIGHT / CINEMATIC BANNER
          ========================================================= -->
     @php
