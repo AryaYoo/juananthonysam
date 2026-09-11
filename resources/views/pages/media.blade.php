@@ -38,38 +38,50 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 @foreach($channels as $index => $channel)
-                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }}">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] uppercase font-normal tracking-wider px-2.5 py-0.5 rounded bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">
-                                    {{ $channel['badge'] }}
-                                </span>
-                                <div class="flex items-center gap-1.5 text-red-600 text-xs font-medium">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                    </svg>
-                                    <span>YouTube</span>
+                    <div class="rounded-2xl bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between overflow-hidden reveal-on-scroll delay-{{ ($index + 1) * 150 }}">
+                        {{-- Thumbnail Image --}}
+                        @if(!empty($channel['image']) && file_exists(public_path($channel['image'])))
+                        <div class="relative overflow-hidden aspect-[16/7]">
+                            <img src="{{ asset_v($channel['image']) }}"
+                                 alt="{{ $channel['name'] }}"
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        </div>
+                        @endif
+
+                        <div class="p-6 flex flex-col flex-1 justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[10px] uppercase font-normal tracking-wider px-2.5 py-0.5 rounded bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">
+                                        {{ $channel['badge'] }}
+                                    </span>
+                                    <div class="flex items-center gap-1.5 text-red-600 text-xs font-medium">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                        </svg>
+                                        <span>YouTube</span>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-xl font-normal text-gray-950 dark:text-white mb-2">
+                                    {{ $channel['name'] }}
+                                </h3>
+                                <div class="text-xs text-gray-500 mb-6 font-light">
+                                    {{ $channel['handle'] }} • {{ $channel['subscribers'] }}
                                 </div>
                             </div>
 
-                            <h3 class="text-xl font-normal text-gray-950 dark:text-white mb-2">
-                                {{ $channel['name'] }}
-                            </h3>
-                            <div class="text-xs text-gray-500 mb-6 font-light">
-                                {{ $channel['handle'] }} • {{ $channel['subscribers'] }}
+                            <div class="pt-4 border-t border-gray-200 dark:border-[#242424]">
+                                <a href="{{ $channel['link'] }}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-white dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2C2C2C] text-gray-900 dark:text-white text-xs font-normal rounded-lg transition-all border border-gray-200 dark:border-[#383838]">
+                                    <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M10 15l5-3-5-3v6z"/>
+                                    </svg>
+                                    <span>Kunjungi Channel</span>
+                                </a>
                             </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-gray-200 dark:border-[#242424]">
-                            <a href="{{ $channel['link'] }}" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-white dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2C2C2C] text-gray-900 dark:text-white text-xs font-normal rounded-lg transition-all border border-gray-200 dark:border-[#383838]">
-                                <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M10 15l5-3-5-3v6z"/>
-                                </svg>
-                                <span>Kunjungi Channel</span>
-                            </a>
                         </div>
                     </div>
                 @endforeach

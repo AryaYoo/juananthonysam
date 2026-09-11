@@ -10,10 +10,10 @@
 
 <footer class="bg-[#0D0D0D] border-t border-[#222222] text-gray-400 transition-colors duration-300">
     <!-- Main Footer Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8 divide-y divide-[#1E1E1E] md:divide-y-0">
             <!-- Col 1: Church Identity -->
-            <div class="space-y-4">
+            <div class="space-y-4 pb-8 md:pb-0">
                 <div class="flex items-center gap-3">
                     <div class="{{ $churchLogoFooter ? 'w-12 h-12 bg-transparent' : 'w-10 h-10 rounded-full bg-[#222222] border border-[#383838] text-white' }} flex items-center justify-center shrink-0">
                         @if($churchLogoFooter)
@@ -78,7 +78,7 @@
 
 
             <!-- Col 4: Lokasi & Kontak -->
-            <div class="space-y-4">
+            <div class="space-y-4 pt-8 md:pt-0">
                 <h4 class="font-['Stack_Sans_Notch',sans-serif] text-sm font-normal uppercase tracking-wider text-white border-l-2 border-white pl-2.5">
                     Lokasi & Kontak
                 </h4>
@@ -137,22 +137,30 @@
         </div>
 
         <!-- YouTube Channels Ribbon -->
-        <div class="mt-12 pt-8 border-t border-[#222222] flex flex-wrap items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <span class="text-xs uppercase tracking-wider text-gray-400 font-normal">Official YouTube:</span>
-                <div class="flex flex-wrap items-center gap-4 text-xs">
-                    <a href="https://youtube.com/@ekklesiaministrysurabaya174?si=86xQ7dVvr-20WdTj" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
-                        <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+        <div class="mt-10 pt-7 border-t border-[#222222]">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-normal shrink-0">Official YouTube</span>
+                <div class="flex flex-wrap items-center gap-2">
+                    <a href="https://youtube.com/@ekklesiaministrysurabaya174?si=86xQ7dVvr-20WdTj" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-gray-300 hover:text-white hover:border-red-600/50 transition-all text-xs font-light">
+                        <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                        <span>Ekklesia Ministry (@ekklesiaministrysurabaya174)</span>
+                        <span>Ekklesia Ministry</span>
                     </a>
-                    <span class="text-gray-600">•</span>
-                    <a href="https://youtube.com/@ekklesiaworship92?si=Shxy7Z3c8AMA4Eeq" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-red-400 transition-colors flex items-center gap-1.5 font-light">
-                        <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://youtube.com/@ekklesiaworship92?si=Shxy7Z3c8AMA4Eeq" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-gray-300 hover:text-white hover:border-red-600/50 transition-all text-xs font-light">
+                        <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                        <span>Ekklesia Worship (@ekklesiaworship92)</span>
+                        <span>Ekklesia Worship</span>
+                    </a>
+                    <a href="https://youtube.com/@ekklesiaworld?si=aRE0kFO2YaNY2VSY" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-gray-300 hover:text-white hover:border-red-600/50 transition-all text-xs font-light">
+                        <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span>Ekklesia World</span>
                     </a>
                 </div>
             </div>

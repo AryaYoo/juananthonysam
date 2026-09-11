@@ -96,8 +96,156 @@
         @yield('content')
     </main>
 
+    <!-- =========================================================
+         SECTION: MITRA & JARINGAN PELAYANAN (Logo Bar)
+         ========================================================= -->
+    <section class="bg-[#0D0D0D] border-t border-[#1E1E1E] py-8 sm:py-10" aria-label="Mitra Pelayanan">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Label -->
+            <p class="text-[10px] uppercase tracking-[0.25em] text-gray-600 text-center mb-6 font-normal">
+                Mitra &amp; Jaringan Pelayanan
+            </p>
+
+            {{-- MOBILE: Auto slider, 2 logo per slide (horizontal) --}}
+            <div class="block sm:hidden relative" id="logoSlider">
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-600 ease-in-out" id="logoTrack">
+
+                        {{-- Slide 1: Ekklesia + GospelSurabaya --}}
+                        <div class="min-w-full flex items-center justify-center gap-8 px-4">
+                            <div class="flex flex-col items-center gap-2">
+                                <img src="{{ asset_v('images/logo.png') }}"
+                                     alt="Logo Ekklesia Surabaya"
+                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Ekklesia</span>
+                            </div>
+                            <div class="w-px h-10 bg-[#2A2A2A]"></div>
+                            <div class="flex flex-col items-center gap-2">
+                                <img src="{{ asset_v('images/GospelSurabaya.png') }}"
+                                     alt="Logo Gospel Surabaya"
+                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Gospel Surabaya</span>
+                            </div>
+                        </div>
+
+                        {{-- Slide 2: VeloraGroup --}}
+                        <div class="min-w-full flex items-center justify-center px-4">
+                            <div class="flex flex-col items-center gap-2">
+                                <img src="{{ asset_v('images/VeloraGroup.png') }}"
+                                     alt="Logo Velora Group"
+                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Velora Group</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {{-- Dot Indicators --}}
+                <div class="flex justify-center items-center gap-2 mt-5">
+                    <button type="button" data-lslide="0"
+                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-5 bg-gray-500"
+                            aria-label="Slide 1"></button>
+                    <button type="button" data-lslide="1"
+                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-gray-700"
+                            aria-label="Slide 2"></button>
+                </div>
+            </div>
+
+            {{-- DESKTOP: Semua logo satu baris --}}
+            <div class="hidden sm:flex items-center justify-center gap-12 lg:gap-20">
+                <div class="flex flex-col items-center gap-2">
+                    <img src="{{ asset_v('images/logo.png') }}"
+                         alt="Logo Ekklesia Surabaya"
+                         class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                    <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Ekklesia</span>
+                </div>
+                <div class="w-px h-10 bg-[#2A2A2A]"></div>
+                <div class="flex flex-col items-center gap-2">
+                    <img src="{{ asset_v('images/GospelSurabaya.png') }}"
+                         alt="Logo Gospel Surabaya"
+                         class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                    <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Gospel Surabaya</span>
+                </div>
+                <div class="w-px h-10 bg-[#2A2A2A]"></div>
+                <div class="flex flex-col items-center gap-2">
+                    <img src="{{ asset_v('images/VeloraGroup.png') }}"
+                         alt="Logo Velora Group"
+                         class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
+                    <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Velora Group</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {{-- Logo Slider Script (Mobile) --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lTrack = document.getElementById('logoTrack');
+            const lDots  = document.querySelectorAll('.logo-dot');
+            if (!lTrack || lDots.length === 0) return;
+
+            const total = lDots.length;
+            let current = 0;
+            let timer   = null;
+
+            function lGoTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                lTrack.style.transform = `translateX(-${current * 100}%)`;
+                lDots.forEach((dot, i) => {
+                    if (i === current) {
+                        dot.classList.remove('w-1.5', 'bg-gray-700');
+                        dot.classList.add('w-5', 'bg-gray-500');
+                    } else {
+                        dot.classList.remove('w-5', 'bg-gray-500');
+                        dot.classList.add('w-1.5', 'bg-gray-700');
+                    }
+                });
+            }
+
+            function lStartAuto() {
+                lStopAuto();
+                timer = setInterval(() => lGoTo(current + 1), 3000);
+            }
+
+            function lStopAuto() {
+                if (timer) clearInterval(timer);
+            }
+
+            lDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    lGoTo(parseInt(dot.dataset.lslide));
+                    lStartAuto();
+                });
+            });
+
+            // Touch swipe
+            let touchStartX = 0;
+            const slider = document.getElementById('logoSlider');
+            if (slider) {
+                slider.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                slider.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].screenX;
+                    if (Math.abs(diff) > 40) {
+                        lGoTo(diff > 0 ? current + 1 : current - 1);
+                        lStartAuto();
+                    }
+                }, { passive: true });
+            }
+
+            lStartAuto();
+        });
+    </script>
+
     <!-- Footer -->
     <x-footer />
+
 
     <!-- Global Scroll Animation & Scroll Progress Observer -->
     <script>

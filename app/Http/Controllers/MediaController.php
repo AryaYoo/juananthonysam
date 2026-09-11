@@ -26,6 +26,7 @@ class MediaController extends Controller
                 'handle' => '@ekklesiaministrysurabaya174',
                 'link' => 'https://youtube.com/@ekklesiaministrysurabaya174?si=86xQ7dVvr-20WdTj',
                 'badge' => 'Sermon & Word',
+                'image' => 'images/EkklesiaMinistry.png',
             ],
             [
                 'name' => 'Ekklesia Worship',
@@ -34,6 +35,7 @@ class MediaController extends Controller
                 'handle' => '@ekklesiaworship92',
                 'link' => 'https://youtube.com/@ekklesiaworship92?si=Shxy7Z3c8AMA4Eeq',
                 'badge' => 'Live Worship',
+                'image' => 'images/EkklesiaWorship.png',
             ],
         ];
 

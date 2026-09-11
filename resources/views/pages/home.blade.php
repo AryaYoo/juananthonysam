@@ -1,6 +1,6 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
-@section('title', 'Beranda — Ekklesia Surabaya')
+@section('title', 'Beranda â€” Ekklesia Surabaya')
 @section('meta_description', 'Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan. Welcome Home.')
 
 @section('content')
@@ -37,7 +37,7 @@
             </div>
 
 
-            <!-- Carousel Prev/Next Arrows — aligned with max-w-7xl header container -->
+            <!-- Carousel Prev/Next Arrows â€” aligned with max-w-7xl header container -->
             <div class="absolute inset-0 z-20 pointer-events-none flex items-center">
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                     <button type="button" 
@@ -78,7 +78,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
 
-                <!-- Left: Greeting Text — order-1 so it's ABOVE photo on mobile -->
+                <!-- Left: Greeting Text â€” order-1 so it's ABOVE photo on mobile -->
                 <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-1 pastoral-slide-up">
                     <div>
                         <h2 class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Photo — full height on desktop, full-bleed width on mobile (below text) -->
+                <!-- Right: Photo â€” full height on desktop, full-bleed width on mobile (below text) -->
                 <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
                     @php
                         $pastorJuanImg = file_exists(public_path('images/juan.png'))
@@ -304,7 +304,7 @@
                         Dukungan persembahan dan persepuluhan jemaat dialokasikan untuk pekerjaan Tuhan, sarana ibadah, dan pembangunan pelayanan melalui GKRI Jemaat Ekklesia Surabaya.
                     </p>
                     <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">
-                        "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." — 2 Korintus 9:7
+                        "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." â€” 2 Korintus 9:7
                     </blockquote>
                 </div>
 
@@ -314,7 +314,7 @@
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
                             <img src="{{ asset_v('images/Perpuluhan.png') }}" 
-                                 alt="Ekklesia Perpuluhan — BCA Aily Yunnita Wardhany" 
+                                 alt="Ekklesia Perpuluhan â€” BCA Aily Yunnita Wardhany" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
                         <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
@@ -338,7 +338,7 @@
                     <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
                         <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
                             <img src="{{ asset_v('images/Persembahan.png') }}" 
-                                 alt="Ekklesia Persembahan — BCA GKRI Jemaat Ekklesia" 
+                                 alt="Ekklesia Persembahan â€” BCA GKRI Jemaat Ekklesia" 
                                  class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                         </div>
                         <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
@@ -364,6 +364,41 @@
 
 
 
+
+    <!-- =========================================================
+         5b. GIVING MISI / M3 - Bank Danamon
+         ========================================================= -->
+    <section class=""py-16 sm:py-20 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300"" id=""giving-misi"">
+        <div class=""max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"">
+            <div class=""grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"">
+                <div class=""lg:col-span-6 reveal-on-scroll"">
+                    <div class=""group bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all theme-card"">
+                        <div class=""p-4 flex items-center justify-center"">
+                            <img src=""{{ asset_v('images/PersembahanM3.png') }}"" alt=""Ekklesia Persembahan M3 - Bank Danamon"" class=""w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]"">
+                        </div>
+                        <div class=""px-5 py-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]"">
+                            <div>
+                                <span class=""text-[11px] text-gray-500 dark:text-gray-400 block font-light"">Danamon - Persembahan M3</span>
+                                <span class=""font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider"">3620.989.776</span>
+                            </div>
+                            <button type=""button"" onclick=""navigator.clipboard.writeText('3620989776'); alert('Nomor rekening Danamon M3 (3620989776) berhasil disalin!');"" class=""inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0"" title=""Salin Nomor Rekening"">
+                                <svg class=""w-3.5 h-3.5"" fill=""none"" viewBox=""0 0 24 24"" stroke=""currentColor""><path stroke-linecap=""round"" stroke-linejoin=""round"" stroke-width=""2"" d=""M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z""/></svg>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class=""lg:col-span-6 space-y-4 reveal-on-scroll delay-200"">
+                    <span class=""text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block"">PERSEMBAHAN MISI</span>
+                    <h2 class=""text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight"">GIVING M3 &mdash; MISI EKKLESIA</h2>
+                    <div class=""w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4""></div>
+                    <p class=""text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light"">Persembahan M3 (Misi Masa Depan) dialokasikan khusus untuk mendukung pekerjaan misi, pembangunan lahan &amp; gedung ibadah, serta memperluas jangkauan pelayanan Ekklesia bagi kemuliaan Tuhan.</p>
+                    <blockquote class=""text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light"">"Pergilah ke seluruh dunia, beritakanlah Injil kepada segala makhluk." &mdash; Markus 16:15</blockquote>
+                    <div class=""pt-2""><span class=""inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-lg text-xs text-gray-500 dark:text-gray-400 font-light""><svg class=""w-3.5 h-3.5 text-gray-400"" fill=""none"" viewBox=""0 0 24 24"" stroke=""currentColor""><path stroke-linecap=""round"" stroke-linejoin=""round"" stroke-width=""2"" d=""M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z""/></svg>Bank Danamon &middot; a.n. GKRI JEMAAT EKKLESIA</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Carousel Logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -557,4 +592,5 @@
         });
     </script>
 @endsection
+
 
