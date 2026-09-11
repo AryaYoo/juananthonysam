@@ -131,8 +131,30 @@
         </div>
     </section>
 
-
-
+    <!-- =========================================================
+         2.5. VIDEO HIGHLIGHT / CINEMATIC BANNER
+         ========================================================= -->
+    @php
+        $videoSrc = file_exists(public_path('images/Video.mp4')) 
+            ? asset_v('images/Video.mp4') 
+            : (file_exists(public_path('images/video.mp4')) ? asset_v('images/video.mp4') : asset_v('images/Video.mp4'));
+    @endphp
+    <section class="relative w-full bg-black overflow-hidden select-none border-b border-gray-200 dark:border-[#242424]" aria-label="Video Highlight">
+        <div class="relative w-full aspect-[16/9] min-h-[300px] max-h-[700px] overflow-hidden">
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                preload="metadata"
+                class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none">
+                <source src="{{ $videoSrc }}" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <!-- Elegant subtle vignette / overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none"></div>
+        </div>
+    </section>
 
     <!-- =========================================================
          3. JADWAL IBADAH (5 Jadwal Lengkap Sesuai Permintaan)
