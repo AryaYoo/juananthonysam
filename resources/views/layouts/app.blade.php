@@ -103,7 +103,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Label -->
-            <p class="text-[10px] uppercase tracking-[0.25em] text-gray-600 text-center mb-6 font-normal">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-gray-400 text-center mb-6 font-normal">
                 Mitra &amp; Jaringan Pelayanan
             </p>
 
@@ -117,15 +117,15 @@
                             <div class="flex flex-col items-center gap-2">
                                 <img src="{{ asset_v('images/logo.png') }}"
                                      alt="Logo Ekklesia Surabaya"
-                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
-                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Ekklesia</span>
+                                     class="h-12 w-auto object-contain">
+                                <span class="text-[10px] text-gray-300 font-light tracking-wider uppercase">Ekklesia</span>
                             </div>
                             <div class="w-px h-10 bg-[#2A2A2A]"></div>
                             <div class="flex flex-col items-center gap-2">
                                 <img src="{{ asset_v('images/GospelSurabaya.png') }}"
                                      alt="Logo Gospel Surabaya"
-                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
-                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Gospel Surabaya</span>
+                                     class="h-12 w-auto object-contain">
+                                <span class="text-[10px] text-gray-300 font-light tracking-wider uppercase">Gospel Surabaya</span>
                             </div>
                         </div>
 
@@ -134,8 +134,8 @@
                             <div class="flex flex-col items-center gap-2">
                                 <img src="{{ asset_v('images/VeloraGroup.png') }}"
                                      alt="Logo Velora Group"
-                                     class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0">
-                                <span class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Velora Group</span>
+                                     class="h-12 w-auto object-contain">
+                                <span class="text-[10px] text-gray-300 font-light tracking-wider uppercase">Velora Group</span>
                             </div>
                         </div>
 
@@ -145,10 +145,10 @@
                 {{-- Dot Indicators --}}
                 <div class="flex justify-center items-center gap-2 mt-5">
                     <button type="button" data-lslide="0"
-                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-5 bg-gray-500"
+                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-5 bg-white/80"
                             aria-label="Slide 1"></button>
                     <button type="button" data-lslide="1"
-                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-gray-700"
+                            class="logo-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-white/30"
                             aria-label="Slide 2"></button>
                 </div>
             </div>
@@ -198,11 +198,11 @@
                 lTrack.style.transform = `translateX(-${current * 100}%)`;
                 lDots.forEach((dot, i) => {
                     if (i === current) {
-                        dot.classList.remove('w-1.5', 'bg-gray-700');
-                        dot.classList.add('w-5', 'bg-gray-500');
+                        dot.classList.remove('w-1.5', 'bg-white/30');
+                        dot.classList.add('w-5', 'bg-white/80');
                     } else {
-                        dot.classList.remove('w-5', 'bg-gray-500');
-                        dot.classList.add('w-1.5', 'bg-gray-700');
+                        dot.classList.remove('w-5', 'bg-white/80');
+                        dot.classList.add('w-1.5', 'bg-white/30');
                     }
                 });
             }
