@@ -19,8 +19,8 @@
         </div>
     </section>
 
-    <!-- 1. Visi & Misi Section -->
-    <section class="py-16 sm:py-24 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
+    <!-- 1. Visi & Misi Section (EKKLESIA) -->
+    <section id="ekklesia" class="py-16 sm:py-24 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <!-- Visi Card -->
@@ -63,7 +63,7 @@
     </section>
 
     <!-- 2. Profil Pastors -->
-    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
+    <section id="pastors" class="py-16 sm:py-24 bg-gray-50 dark:bg-[#141414] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12 reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
@@ -79,11 +79,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 @foreach($pastors as $index => $pastor)
-                    <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }}">
+                    <div id="{{ $index === 0 ? 'pastor-juan' : 'ps-samuel' }}" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 150 }} scroll-mt-28">
                         <div class="space-y-4">
-                            <div class="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-[#222222] border border-gray-200 dark:border-[#3A3A3A] flex items-center justify-center text-gray-900 dark:text-white text-2xl font-light font-['Stack_Sans_Notch',sans-serif]">
-                                {{ substr($pastor['name'], 3, 1) }}
-                            </div>
                             <div>
                                 <span class="text-xs uppercase tracking-widest text-gray-400 font-normal">
                                     {{ $pastor['role'] }}

@@ -57,7 +57,7 @@
                     </li>
                     <li class="flex justify-between items-center">
                         <span class="text-gray-600 dark:text-gray-400">Worship Night</span>
-                        <span class="font-medium text-gray-900 dark:text-white">Jumat Mg ke-4</span>
+                        <span class="font-medium text-gray-900 dark:text-white">Jumat ke-4</span>
                     </li>
                 </ul>
             </div>
