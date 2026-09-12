@@ -56,6 +56,36 @@
             src: local('Stack Sans Notch Regular'), local('Stack Sans Notch'), local('Plus Jakarta Sans Regular'), local('Plus Jakarta Sans');
             font-weight: 400;
         }
+
+        /* =========================================================
+           PAGE TRANSITIONS: FADE IN & FADE OUT
+           ========================================================= */
+        @keyframes pageFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Area animates in on page load */
+        main {
+            animation: pageFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            will-change: opacity, transform;
+        }
+
+        /* Full-body smooth fade-out before navigating away */
+        body {
+            transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.page-fade-out {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
     </style>
 
     <!-- Scripts and Styles via Vite -->
@@ -281,6 +311,82 @@
                 }
             }, { passive: true });
         });
+    </script>
+
+    <!-- Page Fade Transitions Script (Seamless MPA Navigation) -->
+    <script>
+        (function() {
+            let isNavigating = false;
+
+            function initPageTransitions() {
+                // Ensure body is visible and clean state
+                document.body.classList.remove('page-fade-out');
+                isNavigating = false;
+
+                document.addEventListener('click', function(e) {
+                    if (isNavigating) return;
+
+                    const link = e.target.closest('a');
+                    if (!link) return;
+
+                    // Skip modified clicks, middle click, right click, or already handled events
+                    if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) {
+                        return;
+                    }
+
+                    // Skip links with target="_blank", download, or explicit bypass attribute
+                    if (link.target === '_blank' || link.hasAttribute('download') || link.hasAttribute('data-no-transition')) {
+                        return;
+                    }
+
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+
+                    // Skip hash jumps, javascript, mailto, tel, whatsapp API
+                    if (href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('https://wa.me')) {
+                        return;
+                    }
+
+                    try {
+                        const targetUrl = new URL(link.href, window.location.origin);
+
+                        // Only transition internal links within same origin
+                        if (targetUrl.origin !== window.location.origin) {
+                            return;
+                        }
+
+                        // Same-page hash anchor: let browser smoothly scroll without page reload
+                        if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search && targetUrl.hash) {
+                            return;
+                        }
+
+                        // Trigger smooth fade-out
+                        isNavigating = true;
+                        e.preventDefault();
+
+                        document.body.classList.add('page-fade-out');
+
+                        setTimeout(function() {
+                            window.location.href = targetUrl.href;
+                        }, 200);
+                    } catch (err) {
+                        // Fallback to default browser navigation
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPageTransitions);
+            } else {
+                initPageTransitions();
+            }
+
+            // Restore state on Back/Forward navigation (bfcache)
+            window.addEventListener('pageshow', function(event) {
+                document.body.classList.remove('page-fade-out');
+                isNavigating = false;
+            });
+        })();
     </script>
 
     @stack('scripts')
