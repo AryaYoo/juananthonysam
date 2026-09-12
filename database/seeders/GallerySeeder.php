@@ -25,9 +25,9 @@ class GallerySeeder extends Seeder
             ],
             [
                 'title'      => 'Dokumentasi Pelayanan 1',
-                'category'   => 'Ibadah',
+                'category'   => 'Ibadah duka',
                 'image_url'  => asset('images/Dokumentasi1.png'),
-                'caption'    => 'Momen ibadah dan pelayanan jemaat Ekklesia Surabaya.',
+                'caption'    => 'Ibadah duka',
                 'sort_order' => 2,
             ],
             [
@@ -36,6 +36,20 @@ class GallerySeeder extends Seeder
                 'image_url'  => asset('images/Dokumentasi2.png'),
                 'caption'    => 'Kebersamaan dan hadirat Tuhan dalam setiap sesi pelayanan jemaat.',
                 'sort_order' => 3,
+            ],
+            [
+                'title'      => 'Dokumentasi Pelayanan 3',
+                'category'   => 'Ibadah',
+                'image_url'  => asset('images/Dokumentasi3.png'),
+                'caption'    => 'Suasana khidmat dan semangat kebersamaan dalam pelayanan jemaat.',
+                'sort_order' => 4,
+            ],
+            [
+                'title'      => 'Dokumentasi Pelayanan 4',
+                'category'   => 'Ibadah',
+                'image_url'  => asset('images/Dokumentasi4.png'),
+                'caption'    => 'Moment persekutuan dan pelayanan yang memperlihatkan karya Tuhan di tengah jemaat.',
+                'sort_order' => 5,
             ],
         ];
 
