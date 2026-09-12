@@ -8,12 +8,72 @@
     }
 @endphp
 
-<nav class="sticky top-0 z-40 bg-white/90 dark:bg-[#141414]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#282828] transition-colors duration-300" id="mainNavbar">
+<style>
+    /* Smooth Scroll-Shrink Transitions for Navbar */
+    #mainNavbar {
+        transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #navbarInner {
+        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #navbarLogoBox {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.2s ease;
+    }
+    #navbarBrandTitle {
+        transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #navbarBrandSubtitle {
+        transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+
+    /* Scrolled State: Navbar mengecil sedikit secara anggun */
+    #mainNavbar.navbar-scrolled {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+    }
+    .dark #mainNavbar.navbar-scrolled {
+        box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.55);
+    }
+    #mainNavbar.navbar-scrolled #navbarInner {
+        height: 3.5rem !important; /* 56px di mobile (dari sebelumnya 80px) */
+    }
+    @media (min-width: 640px) {
+        #mainNavbar.navbar-scrolled #navbarInner {
+            height: 3.85rem !important; /* ~62px di tablet/desktop */
+        }
+    }
+    #mainNavbar.navbar-scrolled #navbarLogoBox {
+        width: 2.35rem !important; /* ~38px di mobile */
+        height: 2.35rem !important;
+    }
+    @media (min-width: 640px) {
+        #mainNavbar.navbar-scrolled #navbarLogoBox {
+            width: 2.75rem !important; /* 44px di tablet/desktop */
+            height: 2.75rem !important;
+        }
+    }
+    #mainNavbar.navbar-scrolled #navbarBrandTitle {
+        font-size: 1rem !important; /* 16px di mobile */
+    }
+    @media (min-width: 640px) {
+        #mainNavbar.navbar-scrolled #navbarBrandTitle {
+            font-size: 1.125rem !important; /* 18px di tablet/desktop */
+        }
+    }
+    #mainNavbar.navbar-scrolled #navbarBrandSubtitle {
+        font-size: 8.5px !important;
+    }
+</style>
+
+<nav class="sticky top-0 z-40 bg-white/90 dark:bg-[#141414]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#282828]" id="mainNavbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-20" id="navbarInner">
             <!-- Brand Logo (Left) -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="{{ $churchLogo ? 'w-12 h-12 sm:w-14 sm:h-14 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] shadow-sm text-white' }} flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
+                <div id="navbarLogoBox" class="{{ $churchLogo ? 'w-12 h-12 sm:w-14 sm:h-14 bg-transparent' : 'w-10 h-10 rounded-full bg-[#111111] dark:bg-[#222222] border border-black dark:border-[#383838] shadow-sm text-white' }} flex items-center justify-center group-hover:scale-105 shrink-0">
                     @if($churchLogo)
                         <img src="{{ asset_v($churchLogo) }}" alt="Logo Ekklesia Surabaya" class="w-full h-full object-contain">
                     @else
@@ -23,10 +83,10 @@
                     @endif
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-['Stack_Sans_Notch',sans-serif] text-lg sm:text-xl font-light tracking-wider text-gray-950 dark:text-[#F5F5F5] group-hover:text-black dark:group-hover:text-white transition-colors">
+                    <span id="navbarBrandTitle" class="font-['Stack_Sans_Notch',sans-serif] text-lg sm:text-xl font-light tracking-wider text-gray-950 dark:text-[#F5F5F5] group-hover:text-black dark:group-hover:text-white transition-colors">
                         EKKLESIA
                     </span>
-                    <span class="text-[10px] tracking-[0.25em] text-gray-500 dark:text-[#8A8A8A] uppercase font-normal">
+                    <span id="navbarBrandSubtitle" class="text-[10px] tracking-[0.25em] text-gray-500 dark:text-[#8A8A8A] uppercase font-normal">
                         SURABAYA
                     </span>
                 </div>
@@ -465,4 +525,30 @@
             window.closeMobileNav();
         }
     });
+
+    // Navbar Scroll-Shrink Transition Logic
+    (function() {
+        const navbar = document.getElementById('mainNavbar');
+        if (!navbar) return;
+
+        let ticking = false;
+        function updateNavbarOnScroll() {
+            if (window.scrollY > 20) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbarOnScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Check on initial page load / refresh
+        updateNavbarOnScroll();
+    })();
 </script>
