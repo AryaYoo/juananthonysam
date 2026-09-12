@@ -58,12 +58,12 @@
         }
 
         /* =========================================================
-           PAGE TRANSITIONS: FADE IN & FADE OUT
+           PAGE TRANSITIONS: FADE IN & FADE OUT (GENTLE & CINEMATIC)
            ========================================================= */
         @keyframes pageFadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(6px);
+                transform: translateY(10px);
             }
             100% {
                 opacity: 1;
@@ -71,15 +71,15 @@
             }
         }
 
-        /* Content Area animates in on page load */
+        /* Content Area animates in softly on page load */
         main {
-            animation: pageFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: pageFadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             will-change: opacity, transform;
         }
 
-        /* Full-body smooth fade-out before navigating away */
+        /* Full-body gentle fade-out before navigating away */
         body {
-            transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         body.page-fade-out {
@@ -368,7 +368,7 @@
 
                         setTimeout(function() {
                             window.location.href = targetUrl.href;
-                        }, 200);
+                        }, 420);
                     } catch (err) {
                         // Fallback to default browser navigation
                     }

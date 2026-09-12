@@ -9,25 +9,25 @@
 @endphp
 
 <style>
-    /* Smooth Scroll-Shrink Transitions for Navbar */
+    /* Smooth Scroll-Shrink Transitions for Navbar (Calm & Elegant) */
     #mainNavbar {
-        transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+                    border-color 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+                    box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     }
     #navbarInner {
-        transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: height 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     }
     #navbarLogoBox {
-        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    transform 0.2s ease;
+        transition: width 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+                    height 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
+                    transform 0.3s ease;
     }
     #navbarBrandTitle {
-        transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: font-size 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     }
     #navbarBrandSubtitle {
-        transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        transition: font-size 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease;
     }
 
     /* Scrolled State: Navbar mengecil sedikit secara anggun */
