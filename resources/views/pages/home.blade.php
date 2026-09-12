@@ -16,24 +16,24 @@
 
             
             <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center" data-slide="0">
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center overflow-hidden" data-slide="0">
                 <img src="{{ asset_v('images/Poster1.jpg') }}" 
                      alt="Saat Teduh Bersama - Ps Juan Anthony Sam" 
-                     class="w-full h-full object-cover object-center">
+                     class="hero-parallax-img w-full h-full object-cover object-center scale-[1.08] will-change-transform">
             </div>
 
             <!-- SLIDE 2: Poster 2 - Jadwal Ibadah Ekklesia Surabaya -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="1">
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center overflow-hidden" data-slide="1">
                 <img src="{{ asset_v('images/Poster2.jpg') }}" 
                      alt="Jadwal Ibadah Ekklesia Surabaya" 
-                     class="w-full h-full object-cover object-center">
+                     class="hero-parallax-img w-full h-full object-cover object-center scale-[1.08] will-change-transform">
             </div>
 
             <!-- SLIDE 3: Poster 3 - Himbauan Waspada Penipuan -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center" data-slide="2">
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center overflow-hidden" data-slide="2">
                 <img src="{{ asset_v('images/Poster3.jpg') }}" 
                      alt="Himbauan Kehati-hatian dan Waspada Penipuan" 
-                     class="w-full h-full object-cover object-center">
+                     class="hero-parallax-img w-full h-full object-cover object-center scale-[1.08] will-change-transform">
             </div>
 
 
@@ -492,6 +492,36 @@
             }
 
             startTimer();
+
+            // Smooth Hero Parallax Scroll Effect
+            const parallaxImgs = document.querySelectorAll('.hero-parallax-img');
+            if (carouselSec && parallaxImgs.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let tickingParallax = false;
+
+                function updateHeroParallax() {
+                    const scrollY = window.scrollY;
+                    const heroHeight = carouselSec.offsetHeight || 700;
+
+                    // Only compute when hero is visible in viewport
+                    if (scrollY <= heroHeight + 50) {
+                        const translateY = scrollY * 0.35; // smooth parallax depth factor
+                        parallaxImgs.forEach(img => {
+                            img.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.08)`;
+                        });
+                    }
+                    tickingParallax = false;
+                }
+
+                window.addEventListener('scroll', () => {
+                    if (!tickingParallax) {
+                        window.requestAnimationFrame(updateHeroParallax);
+                        tickingParallax = true;
+                    }
+                }, { passive: true });
+
+                // Initial position
+                updateHeroParallax();
+            }
         });
     </script>
 

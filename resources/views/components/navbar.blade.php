@@ -9,62 +9,62 @@
 @endphp
 
 <style>
-    /* Smooth Scroll-Shrink Transitions for Navbar (Calm & Elegant) */
+    /* Ultra-Smooth Scroll-Shrink Transitions for Navbar (Calm, Silk & Cinematic) */
     #mainNavbar {
-        transition: background-color 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
-                    border-color 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
-                    box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #navbarInner {
-        transition: height 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: height 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #navbarLogoBox {
-        transition: width 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
-                    height 0.45s cubic-bezier(0.25, 1, 0.5, 1), 
-                    transform 0.3s ease;
+        transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                    height 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 0.4s ease;
     }
     #navbarBrandTitle {
-        transition: font-size 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: font-size 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #navbarBrandSubtitle {
-        transition: font-size 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease;
+        transition: font-size 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
     }
 
-    /* Scrolled State: Navbar mengecil sedikit secara anggun */
+    /* Scrolled State: Navbar mengecil sedikit dengan sangat halus (tanpa hentakan) */
     #mainNavbar.navbar-scrolled {
-        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
     }
     .dark #mainNavbar.navbar-scrolled {
-        box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.55);
+        box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5);
     }
     #mainNavbar.navbar-scrolled #navbarInner {
-        height: 3.5rem !important; /* 56px di mobile (dari sebelumnya 80px) */
+        height: 4.1rem !important; /* ~65px di mobile (pengecilan lembut dari 80px) */
     }
     @media (min-width: 640px) {
         #mainNavbar.navbar-scrolled #navbarInner {
-            height: 3.85rem !important; /* ~62px di tablet/desktop */
+            height: 4.35rem !important; /* 70px di tablet/desktop (pengecilan lembut dari 80px) */
         }
     }
     #mainNavbar.navbar-scrolled #navbarLogoBox {
-        width: 2.35rem !important; /* ~38px di mobile */
-        height: 2.35rem !important;
+        width: 2.75rem !important; /* ~44px di mobile */
+        height: 2.75rem !important;
     }
     @media (min-width: 640px) {
         #mainNavbar.navbar-scrolled #navbarLogoBox {
-            width: 2.75rem !important; /* 44px di tablet/desktop */
-            height: 2.75rem !important;
+            width: 3.1rem !important; /* ~50px di tablet/desktop */
+            height: 3.1rem !important;
         }
     }
     #mainNavbar.navbar-scrolled #navbarBrandTitle {
-        font-size: 1rem !important; /* 16px di mobile */
+        font-size: 1.05rem !important;
     }
     @media (min-width: 640px) {
         #mainNavbar.navbar-scrolled #navbarBrandTitle {
-            font-size: 1.125rem !important; /* 18px di tablet/desktop */
+            font-size: 1.18rem !important;
         }
     }
     #mainNavbar.navbar-scrolled #navbarBrandSubtitle {
-        font-size: 8.5px !important;
+        font-size: 9px !important;
     }
 </style>
 
@@ -526,16 +526,22 @@
         }
     });
 
-    // Navbar Scroll-Shrink Transition Logic
+    // Navbar Scroll-Shrink Transition Logic with Hysteresis (Smooth & Non-Snappy)
     (function() {
         const navbar = document.getElementById('mainNavbar');
         if (!navbar) return;
 
+        let isScrolled = false;
         let ticking = false;
+
         function updateNavbarOnScroll() {
-            if (window.scrollY > 20) {
+            const scrollY = window.scrollY;
+            // Hysteresis: aktivasi pada > 45px, lepas pada < 15px
+            if (!isScrolled && scrollY > 45) {
+                isScrolled = true;
                 navbar.classList.add('navbar-scrolled');
-            } else {
+            } else if (isScrolled && scrollY < 15) {
+                isScrolled = false;
                 navbar.classList.remove('navbar-scrolled');
             }
             ticking = false;
@@ -548,7 +554,10 @@
             }
         }, { passive: true });
 
-        // Check on initial page load / refresh
-        updateNavbarOnScroll();
+        // Initial check on load
+        if (window.scrollY > 45) {
+            isScrolled = true;
+            navbar.classList.add('navbar-scrolled');
+        }
     })();
 </script>
