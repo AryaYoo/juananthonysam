@@ -111,8 +111,8 @@
                     </div>
                 </div>
 
-                <!-- Right: Photo - full height on desktop, full-bleed width on mobile (below text) -->
-                <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
+                <!-- Right: Photo - full height on desktop, full-bleed width on mobile (below text) with Parallax Depth -->
+                <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[400px] sm:h-[480px] lg:h-auto min-h-[400px] lg:min-h-[520px] overflow-hidden pastoral-slide-up pastoral-slide-up--delayed" id="pastoralPhotoWrapper">
                     @php
                         $pastorJuanImg = file_exists(public_path('images/juan.png'))
                             ? asset_v('images/juan.png')
@@ -124,7 +124,8 @@
                     @endphp
                     <img src="{{ $pastorJuanImg }}"
                          alt="Pastor Juan Anthony Sam - Ekklesia Surabaya"
-                         class="absolute inset-0 w-full h-full object-cover object-top select-none">
+                         id="pastorJuanPhoto"
+                         class="absolute inset-0 w-full h-[120%] -top-[10%] object-cover object-top select-none will-change-transform">
                 </div>
 
             </div>
@@ -588,19 +589,19 @@
         });
     </script>
 
-    {{-- Pastoral Greeting Slide-Up Animation --}}
+    {{-- Pastoral Greeting Slide-Up & Parallax Animation --}}
     <style>
         .pastoral-slide-up {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(35px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .pastoral-slide-up.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
         .pastoral-slide-up--delayed {
-            transition-delay: 0.2s;
+            transition-delay: 0.15s;
         }
     </style>
     <script>
@@ -618,6 +619,39 @@
                 targets.forEach(el => observer.observe(el));
             } else {
                 targets.forEach(el => el.classList.add('is-visible'));
+            }
+
+            // Smooth Editorial Parallax for Pastor Juan Photo
+            const photoWrapper = document.getElementById('pastoralPhotoWrapper');
+            const pastorPhoto  = document.getElementById('pastorJuanPhoto');
+
+            if (photoWrapper && pastorPhoto && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let tickingPhoto = false;
+
+                function updatePastorPhotoParallax() {
+                    const rect = photoWrapper.getBoundingClientRect();
+                    const winH = window.innerHeight;
+
+                    // Compute only when within viewport range
+                    if (rect.top < winH + 100 && rect.bottom > -100) {
+                        const progress = (winH - rect.top) / (winH + rect.height);
+                        const clamped = Math.max(0, Math.min(1, progress));
+                        // Moves smoothly from -30px to +30px as the user scrolls past
+                        const translateY = (clamped - 0.5) * 60;
+                        pastorPhoto.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0)`;
+                    }
+                    tickingPhoto = false;
+                }
+
+                window.addEventListener('scroll', () => {
+                    if (!tickingPhoto) {
+                        window.requestAnimationFrame(updatePastorPhotoParallax);
+                        tickingPhoto = true;
+                    }
+                }, { passive: true });
+
+                // Initial position
+                updatePastorPhotoParallax();
             }
         });
     </script>
