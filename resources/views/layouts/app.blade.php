@@ -276,6 +276,17 @@
     <!-- Footer -->
     <x-footer />
 
+    <!-- Floating Scroll To Top Button -->
+    <button type="button" 
+            id="scrollToTopBtn" 
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            aria-label="Kembali ke atas" 
+            title="Kembali ke atas"
+            class="fixed bottom-6 right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 dark:bg-[#1C1C1C]/90 text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-[#333333] shadow-lg hover:shadow-xl backdrop-blur-md flex items-center justify-center cursor-pointer transition-all duration-300 opacity-0 invisible translate-y-3 hover:-translate-y-1 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black focus:outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 active:scale-95 group">
+        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 
     <!-- Global Scroll Animation & Scroll Progress Observer -->
     <script>
@@ -302,14 +313,33 @@
 
             // 2. Scroll Progress Bar
             const progressBar = document.getElementById('scrollProgressBar');
-            window.addEventListener('scroll', () => {
+            // 3. Scroll To Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            function handleGlobalScroll() {
                 const scrollTop = window.scrollY || document.documentElement.scrollTop;
                 const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                // Update Progress Bar
                 if (docHeight > 0 && progressBar) {
                     const scrollPercent = (scrollTop / docHeight) * 100;
                     progressBar.style.width = scrollPercent + '%';
                 }
-            }, { passive: true });
+
+                // Toggle Scroll To Top Button (Muncul setelah scroll > 350px)
+                if (scrollToTopBtn) {
+                    if (scrollTop > 350) {
+                        scrollToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-3');
+                        scrollToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    } else {
+                        scrollToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                        scrollToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-3');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', handleGlobalScroll, { passive: true });
+            handleGlobalScroll();
         });
     </script>
 
