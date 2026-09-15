@@ -51,6 +51,27 @@ class GallerySeeder extends Seeder
                 'caption'    => 'Moment persekutuan dan pelayanan yang memperlihatkan karya Tuhan di tengah jemaat.',
                 'sort_order' => 5,
             ],
+            [
+                'title'      => 'Dokumentasi Pelayanan 5',
+                'category'   => 'Ibadah',
+                'image_url'  => asset('images/Dokumentasi5.png'),
+                'caption'    => 'Kebersamaan dan sukacita persekutuan jemaat dalam hadirat Tuhan.',
+                'sort_order' => 6,
+            ],
+            [
+                'title'      => 'Dokumentasi Pelayanan 6',
+                'category'   => 'Ibadah',
+                'image_url'  => asset('images/Dokumentasi6.png'),
+                'caption'    => 'Pelayanan dan dedikasi hamba Tuhan beserta jemaat dalam memuliakan nama-Nya.',
+                'sort_order' => 7,
+            ],
+            [
+                'title'      => 'Dokumentasi Pelayanan 7',
+                'category'   => 'Ibadah',
+                'image_url'  => asset('images/Dokumentasi7.png'),
+                'caption'    => 'Kasih dan kebersamaan dalam persekutuan serta pelayanan jemaat Ekklesia.',
+                'sort_order' => 8,
+            ],
         ];
 
         foreach ($galleries as $gallery) {

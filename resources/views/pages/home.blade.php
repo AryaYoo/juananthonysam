@@ -99,7 +99,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
-                        <a href="https://wa.me/6281213131060?text=Halo%20Pastor%20Juan%20Anthony%20Sam,%20salam%20dalam%20kasih%20Kristus" 
+                        <a href="https://wa.me/6281213131060?text=Halo%20Pastor,%20salam%20dalam%20kasih%20kristus" 
                            target="_blank" 
                            rel="noopener noreferrer"
                            class="inline-flex items-center gap-2 text-xs font-normal text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">

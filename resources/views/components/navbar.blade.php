@@ -174,7 +174,7 @@
                 </button>
 
 
-                <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
+                <a href="https://wa.me/6281213131060?text=Halo%20Pastor,%20salam%20dalam%20kasih%20kristus" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-[#EAEAEA] text-white dark:text-[#141414] text-xs font-normal rounded-md transition-all shadow-sm">
@@ -382,7 +382,7 @@
 
         <!-- Drawer Footer (CTA WhatsApp) -->
         <div class="p-5 border-t border-gray-200 dark:border-[#262626] bg-gray-50 dark:bg-[#1A1A1A] space-y-3">
-            <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya" 
+            <a href="https://wa.me/6281213131060?text=Halo%20Pastor,%20salam%20dalam%20kasih%20kristus" 
                target="_blank" 
                rel="noopener noreferrer"
                class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#111111] dark:bg-white text-white dark:text-[#141414] font-normal text-xs hover:bg-[#2B2B2B] dark:hover:bg-[#EAEAEA] transition-all shadow-sm">

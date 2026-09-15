@@ -20,6 +20,20 @@ if (! function_exists('asset_v')) {
     }
 }
 
+if (! function_exists('whatsapp_url')) {
+    /**
+     * Generate WhatsApp chat link with default message.
+     */
+    function whatsapp_url(?string $text = null, ?string $number = null): string
+    {
+        $num = $number ?: env('WHATSAPP_NUMBER', '6281213131060');
+        $cleanNumber = preg_replace('/[^0-9]/', '', $num);
+        $message = $text ?: 'Halo Pastor, salam dalam kasih kristus';
+
+        return 'https://wa.me/' . $cleanNumber . '?text=' . rawurlencode($message);
+    }
+}
+
 class AppServiceProvider extends ServiceProvider
 {
     /**

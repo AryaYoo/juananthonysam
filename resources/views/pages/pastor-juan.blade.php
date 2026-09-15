@@ -147,7 +147,7 @@
 
             <!-- Fast Contact & Back to Church Profile -->
             <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-                <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia%20Surabaya,%20saya%20ingin%20berbicara%20dengan%20tim%20Pastoral%20Juan%20Anthony%20Sam" 
+                <a href="https://wa.me/6281213131060?text=Halo%20Pastor,%20salam%20dalam%20kasih%20kristus" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs rounded-lg transition-all shadow-sm">
