@@ -214,15 +214,22 @@
                                         </p>
                                     </div>
                                     <div class="pt-4 mt-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between">
-                                        <span class="text-[10px] text-gray-400">Sanctuary Lt. 2</span>
-                                        <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya"
-                                           target="_blank" rel="noopener noreferrer"
-                                           class="text-xs text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white font-normal flex items-center gap-1 transition-colors">
-                                            <span>Peta</span>
-                                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                            </svg>
-                                        </a>
+                                        <span class="text-[10px] text-gray-400">{{ $schedule['location'] ?? 'Sanctuary Lt. 2' }}</span>
+                                        @if(empty($schedule['is_online']))
+                                            <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya"
+                                               target="_blank" rel="noopener noreferrer"
+                                               class="text-xs text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white font-normal flex items-center gap-1 transition-colors">
+                                                <span>Peta</span>
+                                                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                                </svg>
+                                            </a>
+                                        @else
+                                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-normal flex items-center gap-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                                                <span>Online</span>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -265,15 +272,23 @@
                             </p>
                         </div>
                         <div class="pt-4 mt-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between">
-                            <span class="text-[10px] text-gray-400">Sanctuary Lt. 2</span>
-                            <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya"
-                               target="_blank" rel="noopener noreferrer"
-                               class="text-xs text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white font-normal flex items-center gap-1 transition-colors">
-                                <span>Peta</span>
-                                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </a>
+                            <span class="text-[10px] text-gray-400">{{ $schedule['location'] ?? 'Sanctuary Lt. 2' }}</span>
+                            @if(empty($schedule['is_online']))
+                                <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="text-xs text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white font-normal flex items-center gap-1 transition-colors">
+                                    <span>Peta</span>
+                                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            @else
+                                <span class="text-[10px] text-gray-500 dark:text-gray-400 font-normal flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                                    <span>Online</span>
+                                </span>
+                            @endif
                         </div>
                     </div>
                 @endforeach

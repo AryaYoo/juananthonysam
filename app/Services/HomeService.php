@@ -22,6 +22,7 @@ class HomeService
                     'day' => 'Setiap Minggu',
                     'target' => 'Ibadah Umum & Keluarga',
                     'badge' => 'Main Service',
+                    'location' => 'Sanctuary Lt. 2',
                 ],
                 [
                     'name' => 'Ekidz',
@@ -29,6 +30,7 @@ class HomeService
                     'day' => 'Setiap Minggu',
                     'target' => 'Anak-anak (Preschool - SD)',
                     'badge' => 'Kids Ministry',
+                    'location' => 'Sanctuary Lt. 1',
                 ],
                 [
                     'name' => 'E-Teens',
@@ -36,6 +38,7 @@ class HomeService
                     'day' => 'Setiap Minggu',
                     'target' => 'Remaja & Pemuda (SMP - SMA)',
                     'badge' => 'Youth Ministry',
+                    'location' => 'Sanctuary Lt. 3',
                 ],
                 [
                     'name' => 'Doa Senin',
@@ -43,6 +46,8 @@ class HomeService
                     'day' => 'Setiap Senin Malam',
                     'target' => 'Doa Syafaat & Pengurapan',
                     'badge' => 'Monday Prayer',
+                    'location' => 'By Zoom (Online Meeting)',
+                    'is_online' => true,
                 ],
                 [
                     'name' => 'Doa Jumat',
@@ -50,6 +55,7 @@ class HomeService
                     'day' => 'Setiap Jumat Malam',
                     'target' => 'Mezbah Doa & Hadirat Tuhan',
                     'badge' => 'Friday Prayer',
+                    'location' => 'Sanctuary Lt. 2',
                 ],
             ],
             'theme_2026' => [
