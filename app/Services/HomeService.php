@@ -46,7 +46,7 @@ class HomeService
                     'day' => 'Setiap Senin Malam',
                     'target' => 'Doa Syafaat & Pengurapan',
                     'badge' => 'Monday Prayer',
-                    'location' => 'By Zoom (Online Meeting)',
+                    'location' => 'Zoom Meeting',
                     'is_online' => true,
                 ],
                 [
