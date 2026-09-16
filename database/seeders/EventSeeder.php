@@ -47,7 +47,7 @@ class EventSeeder extends Seeder
                 'schedule_info' => 'Minggu ke-2 Tiap Bulan',
                 'time_info' => '16:00 WIB',
                 'location' => 'Main Hall Ekklesia Surabaya',
-                'image_url' => 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop',
+                'image_url' => asset('images/EFF3.png'),
                 'badge' => 'Family Gathering',
                 'is_featured' => true,
                 'is_active' => true,
