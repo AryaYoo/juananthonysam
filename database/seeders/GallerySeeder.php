@@ -72,6 +72,34 @@ class GallerySeeder extends Seeder
                 'caption'    => 'Kasih dan kebersamaan dalam persekutuan serta pelayanan jemaat Ekklesia.',
                 'sort_order' => 8,
             ],
+            [
+                'title'      => 'Dokumentasi EFF 1',
+                'category'   => 'EFF',
+                'image_url'  => asset('images/EFF1.png'),
+                'caption'    => 'Praise & Worship dan pelayanan musik dalam kebersamaan persekutuan Ekklesia Family Fellowship.',
+                'sort_order' => 9,
+            ],
+            [
+                'title'      => 'Dokumentasi EFF 2',
+                'category'   => 'EFF',
+                'image_url'  => asset('images/EFF2.png'),
+                'caption'    => 'Saat teduh, doa, dan penyembahan jemaat dalam hadirat Tuhan di persekutuan EFF.',
+                'sort_order' => 10,
+            ],
+            [
+                'title'      => 'Dokumentasi EFF 3',
+                'category'   => 'EFF',
+                'image_url'  => asset('images/EFF3.png'),
+                'caption'    => 'Pemberitaan firman Tuhan dan puji-pujian yang mengalirkan kuasa Tuhan dalam persekutuan EFF.',
+                'sort_order' => 11,
+            ],
+            [
+                'title'      => 'Dokumentasi EFF 4',
+                'category'   => 'EFF',
+                'image_url'  => asset('images/EFF4.png'),
+                'caption'    => 'Kebersamaan dan pelayanan tim musik dalam melayani jemaat Ekklesia Family Fellowship.',
+                'sort_order' => 12,
+            ],
         ];
 
         foreach ($galleries as $gallery) {

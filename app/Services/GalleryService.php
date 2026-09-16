@@ -22,6 +22,6 @@ class GalleryService
 
     public function getCategories(): array
     {
-        return ['all', 'Ibadah', 'Teen'];
+        return ['all', 'Ibadah', 'EFF', 'Teen'];
     }
 }
