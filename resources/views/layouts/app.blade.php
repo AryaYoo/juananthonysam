@@ -283,11 +283,49 @@
         $showBanner = is_array($bannerData) && !empty($bannerData['enabled']) && !empty($bannerData['html']);
     @endphp
     @if($showBanner)
+        <style>
+            /* Scoped mobile styles untuk konten banner iklan */
+            #partnershipBannerContent * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            @media (max-width: 640px) {
+                #partnershipBannerContent {
+                    font-size: 11px !important;
+                    line-height: 1.4 !important;
+                }
+                #partnershipBannerContent img {
+                    max-height: 36px !important;
+                    width: auto !important;
+                }
+                #partnershipBannerContent a,
+                #partnershipBannerContent button,
+                #partnershipBannerContent [style*="padding"] {
+                    padding: 5px 10px !important;
+                    font-size: 11px !important;
+                    white-space: nowrap;
+                }
+                #partnershipBannerContent p,
+                #partnershipBannerContent span,
+                #partnershipBannerContent div > span {
+                    font-size: 11px !important;
+                }
+                #partnershipBannerContent [style*="font-size"] {
+                    font-size: 11px !important;
+                }
+                #partnershipBannerContent > div,
+                #partnershipBannerContent > a {
+                    flex-wrap: nowrap !important;
+                    gap: 8px !important;
+                }
+            }
+        </style>
+
         <div id="partnershipBannerWrap"
              class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
              style="padding-bottom: env(safe-area-inset-bottom, 0);">
             <div id="partnershipBanner"
-                 class="pointer-events-auto relative w-full max-w-2xl mx-4 mb-4 sm:mb-5 rounded-2xl
+                 class="pointer-events-auto relative w-full max-w-2xl mx-3 sm:mx-4 mb-3 sm:mb-5 rounded-xl sm:rounded-2xl
                         bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md
                         border border-gray-200/80 dark:border-[#2E2E2E]
                         shadow-[0_8px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.5)]
@@ -295,13 +333,15 @@
                  style="transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);">
 
                 <!-- Label Kemitraan -->
-                <div class="pt-2 px-4 flex items-center">
-                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 dark:text-gray-500 font-medium">Iklan Kemitraan</span>
+                <div class="pt-1.5 sm:pt-2 px-3 sm:px-4 flex items-center">
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-gray-400 dark:text-gray-500 font-medium">Iklan Kemitraan</span>
                 </div>
 
                 <!-- Banner Content (HTML dari Admin) -->
-                <div class="pt-1 pb-3 px-4 sm:px-6 flex items-center justify-center min-h-[64px]">
-                    {!! $bannerData['html'] !!}
+                <div class="pt-1 pb-2.5 sm:pb-3 px-3 sm:px-6 flex items-center justify-center min-h-[52px] sm:min-h-[64px] overflow-hidden">
+                    <div id="partnershipBannerContent" class="w-full flex items-center justify-center">
+                        {!! $bannerData['html'] !!}
+                    </div>
                 </div>
             </div>
         </div>
