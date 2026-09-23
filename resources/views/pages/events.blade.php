@@ -71,9 +71,6 @@
                                 <h3 class="text-xl sm:text-2xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif]">
                                     {{ $event->title }}
                                 </h3>
-                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed font-light">
-                                    {{ $event->description }}
-                                </p>
                             </div>
 
                             <div class="space-y-2 pt-4 border-t border-gray-200 dark:border-[#242424] text-xs">

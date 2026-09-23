@@ -419,6 +419,56 @@
         })();
     </script>
 
+    <!-- Pelacakan Otomatis Klik Link Keluar / Action Links -->
+    <script>
+        (function() {
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a');
+                if (!link || !link.href) return;
+
+                let label = link.getAttribute('data-track-label');
+                const href = link.href;
+
+                if (!label) {
+                    if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+                        label = link.innerText.trim() ? ('WA: ' + link.innerText.trim().slice(0, 30)) : 'WhatsApp Pastoral';
+                    } else if (href.includes('instagram.com')) {
+                        label = 'Instagram @ekklesiagereja';
+                    } else if (href.includes('youtube.com') || href.includes('youtu.be')) {
+                        label = 'YouTube Streaming';
+                    } else if (href.includes('maps.google.com') || href.includes('goo.gl/maps') || href.includes('google.com/maps')) {
+                        label = 'Google Maps Lokasi';
+                    } else if (href.includes('tel:')) {
+                        label = 'Telepon Kontak';
+                    } else if (href.includes('mailto:')) {
+                        label = 'Email Kontak';
+                    }
+                }
+
+                if (label) {
+                    try {
+                        const payload = JSON.stringify({
+                            link_label: label,
+                            link_url: href,
+                            page_url: window.location.pathname
+                        });
+
+                        if (navigator.sendBeacon) {
+                            navigator.sendBeacon('/track-click', new Blob([payload], { type: 'application/json' }));
+                        } else {
+                            fetch('/track-click', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: payload,
+                                keepalive: true
+                            });
+                        }
+                    } catch (err) {}
+                }
+            }, { passive: true });
+        })();
+    </script>
+
     @stack('scripts')
 </body>
 </html>
