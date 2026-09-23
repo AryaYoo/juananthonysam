@@ -50,11 +50,11 @@
                 <nav class="flex items-center gap-1 sm:gap-2 border-l border-gray-200 dark:border-[#2b2b2b] pl-3 sm:pl-4">
                     <a href="{{ route('admin.dashboard') }}" 
                        class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-normal text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#222222]">
-                        📊 Analitik
+                        Analitik
                     </a>
                     <a href="{{ route('admin.banner') }}" 
                        class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-medium bg-gray-900 text-white dark:bg-white dark:text-gray-950 shadow-2xs">
-                        📢 Banner Iklan
+                        Banner Iklan
                     </a>
                 </nav>
             </div>
@@ -217,17 +217,17 @@
                         <button type="button"
                                 onclick="insertTemplate('image-link')"
                                 class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
-                            🖼 Gambar + Link
+                            Gambar + Link
                         </button>
                         <button type="button"
                                 onclick="insertTemplate('text-cta')"
                                 class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
-                            📢 Teks + CTA Button
+                            Teks + CTA Button
                         </button>
                         <button type="button"
                                 onclick="insertTemplate('gradient-card')"
                                 class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
-                            ✨ Kartu Gradient Elegan
+                            Kartu Gradient Elegan
                         </button>
                     </div>
                 </div>
@@ -328,14 +328,13 @@
   <span style="font-size:12px;color:#888;">| Mitra Kemitraan Ekklesia</span>
 </div>`,
             'text-cta': `<div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 20px;font-family:inherit;">
-  <span style="font-size:13px;color:#555;">✨ Ingin bermitra dengan kami?</span>
+  <span style="font-size:13px;color:#555;">Ingin bermitra dengan kami?</span>
   <a href="https://wa.me/628XXXXXXXXXX" target="_blank" rel="noopener"
      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:#111;color:#fff;border-radius:20px;font-size:12px;font-weight:500;text-decoration:none;">
     Hubungi Kami
   </a>
 </div>`,
             'gradient-card': `<div style="background:linear-gradient(135deg,#667eea,#764ba2);padding:12px 24px;border-radius:12px;display:inline-flex;align-items:center;gap:12px;">
-  <span style="font-size:16px;">🙌</span>
   <div style="text-align:left;">
     <div style="color:#fff;font-size:13px;font-weight:600;line-height:1.2;">Nama Mitra / Sponsor</div>
     <div style="color:rgba(255,255,255,0.75);font-size:11px;">Deskripsi singkat layanan atau produk mitra</div>

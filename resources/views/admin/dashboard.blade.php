@@ -53,11 +53,11 @@
                 <nav class="flex items-center gap-1 sm:gap-2 border-l border-gray-200 dark:border-[#2b2b2b] pl-3 sm:pl-4">
                     <a href="{{ route('admin.dashboard') }}" 
                        class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-medium bg-gray-900 text-white dark:bg-white dark:text-gray-950 shadow-2xs">
-                        📊 Analitik
+                        Analitik
                     </a>
                     <a href="{{ route('admin.banner') }}" 
                        class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-normal text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#222222]">
-                        📢 Banner Iklan
+                        Banner Iklan
                     </a>
                 </nav>
             </div>
