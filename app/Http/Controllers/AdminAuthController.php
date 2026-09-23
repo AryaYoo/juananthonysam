@@ -79,12 +79,47 @@ class AdminAuthController extends Controller
             $days = 14;
         }
 
-        $summary    = $this->analyticsService->getSummary();
-        $visitChart = $this->analyticsService->getVisitChartData($days);
-        $clickChart = $this->analyticsService->getLinkClickChartData();
+        $summary      = $this->analyticsService->getSummary();
+        $visitChart   = $this->analyticsService->getVisitChartData($days);
+        $clickChart   = $this->analyticsService->getLinkClickChartData();
         $recentClicks = $this->analyticsService->getRecentClicks(8);
+        $bannerData   = $this->getBannerData();
 
-        return view('admin.dashboard', compact('summary', 'visitChart', 'clickChart', 'recentClicks', 'days'));
+        return view('admin.dashboard', compact('summary', 'visitChart', 'clickChart', 'recentClicks', 'days', 'bannerData'));
+    }
+
+    /**
+     * Simpan HTML iklan kemitraan banner.
+     */
+    public function saveBanner(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'banner_html'    => 'nullable|string|max:10000',
+            'banner_enabled' => 'nullable|boolean',
+        ]);
+
+        $data = [
+            'html'    => $validated['banner_html'] ?? '',
+            'enabled' => $request->boolean('banner_enabled'),
+            'updated_at' => now()->toDateTimeString(),
+        ];
+
+        file_put_contents(storage_path('app/banner.json'), json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+
+        return back()->with('banner_success', 'Banner iklan berhasil disimpan.');
+    }
+
+    /**
+     * Baca data banner dari storage.
+     */
+    private function getBannerData(): array
+    {
+        $path = storage_path('app/banner.json');
+        if (!file_exists($path)) {
+            return ['html' => '', 'enabled' => false, 'updated_at' => null];
+        }
+        $data = json_decode(file_get_contents($path), true);
+        return is_array($data) ? $data : ['html' => '', 'enabled' => false, 'updated_at' => null];
     }
 
     /**

@@ -276,6 +276,88 @@
     <!-- Footer -->
     <x-footer />
 
+    <!-- Floating Partnership Banner (dikelola dari Admin) -->
+    @php
+        $bannerPath = storage_path('app/banner.json');
+        $bannerData = file_exists($bannerPath) ? json_decode(file_get_contents($bannerPath), true) : null;
+        $showBanner = is_array($bannerData) && !empty($bannerData['enabled']) && !empty($bannerData['html']);
+    @endphp
+    @if($showBanner)
+        <div id="partnershipBannerWrap"
+             class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+             style="padding-bottom: env(safe-area-inset-bottom, 0);">
+            <div id="partnershipBanner"
+                 class="pointer-events-auto relative w-full max-w-2xl mx-4 mb-4 sm:mb-5 rounded-2xl
+                        bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md
+                        border border-gray-200/80 dark:border-[#2E2E2E]
+                        shadow-[0_8px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.5)]
+                        overflow-hidden translate-y-4 opacity-0"
+                 style="transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);">
+
+                <!-- Close Button -->
+                <button type="button"
+                        id="closeBannerBtn"
+                        onclick="closeBanner()"
+                        aria-label="Tutup banner"
+                        title="Tutup"
+                        class="absolute top-2 right-2 z-10 w-6 h-6 rounded-full flex items-center justify-center
+                               bg-gray-100/80 dark:bg-[#2A2A2A]/80 hover:bg-gray-200 dark:hover:bg-[#383838]
+                               text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white
+                               transition-all duration-200 text-xs leading-none cursor-pointer">
+                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Label Kemitraan -->
+                <div class="absolute top-2 left-3 flex items-center gap-1.5">
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 dark:text-gray-500 font-medium">Iklan Kemitraan</span>
+                </div>
+
+                <!-- Banner Content (HTML dari Admin) -->
+                <div class="pt-6 pb-3 px-4 sm:px-6 flex items-center justify-center min-h-[72px]">
+                    {!! $bannerData['html'] !!}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+                const BANNER_SESSION_KEY = 'ekklesia_banner_closed_{{ md5($bannerData["updated_at"] ?? "") }}';
+
+                function initBanner() {
+                    if (sessionStorage.getItem(BANNER_SESSION_KEY)) return; // Already closed this session
+
+                    const banner = document.getElementById('partnershipBanner');
+                    if (!banner) return;
+
+                    // Animate in after short delay
+                    setTimeout(function() {
+                        banner.style.opacity  = '1';
+                        banner.style.transform = 'translateY(0)';
+                    }, 1200);
+                }
+
+                window.closeBanner = function() {
+                    const wrap = document.getElementById('partnershipBannerWrap');
+                    const banner = document.getElementById('partnershipBanner');
+                    if (banner) {
+                        banner.style.opacity  = '0';
+                        banner.style.transform = 'translateY(16px)';
+                        setTimeout(function() { if (wrap) wrap.remove(); }, 500);
+                    }
+                    sessionStorage.setItem(BANNER_SESSION_KEY, '1');
+                };
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initBanner);
+                } else {
+                    initBanner();
+                }
+            })();
+        </script>
+    @endif
+
     <!-- Floating Scroll To Top Button -->
     <button type="button" 
             id="scrollToTopBtn" 
