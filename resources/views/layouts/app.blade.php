@@ -294,28 +294,13 @@
                         overflow-hidden translate-y-4 opacity-0"
                  style="transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);">
 
-                <!-- Close Button -->
-                <button type="button"
-                        id="closeBannerBtn"
-                        onclick="closeBanner()"
-                        aria-label="Tutup banner"
-                        title="Tutup"
-                        class="absolute top-2 right-2 z-10 w-6 h-6 rounded-full flex items-center justify-center
-                               bg-gray-100/80 dark:bg-[#2A2A2A]/80 hover:bg-gray-200 dark:hover:bg-[#383838]
-                               text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white
-                               transition-all duration-200 text-xs leading-none cursor-pointer">
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-
                 <!-- Label Kemitraan -->
-                <div class="absolute top-2 left-3 flex items-center gap-1.5">
+                <div class="pt-2 px-4 flex items-center">
                     <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 dark:text-gray-500 font-medium">Iklan Kemitraan</span>
                 </div>
 
                 <!-- Banner Content (HTML dari Admin) -->
-                <div class="pt-6 pb-3 px-4 sm:px-6 flex items-center justify-center min-h-[72px]">
+                <div class="pt-1 pb-3 px-4 sm:px-6 flex items-center justify-center min-h-[64px]">
                     {!! $bannerData['html'] !!}
                 </div>
             </div>
@@ -323,11 +308,7 @@
 
         <script>
             (function() {
-                const BANNER_SESSION_KEY = 'ekklesia_banner_closed_{{ md5($bannerData["updated_at"] ?? "") }}';
-
                 function initBanner() {
-                    if (sessionStorage.getItem(BANNER_SESSION_KEY)) return; // Already closed this session
-
                     const banner = document.getElementById('partnershipBanner');
                     if (!banner) return;
 
@@ -337,17 +318,6 @@
                         banner.style.transform = 'translateY(0)';
                     }, 1200);
                 }
-
-                window.closeBanner = function() {
-                    const wrap = document.getElementById('partnershipBannerWrap');
-                    const banner = document.getElementById('partnershipBanner');
-                    if (banner) {
-                        banner.style.opacity  = '0';
-                        banner.style.transform = 'translateY(16px)';
-                        setTimeout(function() { if (wrap) wrap.remove(); }, 500);
-                    }
-                    sessionStorage.setItem(BANNER_SESSION_KEY, '1');
-                };
 
                 if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', initBanner);

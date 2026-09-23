@@ -83,9 +83,17 @@ class AdminAuthController extends Controller
         $visitChart   = $this->analyticsService->getVisitChartData($days);
         $clickChart   = $this->analyticsService->getLinkClickChartData();
         $recentClicks = $this->analyticsService->getRecentClicks(8);
-        $bannerData   = $this->getBannerData();
 
-        return view('admin.dashboard', compact('summary', 'visitChart', 'clickChart', 'recentClicks', 'days', 'bannerData'));
+        return view('admin.dashboard', compact('summary', 'visitChart', 'clickChart', 'recentClicks', 'days'));
+    }
+
+    /**
+     * Halaman manajemen Banner Iklan Kemitraan.
+     */
+    public function banner(): View
+    {
+        $bannerData = $this->getBannerData();
+        return view('admin.banner', compact('bannerData'));
     }
 
     /**

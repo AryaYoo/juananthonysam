@@ -34,6 +34,7 @@ Route::prefix('manage-admin')->name('admin.')->group(function () {
 
     Route::middleware('admin.auth')->group(function () {
         Route::get('/dashboard', [AdminAuthController::class, 'dashboard'])->name('dashboard');
+        Route::get('/banner', [AdminAuthController::class, 'banner'])->name('banner');
         Route::post('/banner/save', [AdminAuthController::class, 'saveBanner'])->name('banner.save');
     });
 });
