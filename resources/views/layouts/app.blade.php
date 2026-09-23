@@ -299,7 +299,7 @@
              class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
              style="padding-bottom: env(safe-area-inset-bottom, 0);">
             <div id="partnershipBanner"
-                 class="pointer-events-auto relative w-full max-w-2xl mx-3 sm:mx-4 mb-6 sm:mb-5 rounded-xl sm:rounded-2xl
+                 class="pointer-events-auto relative w-full max-w-2xl mx-3 sm:mx-4 mb-16 sm:mb-5 rounded-xl sm:rounded-2xl
                         bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md
                         border border-gray-200/80 dark:border-[#2E2E2E]
                         shadow-[0_8px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.5)]
