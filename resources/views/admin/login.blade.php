@@ -31,8 +31,8 @@
     <div class="w-full max-w-sm sm:max-w-md">
         <!-- Logo / Title -->
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gray-950 dark:bg-white text-white dark:text-black mb-3 font-semibold text-lg tracking-widest shadow-xs">
-                ES
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-3 shadow-xs overflow-hidden">
+                <img src="{{ asset('images/logo.png') }}" alt="Ekklesia Surabaya Logo" class="w-full h-full object-contain">
             </div>
             <h1 class="text-xl sm:text-2xl font-medium tracking-tight text-gray-950 dark:text-white">
                 Admin Portal

@@ -35,8 +35,8 @@
     <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#262626]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
-                <span class="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gray-950 dark:bg-white text-white dark:text-black font-semibold text-xs tracking-wider">
-                    ES
+                <span class="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden">
+                    <img src="{{ asset('images/logo.png') }}" alt="Ekklesia Surabaya" class="w-full h-full object-contain">
                 </span>
                 <div>
                     <h1 class="text-sm sm:text-base font-medium tracking-tight text-gray-950 dark:text-white leading-none">
