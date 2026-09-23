@@ -104,28 +104,23 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+    <main class="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 space-y-4">
 
         <!-- Banner Manager Card -->
-        <div class="p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs">
-            <div class="flex items-start justify-between mb-5">
-                <div>
-                    <h2 class="text-base sm:text-lg font-medium text-gray-950 dark:text-white flex items-center gap-2">
-                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-900/30">
-                            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                            </svg>
-                        </span>
-                        Banner Iklan Kemitraan
-                    </h2>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 font-light mt-1">
-                        Floating banner di bagian bawah tengah halaman website — dapat diinjeksi kode HTML langsung.
-                    </p>
-                </div>
+        <div class="p-4 sm:p-7 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-sm sm:text-base font-medium text-gray-950 dark:text-white flex items-center gap-2">
+                    <span class="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-100 dark:bg-amber-900/30 shrink-0">
+                        <svg class="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                        </svg>
+                    </span>
+                    Banner Iklan Kemitraan
+                </h2>
 
                 <!-- Status Badge -->
                 <span id="bannerStatusBadge"
-                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium
+                      class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium shrink-0
                              {{ $bannerData['enabled'] ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900/40' : 'bg-gray-100 dark:bg-[#252525] text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-[#333333]' }}">
                     <span class="w-1.5 h-1.5 rounded-full {{ $bannerData['enabled'] ? 'bg-emerald-500' : 'bg-gray-400' }}"></span>
                     {{ $bannerData['enabled'] ? 'Aktif' : 'Nonaktif' }}
@@ -145,12 +140,12 @@
                 @csrf
 
                 <!-- Enable Toggle -->
-                <div class="flex items-center justify-between p-4 rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-100 dark:border-[#252525] mb-5">
+                <div class="flex items-center justify-between p-3 sm:p-4 rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-100 dark:border-[#252525] mb-4">
                     <div>
-                        <p class="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">Tampilkan Banner</p>
-                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Aktifkan untuk menampilkan banner di semua halaman website publik</p>
+                        <p class="text-xs font-medium text-gray-900 dark:text-white">Tampilkan Banner</p>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 hidden sm:block">Aktifkan untuk menampilkan banner di semua halaman website publik</p>
                     </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
+                    <label class="relative inline-flex items-center cursor-pointer shrink-0 ml-3">
                         <input type="checkbox"
                                id="bannerEnabledToggle"
                                name="banner_enabled"
@@ -166,9 +161,9 @@
                 </div>
 
                 <!-- HTML Editor -->
-                <div class="mb-5">
+                <div class="mb-4">
                     <div class="flex items-center justify-between mb-2">
-                        <label for="bannerHtmlInput" class="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <label for="bannerHtmlInput" class="text-xs font-medium text-gray-700 dark:text-gray-300">
                             Konten HTML Banner
                         </label>
                         <div class="flex items-center gap-3">
@@ -194,14 +189,14 @@
 
                     <textarea id="bannerHtmlInput"
                               name="banner_html"
-                              rows="10"
-                              placeholder="Masukkan HTML untuk banner iklan kemitraan...&#10;&#10;Contoh:&#10;&lt;div style=&quot;text-align:center;&quot;&gt;&#10;  &lt;a href=&quot;https://mitra.com&quot; target=&quot;_blank&quot;&gt;&#10;    &lt;img src=&quot;https://mitra.com/banner.jpg&quot; alt=&quot;Mitra&quot;&gt;&#10;  &lt;/a&gt;&#10;&lt;/div&gt;"
-                              class="w-full px-3.5 py-3 text-xs leading-relaxed font-mono rounded-xl bg-gray-50 dark:bg-[#0E0E0E] border border-gray-200 dark:border-[#2E2E2E] text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-white/10 focus:border-gray-400 dark:focus:border-gray-600 resize-y transition">{{ $bannerData['html'] }}</textarea>
+                              rows="7"
+                              placeholder="Masukkan HTML untuk banner iklan..."
+                              class="w-full px-3 py-2.5 text-xs leading-relaxed font-mono rounded-xl bg-gray-50 dark:bg-[#0E0E0E] border border-gray-200 dark:border-[#2E2E2E] text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-white/10 focus:border-gray-400 dark:focus:border-gray-600 resize-y transition">{{ $bannerData['html'] }}</textarea>
 
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-gray-400 dark:text-gray-500 mt-2 gap-1">
-                        <span>HTML bebas (gambar, hyperlink, teks styling, atau script). Maksimal 10.000 karakter.</span>
+                    <div class="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500 mt-1.5">
+                        <span>Maks. 10.000 karakter</span>
                         @if($bannerData['updated_at'])
-                            <span>Terakhir diperbarui: {{ $bannerData['updated_at'] }}</span>
+                            <span class="hidden sm:inline">Diperbarui: {{ $bannerData['updated_at'] }}</span>
                         @endif
                     </div>
                 </div>
@@ -215,36 +210,36 @@
                 </div>
 
                 <!-- Quick Template Buttons -->
-                <div class="mb-6">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">Template Cepat Siap Pakai:</p>
-                    <div class="flex flex-wrap gap-2">
+                <div class="mb-4">
+                    <p class="text-[11px] text-gray-400 dark:text-gray-500 mb-1.5 font-medium uppercase tracking-wide">Template:</p>
+                    <div class="flex flex-wrap gap-1.5">
                         <button type="button"
                                 onclick="insertTemplate('image-link')"
-                                class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
+                                class="px-2.5 py-1 text-[11px] rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
                             Gambar + Link
                         </button>
                         <button type="button"
                                 onclick="insertTemplate('text-cta')"
-                                class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
-                            Teks + CTA Button
+                                class="px-2.5 py-1 text-[11px] rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
+                            Teks + CTA
                         </button>
                         <button type="button"
                                 onclick="insertTemplate('gradient-card')"
-                                class="px-3 py-1.5 text-xs rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
-                            Kartu Gradient Elegan
+                                class="px-2.5 py-1 text-[11px] rounded-lg bg-gray-100 dark:bg-[#252525] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#333333] transition border border-gray-200 dark:border-[#333333] cursor-pointer">
+                            Gradient
                         </button>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
-                <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-[#252525]">
-                    <span class="text-xs text-gray-400 dark:text-gray-500" id="bannerCharCount">0 / 10.000 karakter</span>
+                <div class="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-[#252525]">
+                    <span class="text-[11px] text-gray-400 dark:text-gray-500" id="bannerCharCount">0 / 10.000</span>
                     <button type="submit"
-                            class="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs sm:text-sm font-medium bg-gray-950 dark:bg-white text-white dark:text-gray-950 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition active:scale-95 cursor-pointer shadow-sm">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium bg-gray-950 dark:bg-white text-white dark:text-gray-950 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition active:scale-95 cursor-pointer shadow-sm">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        Simpan Banner
+                        Simpan
                     </button>
                 </div>
             </form>
