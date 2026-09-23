@@ -28,7 +28,8 @@ Route::post('/track-click', [AdminAuthController::class, 'trackClick'])->name('t
 
 // Area Administrasi (/manage-admin)
 Route::prefix('manage-admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::match(['get', 'head'], '/', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::match(['get', 'head'], '/login', [AdminAuthController::class, 'showLogin']);
     Route::post('/login', [AdminAuthController::class, 'login'])->name('login.post');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 
@@ -36,4 +37,7 @@ Route::prefix('manage-admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminAuthController::class, 'dashboard'])->name('dashboard');
     });
 });
+
+// Fallback langsung tanpa trailing slash untuk server web tertentu
+Route::get('/manage-admin', [AdminAuthController::class, 'showLogin']);
 
