@@ -29,43 +29,44 @@
 
     @vite(['resources/css/app.css'])
 </head>
-<body class="min-h-screen bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 antialiased font-['Plus_Jakarta_Sans',sans-serif] selection:bg-gray-400/20">
-
-    <!-- Top Minimalist Navigation Bar -->
+<body class="min-h-screen bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 antialiased font-['Plus_Jakarta_Sans',sans-serif] selection:bg-gray-400/20">    <!-- Top Minimalist Navigation Bar -->
     <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#262626]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3 sm:gap-6">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2.5 hover:opacity-85 transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+
+            <!-- Left: Logo + Nav -->
+            <div class="flex items-center gap-2 sm:gap-5 min-w-0">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 hover:opacity-85 transition shrink-0">
                     <span class="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden">
                         <img src="{{ asset('images/logo.png') }}" alt="Ekklesia Surabaya" class="w-full h-full object-contain">
                     </span>
-                    <div>
+                    <div class="hidden sm:block">
                         <h1 class="text-sm sm:text-base font-medium tracking-tight text-gray-950 dark:text-white leading-none">
                             Ekklesia Admin
                         </h1>
-                        <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light hidden sm:inline">
+                        <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">
                             Dashboard Analitik
                         </span>
                     </div>
                 </a>
 
                 <!-- Header Navigation Links -->
-                <nav class="flex items-center gap-1 sm:gap-2 border-l border-gray-200 dark:border-[#2b2b2b] pl-3 sm:pl-4">
-                    <a href="{{ route('admin.dashboard') }}" 
-                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-medium bg-gray-900 text-white dark:bg-white dark:text-gray-950 shadow-2xs">
+                <nav class="flex items-center gap-1 border-l border-gray-200 dark:border-[#2b2b2b] pl-2 sm:pl-4">
+                    <a href="{{ route('admin.dashboard') }}"
+                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-medium bg-gray-900 text-white dark:bg-white dark:text-gray-950 shadow-2xs whitespace-nowrap">
                         Analitik
                     </a>
-                    <a href="{{ route('admin.banner') }}" 
-                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-normal text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#222222]">
+                    <a href="{{ route('admin.banner') }}"
+                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-normal text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#222222] whitespace-nowrap">
                         Banner Iklan
                     </a>
                 </nav>
             </div>
 
-            <div class="flex items-center gap-2">
-                <!-- Theme Toggle Button -->
-                <button type="button" 
-                        onclick="toggleAdminTheme()" 
+            <!-- Right: Theme + Buka Web + Logout -->
+            <div class="flex items-center gap-1.5 shrink-0">
+                <!-- Theme Toggle -->
+                <button type="button"
+                        onclick="toggleAdminTheme()"
                         id="adminThemeToggleBtn"
                         class="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-[#222222] transition cursor-pointer"
                         title="Ubah Mode Gelap / Terang">
@@ -77,9 +78,9 @@
                     </svg>
                 </button>
 
-                <!-- Website Link -->
-                <a href="{{ route('home') }}" 
-                   target="_blank" 
+                <!-- Website Link (desktop only) -->
+                <a href="{{ route('home') }}"
+                   target="_blank"
                    class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-[#333333] rounded-lg transition hover:bg-gray-50 dark:hover:bg-[#202020]">
                     <span>Buka Web</span>
                     <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,15 +88,16 @@
                     </svg>
                 </a>
 
-                <!-- Logout Form -->
+                <!-- Logout: icon only on mobile, icon+text on desktop -->
                 <form action="{{ route('admin.logout') }}" method="POST">
                     @csrf
-                    <button type="submit" 
-                            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal text-red-600 dark:text-red-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/30 border border-red-200 dark:border-red-900/40 rounded-lg transition cursor-pointer">
+                    <button type="submit"
+                            title="Keluar"
+                            class="inline-flex items-center gap-1.5 px-2 sm:px-3 py-2 sm:py-1.5 text-xs font-normal text-red-600 dark:text-red-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/30 border border-red-200 dark:border-red-900/40 rounded-lg transition cursor-pointer">
                         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
-                        <span>Keluar</span>
+                        <span class="hidden sm:inline">Keluar</span>
                     </button>
                 </form>
             </div>
