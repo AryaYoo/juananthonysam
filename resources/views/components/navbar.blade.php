@@ -162,35 +162,20 @@
 
                     <!-- Dropdown Panel -->
                     <div id="ibadahDropdownMenu" 
-                         class="absolute left-0 mt-1.5 w-60 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2C2C2C] shadow-xl py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                         class="absolute left-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2C2C2C] shadow-xl py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
                         <a href="{{ route('ibadah.my-home') }}" 
-                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
-                            <span class="text-xs font-semibold text-gray-900 dark:text-white tracking-wider font-['Stack_Sans_Notch',sans-serif]">
-                                My Home
-                            </span>
-                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
-                                Komunitas Sel & Ibadah Rumah
-                            </span>
+                           class="flex items-center px-4 py-2.5 text-xs font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            My Home
                         </a>
                         <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
                         <a href="{{ route('ibadah.ekidz') }}" 
-                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
-                            <span class="text-xs font-medium text-gray-900 dark:text-white">
-                                Ekidz
-                            </span>
-                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
-                                Ibadah Anak (Minggu 09:30 WIB)
-                            </span>
+                           class="flex items-center px-4 py-2.5 text-xs font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            Ekidz
                         </a>
                         <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
                         <a href="{{ route('ibadah.teens') }}" 
-                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
-                            <span class="text-xs font-medium text-gray-900 dark:text-white">
-                                Ekklesia Teens
-                            </span>
-                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
-                                Ibadah Remaja & Pemuda (Minggu 11:00 WIB)
-                            </span>
+                           class="flex items-center px-4 py-2.5 text-xs font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            Ekklesia Teens
                         </a>
                     </div>
                 </div>
@@ -411,35 +396,24 @@
                 <div id="mobileIbadahSubmenu" class="space-y-1 pl-3 pr-1 py-1.5 transition-all duration-200" style="display: none;">
                     <a href="{{ route('ibadah.my-home') }}" 
                        onclick="window.closeMobileNav()"
-                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
-                        <div class="flex flex-col">
-                            <span class="font-semibold font-['Stack_Sans_Notch',sans-serif] tracking-wider text-gray-950 dark:text-white text-[13px]">
-                                My Home
-                            </span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Komunitas Sel & Ibadah Rumah</span>
-                        </div>
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-100 dark:bg-[#242424] font-medium text-black dark:text-white' : '' }}">
+                        <span class="font-medium text-[13px]">My Home</span>
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
                     <a href="{{ route('ibadah.ekidz') }}" 
                        onclick="window.closeMobileNav()"
-                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
-                        <div class="flex flex-col">
-                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ekidz</span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Ibadah Anak (Minggu 09:30 WIB)</span>
-                        </div>
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-100 dark:bg-[#242424] font-medium text-black dark:text-white' : '' }}">
+                        <span class="font-medium text-[13px]">Ekidz</span>
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
                     <a href="{{ route('ibadah.teens') }}" 
                        onclick="window.closeMobileNav()"
-                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
-                        <div class="flex flex-col">
-                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ekklesia Teens</span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Ibadah Remaja & Pemuda (Minggu 11:00 WIB)</span>
-                        </div>
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-100 dark:bg-[#242424] font-medium text-black dark:text-white' : '' }}">
+                        <span class="font-medium text-[13px]">Ekklesia Teens</span>
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
