@@ -132,11 +132,11 @@
     </section>
 
     <!-- =========================================================
-         2.4. SECTION TITLE: SEKILAS EKKLESIA
+         2.4. SECTION TITLE: HIGHLIGHT EKKLESIA
          ========================================================= -->
-    <section class="w-full bg-[#0A0A0A] text-white py-6 sm:py-8 border-t border-b border-white/10 flex items-center justify-center select-none" aria-label="Sekilas Ekklesia">
+    <section class="w-full bg-[#0A0A0A] text-white py-6 sm:py-8 border-t border-b border-white/10 flex items-center justify-center select-none" aria-label="Highlight Ekklesia">
         <h2 class="text-sm sm:text-base md:text-lg font-normal uppercase tracking-[0.35em] text-white/90 font-['Stack_Sans_Notch',sans-serif] text-center">
-            SEKILAS EKKLESIA
+            HIGHLIGHT EKKLESIA
         </h2>
     </section>
 
@@ -169,7 +169,7 @@
          3. JADWAL IBADAH (5 Jadwal Lengkap Sesuai Permintaan)
          Sunday Service (09.00), Ekidz (09.30), E-Teens (11.00), Doa Senin (19.00), Doa Jumat (19.00)
          ========================================================= -->
-    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
+    <section id="ibadah" style="scroll-margin-top: 80px;" class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12 reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block mb-2">
@@ -251,7 +251,15 @@
             {{-- DESKTOP GRID (>= sm) --}}
             <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
                 @foreach($schedules as $index => $schedule)
-                    <div class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
+                    @php
+                        $targetId = '';
+                        if (str_contains(strtolower($schedule['name']), 'ekidz')) {
+                            $targetId = 'ekidz';
+                        } elseif (str_contains(strtolower($schedule['name']), 'teens')) {
+                            $targetId = 'ekklesia-teens';
+                        }
+                    @endphp
+                    <div @if($targetId) id="{{ $targetId }}" style="scroll-margin-top: 100px;" @endif class="p-5 sm:p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <span class="text-[10px] font-normal uppercase tracking-wider px-2 py-0.5 rounded bg-gray-100 dark:bg-[#242424] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">

@@ -145,6 +145,56 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Dropdown Menu Ibadah -->
+                <div class="relative group" id="ibadahDropdownContainer">
+                    <button type="button" 
+                            id="ibadahDropdownBtn"
+                            onclick="window.toggleIbadahDropdown(event)"
+                            class="flex items-center gap-1.5 px-4 py-2 text-sm font-normal rounded-md transition-all cursor-pointer {{ request()->routeIs('ibadah.*') ? 'text-gray-950 dark:text-white bg-gray-100 dark:bg-[#222222] font-medium' : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1A1A1A]' }}"
+                            aria-expanded="false"
+                            aria-haspopup="true">
+                        <span>Ibadah</span>
+                        <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" id="ibadahDropdownChevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Panel -->
+                    <div id="ibadahDropdownMenu" 
+                         class="absolute left-0 mt-1.5 w-60 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#2C2C2C] shadow-xl py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                        <a href="{{ route('ibadah.my-home') }}" 
+                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            <span class="text-xs font-semibold text-gray-900 dark:text-white tracking-wider font-['Stack_Sans_Notch',sans-serif]">
+                                My Home
+                            </span>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
+                                Komunitas Sel & Ibadah Rumah
+                            </span>
+                        </a>
+                        <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
+                        <a href="{{ route('ibadah.ekidz') }}" 
+                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            <span class="text-xs font-medium text-gray-900 dark:text-white">
+                                Ekidz
+                            </span>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
+                                Ibadah Anak (Minggu 09:30 WIB)
+                            </span>
+                        </a>
+                        <div class="h-px bg-gray-100 dark:bg-[#252525] my-1 mx-2"></div>
+                        <a href="{{ route('ibadah.teens') }}" 
+                           class="flex flex-col px-3.5 py-2 hover:bg-gray-50 dark:hover:bg-[#242424] rounded-lg mx-1.5 transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-50 dark:bg-[#242424]' : '' }}">
+                            <span class="text-xs font-medium text-gray-900 dark:text-white">
+                                Ekklesia Teens
+                            </span>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 font-light">
+                                Ibadah Remaja & Pemuda (Minggu 11:00 WIB)
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
                 <a href="{{ route('media') }}" 
                    class="px-4 py-2 text-sm font-normal rounded-md transition-all {{ request()->routeIs('media') ? 'text-gray-950 dark:text-white bg-gray-100 dark:bg-[#222222] font-medium' : 'text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1A1A1A]' }}">
                     Media & Galeri
@@ -344,6 +394,59 @@
                 </div>
             </div>
 
+            <!-- Mobile Ibadah Accordion Item -->
+            <div class="rounded-lg overflow-hidden transition-colors border border-transparent">
+                <button type="button" 
+                        onclick="window.toggleMobileIbadahSubmenu(event)"
+                        class="w-full flex items-center justify-between px-3.5 py-3 rounded-lg text-sm transition-colors cursor-pointer {{ request()->routeIs('ibadah.*') ? 'bg-[#111111] dark:bg-white text-white dark:text-[#141414] font-medium' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#222222] hover:text-black dark:hover:text-white font-normal' }}">
+                    <div class="flex items-center gap-2">
+                        <span>Ibadah</span>
+                    </div>
+                    <svg id="mobileIbadahChevron" class="w-4 h-4 opacity-60 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Submenu (My Home, Ekidz, Ekklesia Teens) -->
+                <div id="mobileIbadahSubmenu" class="space-y-1 pl-3 pr-1 py-1.5 transition-all duration-200" style="display: none;">
+                    <a href="{{ route('ibadah.my-home') }}" 
+                       onclick="window.closeMobileNav()"
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.my-home') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
+                        <div class="flex flex-col">
+                            <span class="font-semibold font-['Stack_Sans_Notch',sans-serif] tracking-wider text-gray-950 dark:text-white text-[13px]">
+                                My Home
+                            </span>
+                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Komunitas Sel & Ibadah Rumah</span>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="{{ route('ibadah.ekidz') }}" 
+                       onclick="window.closeMobileNav()"
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.ekidz') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
+                        <div class="flex flex-col">
+                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ekidz</span>
+                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Ibadah Anak (Minggu 09:30 WIB)</span>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="{{ route('ibadah.teens') }}" 
+                       onclick="window.closeMobileNav()"
+                       class="flex items-center justify-between px-3 py-2.5 text-xs rounded-lg text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#242424] transition-colors {{ request()->routeIs('ibadah.teens') ? 'bg-gray-100 dark:bg-[#242424] font-medium' : '' }}">
+                        <div class="flex flex-col">
+                            <span class="font-medium text-gray-950 dark:text-white text-[13px]">Ekklesia Teens</span>
+                            <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">Ibadah Remaja & Pemuda (Minggu 11:00 WIB)</span>
+                        </div>
+                        <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
             <a href="{{ route('media') }}" 
                onclick="window.closeMobileNav()"
                class="flex items-center justify-between px-3.5 py-3 rounded-lg text-sm transition-colors {{ request()->routeIs('media') ? 'bg-[#111111] dark:bg-white text-white dark:text-[#141414] font-medium' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#222222] hover:text-black dark:hover:text-white font-normal' }}">
@@ -440,6 +543,17 @@
             if (chevron) chevron.classList.remove('rotate-180');
             if (btn) btn.setAttribute('aria-expanded', 'false');
         } else {
+            // Close ibadah dropdown if open
+            const ibadahMenu = document.getElementById('ibadahDropdownMenu');
+            const ibadahChevron = document.getElementById('ibadahDropdownChevron');
+            const ibadahBtn = document.getElementById('ibadahDropdownBtn');
+            if (ibadahMenu && ibadahMenu.classList.contains('opacity-100')) {
+                ibadahMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                ibadahMenu.classList.add('opacity-0', 'invisible', 'translate-y-1');
+                if (ibadahChevron) ibadahChevron.classList.remove('rotate-180');
+                if (ibadahBtn) ibadahBtn.setAttribute('aria-expanded', 'false');
+            }
+
             menu.classList.remove('opacity-0', 'invisible', 'translate-y-1');
             menu.classList.add('opacity-100', 'visible', 'translate-y-0');
             if (chevron) chevron.classList.add('rotate-180');
@@ -447,17 +561,61 @@
         }
     };
 
-    // Close desktop profile dropdown on outside click
-    document.addEventListener('click', function(e) {
-        const container = document.getElementById('profileDropdownContainer');
-        const menu = document.getElementById('profileDropdownMenu');
-        const chevron = document.getElementById('profileDropdownChevron');
-        const btn = document.getElementById('profileDropdownBtn');
-        if (container && !container.contains(e.target) && menu && menu.classList.contains('opacity-100')) {
+    // Desktop Ibadah Dropdown Toggle
+    window.toggleIbadahDropdown = function(e) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        const menu = document.getElementById('ibadahDropdownMenu');
+        const chevron = document.getElementById('ibadahDropdownChevron');
+        const btn = document.getElementById('ibadahDropdownBtn');
+        if (!menu) return;
+
+        const isVisible = menu.classList.contains('opacity-100');
+        if (isVisible) {
             menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
             menu.classList.add('opacity-0', 'invisible', 'translate-y-1');
             if (chevron) chevron.classList.remove('rotate-180');
             if (btn) btn.setAttribute('aria-expanded', 'false');
+        } else {
+            // Close profile dropdown if open
+            const profMenu = document.getElementById('profileDropdownMenu');
+            const profChevron = document.getElementById('profileDropdownChevron');
+            const profBtn = document.getElementById('profileDropdownBtn');
+            if (profMenu && profMenu.classList.contains('opacity-100')) {
+                profMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                profMenu.classList.add('opacity-0', 'invisible', 'translate-y-1');
+                if (profChevron) profChevron.classList.remove('rotate-180');
+                if (profBtn) profBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            menu.classList.remove('opacity-0', 'invisible', 'translate-y-1');
+            menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+            if (chevron) chevron.classList.add('rotate-180');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+        }
+    };
+
+    // Close desktop dropdowns on outside click
+    document.addEventListener('click', function(e) {
+        const profContainer = document.getElementById('profileDropdownContainer');
+        const profMenu = document.getElementById('profileDropdownMenu');
+        const profChevron = document.getElementById('profileDropdownChevron');
+        const profBtn = document.getElementById('profileDropdownBtn');
+        if (profContainer && !profContainer.contains(e.target) && profMenu && profMenu.classList.contains('opacity-100')) {
+            profMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            profMenu.classList.add('opacity-0', 'invisible', 'translate-y-1');
+            if (profChevron) profChevron.classList.remove('rotate-180');
+            if (profBtn) profBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        const ibadahContainer = document.getElementById('ibadahDropdownContainer');
+        const ibadahMenu = document.getElementById('ibadahDropdownMenu');
+        const ibadahChevron = document.getElementById('ibadahDropdownChevron');
+        const ibadahBtn = document.getElementById('ibadahDropdownBtn');
+        if (ibadahContainer && !ibadahContainer.contains(e.target) && ibadahMenu && ibadahMenu.classList.contains('opacity-100')) {
+            ibadahMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            ibadahMenu.classList.add('opacity-0', 'invisible', 'translate-y-1');
+            if (ibadahChevron) ibadahChevron.classList.remove('rotate-180');
+            if (ibadahBtn) ibadahBtn.setAttribute('aria-expanded', 'false');
         }
     });
 
@@ -466,6 +624,23 @@
         if (e) { e.preventDefault(); e.stopPropagation(); }
         const submenu = document.getElementById('mobileProfileSubmenu');
         const chevron = document.getElementById('mobileProfileChevron');
+        if (!submenu) return;
+
+        const isExpanded = submenu.style.display !== 'none';
+        if (isExpanded) {
+            submenu.style.display = 'none';
+            if (chevron) chevron.classList.remove('rotate-180');
+        } else {
+            submenu.style.display = 'block';
+            if (chevron) chevron.classList.add('rotate-180');
+        }
+    };
+
+    // Mobile Ibadah Submenu Accordion Toggle
+    window.toggleMobileIbadahSubmenu = function(e) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        const submenu = document.getElementById('mobileIbadahSubmenu');
+        const chevron = document.getElementById('mobileIbadahChevron');
         if (!submenu) return;
 
         const isExpanded = submenu.style.display !== 'none';

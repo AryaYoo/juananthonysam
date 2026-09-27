@@ -53,19 +53,21 @@ class EventSeeder extends Seeder
                 'is_active' => true,
             ],
             [
-                'title' => 'Retreat Pemulihan & Kepemimpinan 2026',
-                'slug' => 'retreat-pemulihan-dan-kepemimpinan-2026',
+                'title' => 'Retreat Pemulihan & Kepemimpinan 2027',
+                'slug' => 'retreat-pemulihan-dan-kepemimpinan-2027',
                 'category' => 'Retreat',
                 'description' => 'Retreat akbar 3 hari 2 malam untuk seluruh pelayan jemaat dan keluarga. Mengambil waktu khusus di kaki Tuhan dalam tema Tahun Pemulihan bagi Kemuliaan Tuhan.',
-                'schedule_info' => 'Juni 2026 (Jadwal Segera Diumumkan)',
+                'schedule_info' => 'Juni 2027 (Jadwal Segera Diumumkan)',
                 'time_info' => '3 Hari 2 Malam',
                 'location' => 'Pacet Retreat Center, Mojokerto',
                 'image_url' => asset('images/Dokumentasi3.png'),
-                'badge' => 'Special Event 2026',
+                'badge' => 'Special Event 2027',
                 'is_featured' => true,
                 'is_active' => true,
             ],
         ];
+
+        Event::where('slug', 'retreat-pemulihan-dan-kepemimpinan-2026')->delete();
 
         foreach ($events as $event) {
             Event::updateOrCreate(['slug' => $event['slug']], $event);

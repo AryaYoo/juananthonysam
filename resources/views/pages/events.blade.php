@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Acara & Ibadah — Ekklesia Surabaya')
-@section('meta_description', 'Jadwal ibadah dan acara khusus Ekklesia Surabaya: Worship Night setiap Jumat Minggu ke-4, My Home komunitas sel, EFF Family Fellowship, dan Retreat 2026.')
+@section('meta_description', 'Jadwal ibadah dan acara khusus Ekklesia Surabaya: Worship Night setiap Jumat Minggu ke-4, My Home komunitas sel, EFF Family Fellowship, dan Retreat 2027.')
 
 @section('content')
     <!-- =========================================================
@@ -127,7 +127,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 @foreach($recurringPrograms as $index => $prog)
-                    <div class="p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
+                    @php
+                        $progId = str_contains(strtolower($prog['name']), 'my home') ? 'my-home' : '';
+                    @endphp
+                    <div @if($progId) id="{{ $progId }}" style="scroll-margin-top: 100px;" @endif class="p-6 rounded-xl bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] theme-card flex flex-col justify-between reveal-on-scroll delay-{{ ($index + 1) * 100 }}">
                         <div>
                             <div class="flex items-center justify-between mb-3">
                                 <span class="text-[10px] uppercase font-normal tracking-wider px-2.5 py-0.5 rounded bg-gray-100 dark:bg-[#222222] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]">

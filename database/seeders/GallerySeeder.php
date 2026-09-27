@@ -38,10 +38,10 @@ class GallerySeeder extends Seeder
                 'sort_order' => 3,
             ],
             [
-                'title'      => 'Dokumentasi Pelayanan 3',
-                'category'   => 'Ibadah',
+                'title'      => 'Dokumentasi Retreat',
+                'category'   => 'Retreat',
                 'image_url'  => asset('images/Dokumentasi3.png'),
-                'caption'    => 'Suasana khidmat dan semangat kebersamaan dalam pelayanan jemaat.',
+                'caption'    => 'Kebersamaan dan sukacita jemaat dalam kegiatan retreat yang mempererat persekutuan.',
                 'sort_order' => 4,
             ],
             [

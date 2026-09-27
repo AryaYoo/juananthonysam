@@ -43,7 +43,7 @@ class EventController extends Controller
             ],
             [
                 'name' => 'Camp & Annual Retreat',
-                'schedule' => 'Tahunan (Tahun 2026)',
+                'schedule' => 'Tahunan (Tahun 2027)',
                 'time' => '3 Hari 2 Malam',
                 'location' => 'Retreat Center Jawa Timur',
                 'description' => 'Momen perjumpaan pribadi dengan Tuhan, penyegaran rohani, serta kesatuan hati seluruh jemaat Ekklesia Surabaya.',

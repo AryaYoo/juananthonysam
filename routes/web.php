@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IbadahController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,13 @@ Route::post('/permohonan-doa', [HomeController::class, 'prayerRequest'])->name('
 Route::get('/profil', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profil/ps-juan-anthony-sam', [ProfileController::class, 'juan'])->name('pastor.juan');
 Route::get('/profil/ps-samuel', [ProfileController::class, 'samuel'])->name('pastor.samuel');
+
+// Halaman Pelayanan & Ibadah Khusus
+Route::prefix('ibadah')->name('ibadah.')->group(function () {
+    Route::get('/my-home', [IbadahController::class, 'myHome'])->name('my-home');
+    Route::get('/ekidz', [IbadahController::class, 'ekidz'])->name('ekidz');
+    Route::get('/ekklesia-teens', [IbadahController::class, 'teens'])->name('teens');
+});
 
 Route::get('/media', [MediaController::class, 'index'])->name('media');
 Route::get('/acara', [EventController::class, 'index'])->name('events');
