@@ -31,7 +31,6 @@ class IbadahController extends Controller
                 ],
             ],
             'headingLines' => ['MY', 'HOME'],
-            'tagline' => 'KOMUNITAS SEL & PERSEKUTUAN RUMAH',
             'descriptionParagraphs' => [
                 'Komunitas sel di Ekklesia Surabaya dikenal dengan sebutan My Home. Di tempat inilah setiap jemaat saling mengenal lebih dekat, berakar bersama di dalam firman Tuhan, dan mengalami kehangatan keluarga rohani yang sejati. Kami percaya bahwa pertumbuhan iman yang sehat tidak hanya terjadi di ruang ibadah raya, melainkan terbangun kuat melalui persekutuan intim di mana setiap orang didengarkan, didoakan, dan dikuatkan.',
                 'Dalam My Home, Anda tidak berjalan sendirian dalam menghadapi dinamika kehidupan. Teman-teman seiman hadir menjadi sahabat dan keluarga rohani yang saling mendukung, saling mendoakan, serta bersama-sama mempraktikkan kasih Kristus dalam keseharian di kota Surabaya.',
@@ -75,7 +74,6 @@ class IbadahController extends Controller
                 ],
             ],
             'headingLines' => ['E', 'KIDZ'],
-            'tagline' => 'KIDS MINISTRY & GENERASI BINTANG',
             'descriptionParagraphs' => [
                 'Gereja anak di Ekklesia Surabaya dikenal dengan sebutan Ekidz. Di tempat inilah anak-anak sejak usia dini diperkenalkan kepada kasih Tuhan Yesus yang tak terbatas melalui pujian dan penyembahan yang penuh sukacita, kisah firman Tuhan yang interaktif, serta aktivitas pembentukan karakter kristiani.',
                 'Kami percaya bahwa setiap anak adalah benih ilahi berharga yang dipersiapkan Tuhan bagi masa depan yang penuh harapan. Melalui guru-guru sekolah minggu yang penuh kasih dan ruang ibadah yang aman serta nyaman, Ekidz berkomitmen menanamkan nilai-nilai kebenaran Alkitab agar anak-anak bertumbuh menjadi generasi yang takut akan Tuhan, berkarakter unggul, dan menjadi terang di mana pun mereka berada.',
@@ -119,7 +117,6 @@ class IbadahController extends Controller
                 ],
             ],
             'headingLines' => ['EKKLESIA', 'TEENS'],
-            'tagline' => 'YOUTH & TEEN GENERATION',
             'descriptionParagraphs' => [
                 'Gereja anak muda dan remaja di Ekklesia Surabaya dikenal dengan sebutan Ekklesia Teens. Di tempat inilah anak-anak muda berjumpa dengan Tuhan dan mengalami pemulihan serta perubahan hidup yang nyata. Kami percaya bahwa Tuhan menjanjikan masa depan yang penuh harapan dan di dalam perjalanan iman, Anda tidak sendiri di rumah ini.',
                 'Karena Ekklesia Teens menjadi sahabat dan keluarga rohani yang selalu mendukung, membimbing, dan mendoakan. Bersama-sama, kami rindu memperlengkapi setiap remaja dan pemuda agar memiliki identitas yang kokoh di dalam Kristus, mengasah potensi terbaik, serta menjadi teladan dalam perkataan, tingkah laku, dan iman di tengah sekolah, kampus, maupun masyarakat.',

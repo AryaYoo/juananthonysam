@@ -106,14 +106,6 @@
                             </h1>
                         @endforeach
                     </div>
-                    @if(!empty($tagline))
-                        <div class="mt-6 flex items-center gap-3">
-                            <div class="w-8 h-0.5 bg-gray-950 dark:bg-white"></div>
-                            <span class="text-[11px] sm:text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 font-['Stack_Sans_Notch',sans-serif]">
-                                {{ $tagline }}
-                            </span>
-                        </div>
-                    @endif
                 </div>
 
                 <!-- Kolom Kanan: Paragraf Keterangan Pelayanan -->
@@ -123,19 +115,6 @@
                             {{ $paragraph }}
                         </p>
                     @endforeach
-
-                    <!-- Pill Tagline / Nilai-nilai Inti -->
-                    <div class="pt-4 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-normal bg-gray-100 dark:bg-[#202020] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-[#303030]">
-                            Ekklesia Surabaya
-                        </span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-normal bg-gray-100 dark:bg-[#202020] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-[#303030]">
-                            Keluarga Allah yang Sehat
-                        </span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-normal bg-gray-100 dark:bg-[#202020] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-[#303030]">
-                            Bertumbuh & Berbuah
-                        </span>
-                    </div>
                 </div>
 
             </div>
@@ -182,60 +161,6 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-b border-gray-200 dark:border-[#282828] text-xs sm:text-sm">
-                    <!-- Lokasi -->
-                    <div class="flex items-start gap-3 text-gray-600 dark:text-gray-300 font-light">
-                        <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-[#252525] flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-200 mt-0.5">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="block text-[11px] uppercase tracking-wider font-medium text-gray-900 dark:text-white mb-0.5">
-                                Lokasi Pelaksanaan
-                            </span>
-                            <span>{{ $schedule['location'] }}</span>
-                        </div>
-                    </div>
-
-                    <!-- Target Jemaat -->
-                    <div class="flex items-start gap-3 text-gray-600 dark:text-gray-300 font-light">
-                        <div class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-[#252525] flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-200 mt-0.5">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="block text-[11px] uppercase tracking-wider font-medium text-gray-900 dark:text-white mb-0.5">
-                                Terbuka Bagi
-                            </span>
-                            <span>{{ $schedule['target'] }}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action CTA: WhatsApp & Maps -->
-                <div class="pt-6 flex flex-col sm:flex-row items-center gap-3">
-                    <a href="{{ whatsapp_url($schedule['whatsappMessage'] ?? 'Halo Pastoral Ekklesia, saya ingin bergabung dalam ibadah ' . $pageName) }}"
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 py-3 px-6 bg-[#111111] hover:bg-[#292929] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-normal text-xs sm:text-sm rounded-xl transition-all shadow-sm">
-                        <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.173.449.741.963 1.2.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
-                        </svg>
-                        <span>Hubungi Pastoral / Info Kehadiran</span>
-                    </a>
-                    <a href="https://maps.google.com/?q=Jln+Ruko+Ngaglik+2+No+15+Surabaya" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-900 dark:text-white font-normal text-xs sm:text-sm rounded-xl transition-colors border border-gray-200 dark:border-[#353535]">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                        <span>Buka Google Maps</span>
-                    </a>
-                </div>
             </div>
 
             <!-- Navigasi Cepat ke Ibadah Lainnya -->
