@@ -106,7 +106,7 @@
                 <div class="md:col-span-4 lg:col-span-5 reveal-on-scroll">
                     <div class="space-y-0 select-none">
                         @foreach($headingLines as $line)
-                            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-gray-950 dark:text-white leading-[0.92] font-['Stack_Sans_Notch',sans-serif]">
+                            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light uppercase tracking-wider text-gray-950 dark:text-white leading-[0.95] font-['Stack_Sans_Notch',sans-serif]">
                                 {{ $line }}
                             </h1>
                         @endforeach
