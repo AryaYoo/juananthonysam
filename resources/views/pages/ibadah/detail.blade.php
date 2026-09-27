@@ -135,9 +135,6 @@
                     WAKTU IBADAH {{ strtoupper($pageName) }}
                 </h2>
                 <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
-                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-3 font-light">
-                    Mari hadir dan alami hadirat serta perjumpaan yang mengubahkan bersama jemaat Ekklesia Surabaya.
-                </p>
             </div>
 
             <!-- Kartu Detail Waktu Ibadah -->
@@ -260,6 +257,28 @@
                 container.addEventListener('mouseleave', () => {
                     startTimer();
                 });
+
+                // Swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+                const SWIPE_THRESHOLD = 50;
+
+                container.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].clientX;
+                }, { passive: true });
+
+                container.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].clientX;
+                    const diff = touchStartX - touchEndX;
+                    if (Math.abs(diff) >= SWIPE_THRESHOLD) {
+                        if (diff > 0) {
+                            showSlide(currentSlide + 1); // swipe kiri → next
+                        } else {
+                            showSlide(currentSlide - 1); // swipe kanan → prev
+                        }
+                        resetTimer();
+                    }
+                }, { passive: true });
             }
 
             startTimer();
