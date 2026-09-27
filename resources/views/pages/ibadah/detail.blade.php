@@ -9,32 +9,37 @@
          (Seperti profil ekklesia tapi dilengkapi fungsi slider)
          ========================================================= -->
     <section class="relative bg-black text-white overflow-hidden select-none border-b border-gray-200 dark:border-[#242424]" id="ibadahHeroSection">
-        <div class="relative w-full min-h-[360px] sm:min-h-[500px] lg:min-h-[640px] flex items-center justify-center bg-black overflow-hidden"
+        <div class="relative w-full overflow-hidden bg-black"
              style="height: calc(100vw * 10 / 16); max-height: 720px; min-height: 360px;"
              id="ibadahSliderContainer">
 
-            @foreach($heroSlides as $i => $slide)
-                <div class="ibadah-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out {{ $i === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none' }}"
-                     data-slide-index="{{ $i }}">
-                    <img src="{{ asset_v($slide['image']) }}" 
-                         alt="{{ $slide['alt'] }}" 
-                         class="w-full h-full object-cover object-center select-none">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
-                </div>
-            @endforeach
+            {{-- Slide Track --}}
+            <div id="ibadahSlideTrack"
+                 class="flex h-full"
+                 style="width: {{ count($heroSlides) * 100 }}%; transition: transform 0.55s cubic-bezier(0.77,0,0.18,1);">
+                @foreach($heroSlides as $i => $slide)
+                    <div class="ibadah-slide relative h-full flex-shrink-0"
+                         style="width: {{ count($heroSlides) > 0 ? (100 / count($heroSlides)) : 100 }}%;">
+                        <img src="{{ asset_v($slide['image']) }}"
+                             alt="{{ $slide['alt'] }}"
+                             class="w-full h-full object-cover object-center select-none">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                    </div>
+                @endforeach
+            </div>
 
             @if(count($heroSlides) > 1)
-                <!-- Navigation Arrows -->
-                <button type="button" 
-                        onclick="window.prevIbadahSlide()" 
+                {{-- Navigation Arrows --}}
+                <button type="button"
+                        onclick="window.prevIbadahSlide()"
                         aria-label="Slide Sebelumnya"
                         class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 backdrop-blur-sm shadow-lg cursor-pointer">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
-                <button type="button" 
-                        onclick="window.nextIbadahSlide()" 
+                <button type="button"
+                        onclick="window.nextIbadahSlide()"
                         aria-label="Slide Berikutnya"
                         class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 backdrop-blur-sm shadow-lg cursor-pointer">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,10 +47,10 @@
                     </svg>
                 </button>
 
-                <!-- Dot Indicators -->
+                {{-- Dot Indicators --}}
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2" id="ibadahDotsContainer">
                     @foreach($heroSlides as $i => $slide)
-                        <button type="button" 
+                        <button type="button"
                                 onclick="window.goToIbadahSlide({{ $i }})"
                                 class="ibadah-dot h-2 rounded-full transition-all duration-300 cursor-pointer {{ $i === 0 ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80' }}"
                                 aria-label="Slide {{ $i + 1 }}">
@@ -190,9 +195,9 @@
     <script>
         (function() {
             let currentSlide = 0;
-            const slides = document.querySelectorAll('.ibadah-slide');
+            const track = document.getElementById('ibadahSlideTrack');
             const dots = document.querySelectorAll('.ibadah-dot');
-            const totalSlides = slides.length;
+            const totalSlides = {{ count($heroSlides) }};
             let slideTimer = null;
 
             if (totalSlides <= 1) return;
@@ -202,15 +207,9 @@
                 if (index >= totalSlides) index = 0;
                 currentSlide = index;
 
-                slides.forEach((slide, idx) => {
-                    if (idx === currentSlide) {
-                        slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
-                        slide.classList.add('opacity-100', 'z-10');
-                    } else {
-                        slide.classList.remove('opacity-100', 'z-10');
-                        slide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
-                    }
-                });
+                // Geser track secara horizontal
+                const offset = -(currentSlide * (100 / totalSlides));
+                track.style.transform = 'translateX(' + offset + '%)';
 
                 dots.forEach((dot, idx) => {
                     if (idx === currentSlide) {
@@ -272,9 +271,9 @@
                     const diff = touchStartX - touchEndX;
                     if (Math.abs(diff) >= SWIPE_THRESHOLD) {
                         if (diff > 0) {
-                            showSlide(currentSlide + 1); // swipe kiri → next
+                            showSlide(currentSlide + 1);
                         } else {
-                            showSlide(currentSlide - 1); // swipe kanan → prev
+                            showSlide(currentSlide - 1);
                         }
                         resetTimer();
                     }
