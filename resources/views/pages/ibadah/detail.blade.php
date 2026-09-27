@@ -66,7 +66,7 @@
         <div class="flex items-center gap-6 whitespace-nowrap animate-theme-marquee group-hover:[animation-play-state:paused]">
             <!-- Set 1 -->
             <div class="flex items-center gap-8 shrink-0">
-                @for ($i = 0; $i < 6; $i++)
+                @for ($i = 0; $i < 12; $i++)
                     <div class="inline-flex items-center gap-3">
                         <span class="text-amber-400 text-xs">✦</span>
                         <span class="text-xs sm:text-sm font-light uppercase tracking-[0.25em] text-gray-200 font-['Stack_Sans_Notch',sans-serif]">
@@ -77,7 +77,7 @@
             </div>
             <!-- Set 2 (Duplicate for smooth infinite scroll) -->
             <div class="flex items-center gap-8 shrink-0" aria-hidden="true">
-                @for ($i = 0; $i < 6; $i++)
+                @for ($i = 0; $i < 12; $i++)
                     <div class="inline-flex items-center gap-3">
                         <span class="text-amber-400 text-xs">✦</span>
                         <span class="text-xs sm:text-sm font-light uppercase tracking-[0.25em] text-gray-200 font-['Stack_Sans_Notch',sans-serif]">
@@ -340,4 +340,29 @@
             startTimer();
         })();
     </script>
+
+    {{-- Running Marquee Animation for Ibadah Pages --}}
+    <style>
+        @keyframes themeMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .animate-theme-marquee {
+            display: flex !important;
+            width: max-content !important;
+            animation: themeMarquee 26s linear infinite !important;
+        }
+        .animate-theme-marquee:hover {
+            animation-play-state: paused !important;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-theme-marquee {
+                animation-duration: 60s !important;
+            }
+        }
+    </style>
 @endsection

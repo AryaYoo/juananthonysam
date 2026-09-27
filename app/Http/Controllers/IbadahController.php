@@ -15,7 +15,7 @@ class IbadahController extends Controller
             'pageName' => 'My Home',
             'title' => 'My Home — Komunitas Sel & Persekutuan Jemaat Ekklesia Surabaya',
             'metaDescription' => 'Komunitas sel My Home Ekklesia Surabaya: persekutuan keluarga Allah dari rumah ke rumah untuk bertumbuh bersama dalam firman Tuhan, saling menopang dalam doa, dan mempraktikkan kasih Kristus.',
-            'marqueeText' => 'MY HOME • PERSEKUTUAN KOMUNITAS SEL EKKLESIA SURABAYA',
+            'marqueeText' => 'MY HOME',
             'heroSlides' => [
                 [
                     'image' => 'images/MyHome1.png',
@@ -59,7 +59,7 @@ class IbadahController extends Controller
             'pageName' => 'Ekidz',
             'title' => 'Ekidz — Ibadah & Pelayanan Anak Gereja Ekklesia Surabaya',
             'metaDescription' => 'Pelayanan anak Ekidz di Ekklesia Surabaya: ibadah yang penuh sukacita, pengajaran Alkitab yang kreatif, dan pembentukan karakter kristiani bagi generasi masa depan.',
-            'marqueeText' => 'EKIDZ • IBADAH ANAK & GENERASI BINTANG EKKLESIA SURABAYA',
+            'marqueeText' => 'EKIDZ',
             'heroSlides' => [
                 [
                     'image' => 'images/Dokumentasi7.png',
@@ -103,7 +103,7 @@ class IbadahController extends Controller
             'pageName' => 'Ekklesia Teens',
             'title' => 'Ekklesia Teens — Ibadah Remaja & Pemuda Gereja Ekklesia Surabaya',
             'metaDescription' => 'Komunitas remaja dan pemuda Ekklesia Teens di Ekklesia Surabaya: tempat generasi muda berjumpa secara pribadi dengan Tuhan Yesus, mengalami perubahan hidup, dan memimpin dengan teladan.',
-            'marqueeText' => 'EKKLESIA TEENS • YOUTH & TEEN MINISTRY EKKLESIA SURABAYA',
+            'marqueeText' => 'EKKLESIA TEENS',
             'heroSlides' => [
                 [
                     'image' => 'images/EkklesiaTeen.png',

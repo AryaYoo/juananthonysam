@@ -86,6 +86,29 @@
             opacity: 0 !important;
             pointer-events: none;
         }
+
+        /* Global Running Marquee Animation */
+        @keyframes themeMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .animate-theme-marquee {
+            display: flex;
+            width: max-content;
+            animation: themeMarquee 26s linear infinite;
+        }
+        .animate-theme-marquee:hover {
+            animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-theme-marquee {
+                animation-duration: 60s;
+            }
+        }
     </style>
 
     <!-- Scripts and Styles via Vite -->
