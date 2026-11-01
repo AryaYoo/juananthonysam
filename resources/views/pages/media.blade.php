@@ -199,6 +199,9 @@
         </div>
     </section>
 
+    <!-- Jadwal Ibadah Ekklesia -->
+    <x-jadwal-ibadah />
+
     {{-- Mobile Gallery Slider Script --}}
     <script>
         document.addEventListener('DOMContentLoaded', () => {

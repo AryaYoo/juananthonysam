@@ -191,6 +191,9 @@
         </div>
     </section>
 
+    <!-- Jadwal Ibadah Ekklesia -->
+    <x-jadwal-ibadah />
+
     <!-- Slider Script Logic -->
     <script>
         (function() {

@@ -28,18 +28,24 @@ class ProfileController extends Controller
             'divisions' => [
                 [
                     'name' => 'Creative & Media',
-                    'desc' => 'Tim produksi visual, live streaming, videografi, audio visual, dan media sosial gereja.',
+                    'tag' => 'Visual & Production',
+                    'desc' => 'Tim produksi visual, live streaming, videografi, audio visual, lighting, dan pengelolaan media sosial gereja.',
                     'icon' => 'camera',
+                    'highlights' => ['Live Streaming & Camera', 'Audio & Sound System', 'Graphic & Social Media'],
                 ],
                 [
                     'name' => 'Usher & Hospitality',
-                    'desc' => 'Menyambut setiap jemaat dan tamu dengan kehangatan kasih Kristus sejak langkah pertama memasuki ruang ibadah.',
+                    'tag' => 'Welcoming & Care',
+                    'desc' => 'Menyambut setiap jemaat dan tamu dengan kehangatan kasih Kristus sejak langkah pertama memasuki rumah Tuhan.',
                     'icon' => 'heart-handshake',
+                    'highlights' => ['Penyambutan Jemaat', 'Pelayanan Ruang Ibadah', 'Informasi & Keramahan'],
                 ],
                 [
                     'name' => 'Volunteer Pelayanan',
-                    'desc' => 'Pelayanan operasional, perlengkapan, koordinasi acara, dan dukungan logistik seluruh kegiatan ibadah jemaat.',
+                    'tag' => 'Support & Operations',
+                    'desc' => 'Pelayanan operasional lapangan, logistik perlengkapan, tata panggung, serta koordinasi teknis kelancaran ibadah.',
                     'icon' => 'hands',
+                    'highlights' => ['Logistik & Perlengkapan', 'Operasional Ibadah', 'Dukungan Teknis Lapangan'],
                 ],
             ],
             'location' => [

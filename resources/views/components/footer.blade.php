@@ -100,23 +100,14 @@
                         </svg>
                     </a>
 
-                    <!-- Email & TikTok Links -->
-                    <div class="pt-2 space-y-1.5">
+                    <!-- Email Link -->
+                    <div class="pt-2">
                         <a href="mailto:gkri.ekklesia@gmail.com" 
                            class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-light">
                             <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <span>gkri.ekklesia@gmail.com</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@ekklesiaministry_?_r=1&_t=ZS-99cXKPhkPXJ" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 font-light">
-                            <svg class="w-4 h-4 text-gray-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 00-1-.08A6.34 6.34 0 003 15.66a6.34 6.34 0 0010.82 4.47v-7.37a8.16 8.16 0 005.77 2.27v-3.45a4.85 4.85 0 010-4.89z"/>
-                            </svg>
-                            <span>TikTok: @ekklesiaministry_</span>
                         </a>
                     </div>
                 </div>

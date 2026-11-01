@@ -157,4 +157,7 @@
             </div>
         </div>
     </section>
+
+    <!-- Jadwal Ibadah Ekklesia -->
+    <x-jadwal-ibadah />
 @endsection
