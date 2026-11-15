@@ -14,29 +14,32 @@
         <!-- Carousel Slides Container -->
         <div class="relative w-full h-[56.25vw] min-h-0 max-h-[780px] sm:min-h-[560px] lg:min-h-[720px] flex items-center justify-center bg-black">
 
-            
-            <!-- SLIDE 1: Poster 1 - Saat Teduh Bersama Hadirat Tuhan -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center justify-center overflow-hidden" data-slide="0">
-                <img src="{{ asset_v('images/Poster1.jpg') }}" 
-                     alt="Saat Teduh Bersama - Ps Juan Anthony Sam" 
-                     class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
-            </div>
+            @php
+                $slides = $hero_slides ?? [
+                    ['image' => asset_v('images/Poster1.jpg'), 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
+                    ['image' => asset_v('images/Poster2.jpg'), 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
+                    ['image' => asset_v('images/Poster3.jpg'), 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
+                ];
+            @endphp
 
-            <!-- SLIDE 2: Poster 2 - Jadwal Ibadah Ekklesia Surabaya -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center overflow-hidden" data-slide="1">
-                <img src="{{ asset_v('images/Poster2.jpg') }}" 
-                     alt="Jadwal Ibadah Ekklesia Surabaya" 
-                     class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
-            </div>
+            @foreach($slides as $index => $slide)
+                <!-- SLIDE {{ $index + 1 }} -->
+                <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out {{ $index === 0 ? '' : 'opacity-0 pointer-events-none' }} flex items-center justify-center overflow-hidden" data-slide="{{ $index }}">
+                    @if(!empty($slide['link']))
+                        <a href="{{ $slide['link'] }}" class="w-full h-full flex items-center justify-center">
+                            <img src="{{ $slide['image'] }}" 
+                                 alt="{{ $slide['alt'] ?? 'Banner Utama Ekklesia Surabaya' }}" 
+                                 class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
+                        </a>
+                    @else
+                        <img src="{{ $slide['image'] }}" 
+                             alt="{{ $slide['alt'] ?? 'Banner Utama Ekklesia Surabaya' }}" 
+                             class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
+                    @endif
+                </div>
+            @endforeach
 
-            <!-- SLIDE 3: Poster 3 - Himbauan Waspada Penipuan -->
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 pointer-events-none flex items-center justify-center overflow-hidden" data-slide="2">
-                <img src="{{ asset_v('images/Poster3.jpg') }}" 
-                     alt="Himbauan Kehati-hatian dan Waspada Penipuan" 
-                     class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
-            </div>
-
-
+            @if(count($slides) > 1)
             <!-- Carousel Prev/Next Arrows - aligned with max-w-7xl header container -->
             <div class="absolute inset-0 z-20 pointer-events-none flex items-center">
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -59,13 +62,13 @@
                 </div>
             </div>
 
-
             <!-- Carousel Slide Dots Indicator -->
             <div class="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-                <button type="button" class="carousel-dot w-6 h-1.5 rounded-full bg-white transition-all duration-300 cursor-pointer" data-index="0" aria-label="Slide 1"></button>
-                <button type="button" class="carousel-dot w-2 h-1.5 rounded-full bg-white/40 transition-all duration-300 cursor-pointer" data-index="1" aria-label="Slide 2"></button>
-                <button type="button" class="carousel-dot w-2 h-1.5 rounded-full bg-white/40 transition-all duration-300 cursor-pointer" data-index="2" aria-label="Slide 3"></button>
+                @foreach($slides as $index => $slide)
+                    <button type="button" class="carousel-dot {{ $index === 0 ? 'w-6 bg-white' : 'w-2 bg-white/40' }} h-1.5 rounded-full transition-all duration-300 cursor-pointer" data-index="{{ $index }}" aria-label="Slide {{ $index + 1 }}"></button>
+                @endforeach
             </div>
+            @endif
         </div>
     </section>
 

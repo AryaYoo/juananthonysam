@@ -27,6 +27,45 @@ class AdminCmsController extends Controller
     {
         $current = CmsService::getHome();
 
+        // 0. Banner Utama (Hero Carousel Slides)
+        $slidesInput = $request->input('hero_slides', []);
+        $processedSlides = [];
+        if (is_array($slidesInput)) {
+            foreach ($slidesInput as $idx => $s) {
+                $imgUrl = $s['image'] ?? '';
+
+                if ($request->hasFile("hero_slides.{$idx}.image_file")) {
+                    $file = $request->file("hero_slides.{$idx}.image_file");
+                    $filename = 'banner_' . time() . '_' . $idx . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('uploads'), $filename);
+                    $imgUrl = asset('uploads/' . $filename);
+                }
+
+                if (!empty($imgUrl)) {
+                    $processedSlides[] = [
+                        'image' => $imgUrl,
+                        'alt' => trim($s['alt'] ?? 'Banner Utama Ekklesia'),
+                        'link' => trim($s['link'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        if ($request->hasFile('new_slide_file')) {
+            $file = $request->file('new_slide_file');
+            $filename = 'banner_' . time() . '_new.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $processedSlides[] = [
+                'image' => asset('uploads/' . $filename),
+                'alt' => trim($request->input('new_slide_alt', 'Banner Baru')),
+                'link' => trim($request->input('new_slide_link', '')),
+            ];
+        }
+
+        if (count($processedSlides) > 0) {
+            $current['hero_slides'] = $processedSlides;
+        }
+
         // 1. Tema
         $current['theme_2026'] = [
             'year' => $request->input('theme_year', '2026'),

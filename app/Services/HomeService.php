@@ -37,6 +37,7 @@ class HomeService
 
         return [
             'schedules' => $schedules,
+            'hero_slides' => $cmsHome['hero_slides'] ?? CmsService::defaultHome()['hero_slides'],
             'hero' => $cmsHome['hero'] ?? CmsService::defaultHome()['hero'],
             'theme_2026' => $cmsHome['theme_2026'] ?? CmsService::defaultHome()['theme_2026'],
             'pastoral_services' => $cmsHome['pastoral_services'] ?? CmsService::defaultHome()['pastoral_services'],

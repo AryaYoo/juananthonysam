@@ -61,6 +61,23 @@ class CmsService
     public static function defaultHome(): array
     {
         return [
+            'hero_slides' => [
+                [
+                    'image' => asset('images/Poster1.jpg'),
+                    'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam',
+                    'link' => '',
+                ],
+                [
+                    'image' => asset('images/Poster2.jpg'),
+                    'alt' => 'Jadwal Ibadah Ekklesia Surabaya',
+                    'link' => '',
+                ],
+                [
+                    'image' => asset('images/Poster3.jpg'),
+                    'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan',
+                    'link' => '',
+                ],
+            ],
             'hero' => [
                 'tagline' => 'GEREJA KELUARGA & PEMURIDAN',
                 'title' => 'Ekklesia Surabaya',
