@@ -28,83 +28,11 @@
 </head>
 <body class="min-h-screen bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 antialiased font-['Plus_Jakarta_Sans',sans-serif] selection:bg-gray-400/20">
 
-    <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-30 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-[#262626]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
-
-            <!-- Left: Logo + Nav -->
-            <div class="flex items-center gap-2 sm:gap-5 min-w-0">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2 hover:opacity-85 transition shrink-0">
-                    <span class="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden">
-                        <img src="{{ asset('images/logo.png') }}" alt="Ekklesia Surabaya" class="w-full h-full object-contain">
-                    </span>
-                    <div class="hidden sm:block">
-                        <h1 class="text-sm sm:text-base font-medium tracking-tight text-gray-950 dark:text-white leading-none">
-                            Ekklesia Admin
-                        </h1>
-                        <span class="text-[10px] text-gray-500 dark:text-gray-400 font-light">
-                            Area Manajemen
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Header Navigation Links -->
-                <nav class="flex items-center gap-1 border-l border-gray-200 dark:border-[#2b2b2b] pl-2 sm:pl-4">
-                    <a href="{{ route('admin.dashboard') }}"
-                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-normal text-gray-600 dark:text-gray-400 hover:text-gray-950 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#222222] whitespace-nowrap">
-                        Analitik
-                    </a>
-                    <a href="{{ route('admin.banner') }}"
-                       class="px-2.5 sm:px-3 py-1.5 text-xs rounded-lg transition font-medium bg-gray-900 text-white dark:bg-white dark:text-gray-950 shadow-2xs whitespace-nowrap">
-                        Banner Iklan
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Right: Theme + Buka Web + Logout -->
-            <div class="flex items-center gap-1.5 shrink-0">
-                <!-- Theme Toggle -->
-                <button type="button"
-                        onclick="toggleAdminTheme()"
-                        id="adminThemeToggleBtn"
-                        class="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-[#222222] transition cursor-pointer"
-                        title="Ubah Mode Gelap / Terang">
-                    <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-
-                <!-- Website Link (desktop only) -->
-                <a href="{{ route('home') }}"
-                   target="_blank"
-                   class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-[#333333] rounded-lg transition hover:bg-gray-50 dark:hover:bg-[#202020]">
-                    <span>Buka Web</span>
-                    <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                </a>
-
-                <!-- Logout: icon only on mobile, icon+text on desktop -->
-                <form action="{{ route('admin.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit"
-                            title="Keluar"
-                            class="inline-flex items-center gap-1.5 px-2 sm:px-3 py-2 sm:py-1.5 text-xs font-normal text-red-600 dark:text-red-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/30 border border-red-200 dark:border-red-900/40 rounded-lg transition cursor-pointer">
-                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                        </svg>
-                        <span class="hidden sm:inline">Keluar</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </header>
+    @include('admin.partials.sidebar', ['activePage' => 'banner'])
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 space-y-4">
+    <main class="lg:pl-56 pt-14 lg:pt-0">
+    <div class="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 space-y-4">
 
         <!-- Banner Manager Card -->
         <div class="p-4 sm:p-7 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs">
@@ -245,38 +173,8 @@
             </form>
         </div>
 
+    </div>
     </main>
-
-    <!-- Theme Switcher Script -->
-    <script>
-        function updateThemeIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
-            const sun = document.getElementById('sunIcon');
-            const moon = document.getElementById('moonIcon');
-            if (sun && moon) {
-                if (isDark) {
-                    sun.classList.remove('hidden');
-                    moon.classList.add('hidden');
-                } else {
-                    sun.classList.add('hidden');
-                    moon.classList.remove('hidden');
-                }
-            }
-        }
-
-        function toggleAdminTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            updateThemeIcons();
-        }
-
-        updateThemeIcons();
-    </script>
 
     <!-- Banner Editor Scripts -->
     <script>
@@ -350,6 +248,30 @@
             bannerInput.value = templates[key];
             updateCharCount();
         }
+
+        // Theme toggle
+        function updateThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sun = document.getElementById('sunIcon');
+            const moon = document.getElementById('moonIcon');
+            const label = document.getElementById('themeLabel');
+            if (sun && moon) {
+                isDark ? sun.classList.remove('hidden') : sun.classList.add('hidden');
+                isDark ? moon.classList.add('hidden') : moon.classList.remove('hidden');
+            }
+            if (label) label.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+        }
+        function toggleAdminTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateThemeIcons();
+        }
+        updateThemeIcons();
     </script>
 </body>
 </html>
