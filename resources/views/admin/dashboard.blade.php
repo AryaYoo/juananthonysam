@@ -34,7 +34,7 @@
     @include('admin.partials.sidebar', ['activePage' => 'dashboard'])
 
     <!-- Main Content Area (offset for sidebar) -->
-    <main class="lg:pl-56 pt-14 lg:pt-0">
+    <main class="lg:pl-64 pt-14 lg:pt-0">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
         @if(session('success'))

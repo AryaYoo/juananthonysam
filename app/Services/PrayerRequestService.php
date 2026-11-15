@@ -11,7 +11,7 @@ class PrayerRequestService
         protected PrayerRequestRepositoryInterface $prayerRequestRepository
     ) {}
 
-    public function submitPrayerRequest(array $data): PrayerRequest
+    public function submitPrayerRequest(array $data): ?PrayerRequest
     {
         $payload = [
             'name' => $data['name'],
@@ -22,6 +22,13 @@ class PrayerRequestService
             'is_contacted' => false,
         ];
 
-        return $this->prayerRequestRepository->create($payload);
+        // Always record into CMS JSON storage
+        CmsService::recordPrayerRequest($payload);
+
+        try {
+            return $this->prayerRequestRepository->create($payload);
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 }

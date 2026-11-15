@@ -1,4 +1,8 @@
 @php
+    $cmsHome = \App\Services\CmsService::getHome();
+    $cmsTheme = $cmsHome['theme_2026'] ?? null;
+    $cmsSchedules = \App\Services\CmsService::getSchedules();
+    $cmsProfile = \App\Services\CmsService::getProfile();
     $churchLogoFooter = null;
     foreach(['images/logo.png', 'images/logo.svg', 'images/logo.webp', 'images/logo.jpg'] as $imgCand) {
         if (file_exists(public_path($imgCand))) {
@@ -38,7 +42,7 @@
                 </p>
                 <div class="pt-2">
                     <span class="inline-block px-3 py-1 bg-[#181818] border border-[#2C2C2C] rounded text-[11px] text-gray-300 font-light shadow-2xs">
-                        Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan
+                        Tema {{ $cmsTheme['year'] ?? '2026' }}: {{ $cmsTheme['title'] ?? 'Tahun Pemulihan bagi Kemuliaan Tuhan' }}
                     </span>
                 </div>
             </div>
@@ -49,30 +53,12 @@
                     Jadwal Ibadah
                 </h4>
                 <ul class="space-y-2.5 text-xs">
+                    @foreach($cmsSchedules as $sch)
                     <li class="flex justify-between items-center pb-2 border-b border-[#222222]">
-                        <span class="text-gray-400">Sunday Service</span>
-                        <span class="font-medium text-white">09:00 WIB</span>
+                        <span class="text-gray-400">{{ $sch['name'] }}</span>
+                        <span class="font-medium text-white">{{ $sch['time'] }}</span>
                     </li>
-                    <li class="flex justify-between items-center pb-2 border-b border-[#222222]">
-                        <span class="text-gray-400">Ekidz (Anak-anak)</span>
-                        <span class="font-medium text-white">09:30 WIB</span>
-                    </li>
-                    <li class="flex justify-between items-center pb-2 border-b border-[#222222]">
-                        <span class="text-gray-400">E-Teens (Remaja)</span>
-                        <span class="font-medium text-white">11:00 WIB</span>
-                    </li>
-                    <li class="flex justify-between items-center pb-2 border-b border-[#222222]">
-                        <span class="text-gray-400">Doa Senin</span>
-                        <span class="font-medium text-white">19:00 WIB</span>
-                    </li>
-                    <li class="flex justify-between items-center pb-2 border-b border-[#222222]">
-                        <span class="text-gray-400">Doa Jumat</span>
-                        <span class="font-medium text-white">19:00 WIB</span>
-                    </li>
-                    <li class="flex justify-between items-center">
-                        <span class="text-gray-400">Worship Night</span>
-                        <span class="font-medium text-white">Jumat ke-4</span>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
 

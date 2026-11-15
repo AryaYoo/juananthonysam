@@ -31,7 +31,7 @@
     @include('admin.partials.sidebar', ['activePage' => 'banner'])
 
     <!-- Main Content -->
-    <main class="lg:pl-56 pt-14 lg:pt-0">
+    <main class="lg:pl-64 pt-14 lg:pt-0">
     <div class="max-w-4xl mx-auto px-3 sm:px-6 py-4 sm:py-8 space-y-4">
 
         <!-- Banner Manager Card -->

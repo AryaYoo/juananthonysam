@@ -1,49 +1,5 @@
 @php
-    $defaultSchedules = [
-        [
-            'name' => 'Sunday Service',
-            'time' => '09:00 WIB',
-            'day' => 'Setiap Minggu',
-            'target' => 'Ibadah Umum & Keluarga',
-            'badge' => 'Main Service',
-            'location' => 'Sanctuary Lt. 2',
-        ],
-        [
-            'name' => 'Ekidz',
-            'time' => '09:30 WIB',
-            'day' => 'Setiap Minggu',
-            'target' => 'Anak-anak (Preschool - SD)',
-            'badge' => 'Kids Ministry',
-            'location' => 'Sanctuary Lt. 1',
-        ],
-        [
-            'name' => 'E-Teens',
-            'time' => '11:00 WIB',
-            'day' => 'Setiap Minggu',
-            'target' => 'Remaja & Pemuda (SMP - SMA)',
-            'badge' => 'Youth Ministry',
-            'location' => 'Sanctuary Lt. 3',
-        ],
-        [
-            'name' => 'Doa Senin',
-            'time' => '19:00 WIB',
-            'day' => 'Setiap Senin Malam',
-            'target' => 'Doa Syafaat & Pengurapan',
-            'badge' => 'Monday Prayer',
-            'location' => 'Zoom Meeting',
-            'is_online' => true,
-        ],
-        [
-            'name' => 'Doa Jumat',
-            'time' => '19:00 WIB',
-            'day' => 'Setiap Jumat Malam',
-            'target' => 'Mezbah Doa & Hadirat Tuhan',
-            'badge' => 'Friday Prayer',
-            'location' => 'Sanctuary Lt. 2',
-        ],
-    ];
-
-    $items = $schedules ?? $defaultSchedules;
+    $items = $schedules ?? \App\Services\CmsService::getSchedules();
     $sliderId = 'scheduleSlider_' . uniqid();
     $trackId = 'scheduleTrack_' . uniqid();
     $dotsId = 'scheduleDots_' . uniqid();
