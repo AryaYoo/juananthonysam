@@ -57,19 +57,26 @@
                 @csrf
 
                 <!-- 0. BANNER UTAMA (HERO CAROUSEL SLIDES) -->
-                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs space-y-4">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-[#262626]">
+                <div class="rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs overflow-hidden">
+                    <button type="button" onclick="toggleSection('banner')" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors cursor-pointer group">
                         <div class="flex items-center gap-2.5">
                             <span class="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                             </span>
-                            <div>
+                            <div class="text-left">
                                 <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Banner Utama (Hero Carousel Slides)</h2>
-                                <p class="text-[11px] text-gray-500 dark:text-gray-400">Banner besar di bagian paling atas halaman beranda (Poster Jadwal, Waspada Penipuan, Renungan, dll)</p>
+                                <p class="text-[11px] text-gray-500 dark:text-gray-400">Banner besar di bagian paling atas halaman beranda</p>
                             </div>
                         </div>
+                        <svg id="chevron-banner" class="w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="body-banner" class="border-t border-gray-100 dark:border-[#262626]">                    <div class="px-5 sm:px-6 py-4 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400">Poster Jadwal, Waspada Penipuan, Renungan, dll</p>
                         <button type="button" onclick="addNewSlideCard()" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-900/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition cursor-pointer">
                             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -179,19 +186,30 @@
                     </div>
                 </div>
 
+                </div>
+                </div>
+                </div>
+
                 <!-- 1. TEMA TAHUNAN GEREJA -->
-                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs space-y-4">
-                    <div class="flex items-center gap-2.5 pb-3 border-b border-gray-100 dark:border-[#262626]">
-                        <span class="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </span>
-                        <div>
-                            <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Tema Tahunan Gereja</h2>
-                            <p class="text-[11px] text-gray-500 dark:text-gray-400">Tampil di banner tema beranda dan footer seluruh website</p>
+                <div class="rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs overflow-hidden">
+                    <button type="button" onclick="toggleSection('tema')" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <span class="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </span>
+                            <div class="text-left">
+                                <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Tema Tahunan Gereja</h2>
+                                <p class="text-[11px] text-gray-500 dark:text-gray-400">Tampil di banner tema beranda dan footer seluruh website</p>
+                            </div>
                         </div>
-                    </div>
+                        <svg id="chevron-tema" class="w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="body-tema" class="border-t border-gray-100 dark:border-[#262626] hidden">
+                    <div class="px-5 sm:px-6 py-4 space-y-4">
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
@@ -220,19 +238,30 @@
                     </div>
                 </div>
 
-                <!-- 2. REKENING PERSEMBAHAN & DONASI -->
-                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs space-y-4">
-                    <div class="flex items-center gap-2.5 pb-3 border-b border-gray-100 dark:border-[#262626]">
-                        <span class="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                            </svg>
-                        </span>
-                        <div>
-                            <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Rekening Persembahan & Donasi</h2>
-                            <p class="text-[11px] text-gray-500 dark:text-gray-400">Informasi rekening transfer perpuluhan, persembahan umum, dan misi</p>
-                        </div>
                     </div>
+                    </div>
+                </div>
+
+                <!-- 2. REKENING PERSEMBAHAN & DONASI -->
+                <div class="rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs overflow-hidden">
+                    <button type="button" onclick="toggleSection('rekening')" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <span class="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </span>
+                            <div class="text-left">
+                                <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Rekening Persembahan & Donasi</h2>
+                                <p class="text-[11px] text-gray-500 dark:text-gray-400">Informasi rekening transfer perpuluhan, persembahan umum, dan misi</p>
+                            </div>
+                        </div>
+                        <svg id="chevron-rekening" class="w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="body-rekening" class="border-t border-gray-100 dark:border-[#262626] hidden">
+                    <div class="px-5 sm:px-6 py-4 space-y-4">
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -268,21 +297,31 @@
                     </div>
                 </div>
 
-                <!-- 3. LAYANAN PASTORAL -->
-                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs space-y-4">
-                    <div class="flex items-center gap-2.5 pb-3 border-b border-gray-100 dark:border-[#262626]">
-                        <span class="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            </svg>
-                        </span>
-                        <div>
-                            <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Layanan Pastoral</h2>
-                            <p class="text-[11px] text-gray-500 dark:text-gray-400">4 layanan gereja untuk mendampingi jemaat (dilengkapi link WhatsApp otomatis)</p>
-                        </div>
-                    </div>
+                </div>
+                </div>
+                </div>
 
-                    <div class="space-y-4">
+                <!-- 3. LAYANAN PASTORAL -->
+                <div class="rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs overflow-hidden">
+                    <button type="button" onclick="toggleSection('pastoral')" class="w-full flex items-center justify-between px-5 sm:px-6 py-4 text-left hover:bg-gray-50 dark:hover:bg-[#1f1f1f] transition-colors cursor-pointer">
+                        <div class="flex items-center gap-2.5">
+                            <span class="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </span>
+                            <div class="text-left">
+                                <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Layanan Pastoral</h2>
+                                <p class="text-[11px] text-gray-500 dark:text-gray-400">4 layanan gereja untuk mendampingi jemaat (dilengkapi link WhatsApp otomatis)</p>
+                            </div>
+                        </div>
+                        <svg id="chevron-pastoral" class="w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="body-pastoral" class="border-t border-gray-100 dark:border-[#262626] hidden">
+                    <div class="px-5 sm:px-6 py-4 space-y-4">
+                        <div class="space-y-4">
                         @foreach($homeData['pastoral_services'] as $idx => $srv)
                             <div class="p-4 rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-100 dark:border-[#252525] space-y-3">
                                 <input type="hidden" name="pastoral_services[{{ $idx }}][icon]" value="{{ $srv['icon'] ?? 'shield' }}">
@@ -302,6 +341,8 @@
                                 </div>
                             </div>
                         @endforeach
+                        </div>
+                    </div>
                     </div>
                 </div>
 
@@ -340,8 +381,70 @@
                 localStorage.setItem('theme', 'dark');
             }
             updateThemeIcons();
+
+        // ── Collapsible sections ──────────────────────────────────────────────
+        const SECTIONS = ['banner', 'tema', 'rekening', 'pastoral'];
+
+        function toggleSection(id) {
+            const body    = document.getElementById('body-' + id);
+            const chevron = document.getElementById('chevron-' + id);
+            if (!body) return;
+            const isHidden = body.classList.contains('hidden');
+            body.classList.toggle('hidden', !isHidden);
+            if (chevron) chevron.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(-90deg)';
+            // persist state
+            try { localStorage.setItem('cms_home_' + id, isHidden ? 'open' : 'closed'); } catch(e) {}
+        }
+
+        // restore state on load
+        (function restoreSections() {
+            SECTIONS.forEach(function(id) {
+                const saved   = localStorage.getItem('cms_home_' + id) || (id === 'banner' ? 'open' : 'closed');
+                const body    = document.getElementById('body-' + id);
+                const chevron = document.getElementById('chevron-' + id);
+                if (!body) return;
+                if (saved === 'closed') {
+                    body.classList.add('hidden');
+                    if (chevron) chevron.style.transform = 'rotate(-90deg)';
+                } else {
+                    body.classList.remove('hidden');
+                    if (chevron) chevron.style.transform = 'rotate(0deg)';
+                }
+            });
+        })();
         }
         updateThemeIcons();
+
+        // ── Collapsible sections ──────────────────────────────────────────────
+        const SECTIONS = ['banner', 'tema', 'rekening', 'pastoral'];
+
+        function toggleSection(id) {
+            const body    = document.getElementById('body-' + id);
+            const chevron = document.getElementById('chevron-' + id);
+            if (!body) return;
+            const isHidden = body.classList.contains('hidden');
+            body.classList.toggle('hidden', !isHidden);
+            if (chevron) chevron.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(-90deg)';
+            // persist state
+            try { localStorage.setItem('cms_home_' + id, isHidden ? 'open' : 'closed'); } catch(e) {}
+        }
+
+        // restore state on load
+        (function restoreSections() {
+            SECTIONS.forEach(function(id) {
+                const saved   = localStorage.getItem('cms_home_' + id) || (id === 'banner' ? 'open' : 'closed');
+                const body    = document.getElementById('body-' + id);
+                const chevron = document.getElementById('chevron-' + id);
+                if (!body) return;
+                if (saved === 'closed') {
+                    body.classList.add('hidden');
+                    if (chevron) chevron.style.transform = 'rotate(-90deg)';
+                } else {
+                    body.classList.remove('hidden');
+                    if (chevron) chevron.style.transform = 'rotate(0deg)';
+                }
+            });
+        })();
 
         // Slide helpers
         function previewSlideImage(input, previewId, labelId) {
