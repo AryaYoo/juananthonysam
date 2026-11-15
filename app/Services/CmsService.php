@@ -829,3 +829,4 @@ class CmsService
         return self::write('prayers', ['items' => $items]);
     }
 }
+

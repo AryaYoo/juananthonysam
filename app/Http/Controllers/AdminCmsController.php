@@ -430,3 +430,4 @@ class AdminCmsController extends Controller
         return back()->with('success', 'Permohonan doa berhasil dihapus.');
     }
 }
+
