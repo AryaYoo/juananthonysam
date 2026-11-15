@@ -86,17 +86,19 @@
                         ];
                     @endphp
 
-                    <div id="slidesContainer" class="space-y-4">
+                    <div id="slidesContainer" class="space-y-3">
                         @foreach($slides as $idx => $s)
-                            <div class="slide-card p-4 rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#252525] space-y-4 transition-all">
-                                <div class="flex items-center justify-between pb-2 border-b border-gray-200 dark:border-[#222]">
-                                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                            <div class="slide-card rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#252525] overflow-hidden transition-all">
+
+                                {{-- Header banner --}}
+                                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-[#222]">
+                                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
                                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                                         </svg>
                                         <span class="slide-label">Banner #{{ $idx + 1 }}</span>
                                     </span>
-                                    <button type="button" onclick="removeSlideCard(this)" class="text-xs text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium inline-flex items-center gap-1 cursor-pointer">
+                                    <button type="button" onclick="removeSlideCard(this)" class="text-xs text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium inline-flex items-center gap-1 cursor-pointer transition-colors">
                                         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
@@ -104,37 +106,50 @@
                                     </button>
                                 </div>
 
-                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
-                                    <!-- Preview Image -->
-                                    <div class="md:col-span-4">
-                                        <div class="relative w-full aspect-16/9 bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] flex items-center justify-center">
-                                            <img id="preview_{{ $idx }}" src="{{ $s['image'] }}" alt="{{ $s['alt'] ?? 'Preview' }}" class="w-full h-full object-contain">
+                                {{-- Body: preview + form --}}
+                                <div class="p-4 flex flex-col sm:flex-row gap-4">
+
+                                    {{-- Preview thumbnail --}}
+                                    <div class="sm:w-48 flex-shrink-0">
+                                        <div class="w-full bg-gray-900 rounded-lg overflow-hidden border border-gray-300 dark:border-[#333]" style="aspect-ratio:16/9">
+                                            <img id="preview_{{ $idx }}" src="{{ $s['image'] }}" alt="{{ $s['alt'] ?? 'Preview' }}" class="w-full h-full object-cover" onerror="this.src=''">
                                         </div>
-                                        <p class="text-[10px] text-gray-400 text-center mt-1">Rekomendasi rasio: 16:9 atau resolusi poster 1920x1080</p>
+                                        <p class="text-[10px] text-gray-400 text-center mt-1.5 leading-tight">Rasio 16:9 · maks 2 MB</p>
                                     </div>
 
-                                    <!-- Form Controls -->
-                                    <div class="md:col-span-8 space-y-3">
+                                    {{-- Form fields --}}
+                                    <div class="flex-1 min-w-0 space-y-3">
+
+                                        {{-- Upload file --}}
                                         <div>
-                                            <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Ganti File Gambar (Upload Foto Baru)</label>
-                                            <input type="file" name="hero_slides[{{ $idx }}][image_file]" accept="image/*" onchange="previewSlideImage(this, 'preview_{{ $idx }}')" class="w-full text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-medium file:bg-gray-200 dark:file:bg-[#252525] file:text-gray-800 dark:file:text-gray-200 hover:file:bg-gray-300 dark:hover:file:bg-[#333] cursor-pointer">
+                                            <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Upload Gambar Baru</label>
+                                            <label class="flex items-center gap-2 px-3 py-2 rounded-lg border border-dashed border-gray-300 dark:border-[#383838] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/20 transition-colors group">
+                                                <svg class="w-4 h-4 text-gray-400 group-hover:text-indigo-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                                </svg>
+                                                <span class="text-xs text-gray-500 group-hover:text-indigo-600 truncate" id="filelabel_{{ $idx }}">Pilih file foto (JPG, PNG, WebP)</span>
+                                                <input type="file" name="hero_slides[{{ $idx }}][image_file]" accept="image/*" class="sr-only" onchange="previewSlideImage(this, 'preview_{{ $idx }}', 'filelabel_{{ $idx }}')">
+                                            </label>
                                         </div>
 
+                                        {{-- URL gambar --}}
                                         <div>
-                                            <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Atau Gunakan URL Gambar</label>
-                                            <input type="text" name="hero_slides[{{ $idx }}][image]" value="{{ $s['image'] }}" onchange="updatePreviewFromUrl(this, 'preview_{{ $idx }}')" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                                            <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Atau URL Gambar</label>
+                                            <input type="text" name="hero_slides[{{ $idx }}][image]" value="{{ $s['image'] }}" placeholder="https://..." oninput="updatePreviewFromUrl(this, 'preview_{{ $idx }}')" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                                         </div>
 
+                                        {{-- Keterangan & Link --}}
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                             <div>
-                                                <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Judul / Keterangan Banner</label>
-                                                <input type="text" name="hero_slides[{{ $idx }}][alt]" value="{{ $s['alt'] ?? '' }}" placeholder="Contoh: Waspada Penipuan / Jadwal Ibadah" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                                                <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Keterangan / Judul</label>
+                                                <input type="text" name="hero_slides[{{ $idx }}][alt]" value="{{ $s['alt'] ?? '' }}" placeholder="mis. Jadwal Ibadah Minggu" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                                             </div>
                                             <div>
-                                                <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Link Klik (Opsional)</label>
-                                                <input type="text" name="hero_slides[{{ $idx }}][link]" value="{{ $s['link'] ?? '' }}" placeholder="https://... atau biarkan kosong" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                                                <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Link Klik <span class="font-normal normal-case text-gray-400">(Opsional)</span></label>
+                                                <input type="text" name="hero_slides[{{ $idx }}][link]" value="{{ $s['link'] ?? '' }}" placeholder="https://... atau kosongkan" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -329,14 +344,17 @@
         updateThemeIcons();
 
         // Slide helpers
-        function previewSlideImage(input, previewId) {
+        function previewSlideImage(input, previewId, labelId) {
             if (input.files && input.files[0]) {
+                const file = input.files[0];
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const img = document.getElementById(previewId);
                     if (img) img.src = e.target.result;
                 };
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(file);
+                const lbl = labelId ? document.getElementById(labelId) : null;
+                if (lbl) lbl.textContent = file.name;
             }
         }
 
@@ -375,45 +393,52 @@
             const count = container.querySelectorAll('.slide-card').length + 1;
             
             const div = document.createElement('div');
-            div.className = 'slide-card p-4 rounded-xl bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#252525] space-y-4 transition-all';
+            div.className = 'slide-card rounded-xl bg-gray-50 border border-gray-200 overflow-hidden transition-all';
             div.innerHTML = `
-                <div class="flex items-center justify-between pb-2 border-b border-gray-200 dark:border-[#222]">
-                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+                    <span class="text-xs font-semibold text-gray-700 flex items-center gap-2">
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                         <span class="slide-label">Banner #\${count} (Baru)</span>
                     </span>
-                    <button type="button" onclick="removeSlideCard(this)" class="text-xs text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium inline-flex items-center gap-1 cursor-pointer">
+                    <button type="button" onclick="removeSlideCard(this)" class="text-xs text-red-500 hover:text-red-700 font-medium inline-flex items-center gap-1 cursor-pointer">
                         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                         <span>Hapus</span>
                     </button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
-                    <div class="md:col-span-4">
-                        <div class="relative w-full aspect-16/9 bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] flex items-center justify-center">
-                            <img id="preview_\${idx}" src="/images/Poster1.jpg" alt="Preview" class="w-full h-full object-contain">
+                <div class="p-4 flex flex-col sm:flex-row gap-4">
+                    <div class="sm:w-48 flex-shrink-0">
+                        <div class="w-full bg-gray-900 rounded-lg overflow-hidden border border-gray-300" style="aspect-ratio:16/9">
+                            <img id="preview_\${idx}" src="" alt="Preview" class="w-full h-full object-cover">
                         </div>
+                        <p class="text-[10px] text-gray-400 text-center mt-1.5">Rasio 16:9 · maks 2 MB</p>
                     </div>
-                    <div class="md:col-span-8 space-y-3">
+                    <div class="flex-1 min-w-0 space-y-3">
                         <div>
-                            <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Upload File Gambar</label>
-                            <input type="file" name="hero_slides[\${idx}][image_file]" accept="image/*" onchange="previewSlideImage(this, 'preview_\${idx}')" class="w-full text-xs text-gray-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-medium file:bg-gray-200 dark:file:bg-[#252525] file:text-gray-800 dark:file:text-gray-200 hover:file:bg-gray-300 cursor-pointer">
+                            <label class="block text-[11px] font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Upload Gambar Baru</label>
+                            <label class="flex items-center gap-2 px-3 py-2 rounded-lg border border-dashed border-gray-300 bg-white cursor-pointer hover:border-indigo-400 hover:bg-indigo-50 transition-colors group">
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-indigo-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                </svg>
+                                <span class="text-xs text-gray-500 truncate" id="filelabel_\${idx}">Pilih file foto (JPG, PNG, WebP)</span>
+                                <input type="file" name="hero_slides[\${idx}][image_file]" accept="image/*" class="sr-only" onchange="previewSlideImage(this, 'preview_\${idx}', 'filelabel_\${idx}')">
+                            </label>
                         </div>
                         <div>
-                            <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Atau Gunakan URL Gambar</label>
-                            <input type="text" name="hero_slides[\${idx}][image]" placeholder="https://..." onchange="updatePreviewFromUrl(this, 'preview_\${idx}')" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                            <label class="block text-[11px] font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Atau URL Gambar</label>
+                            <input type="text" name="hero_slides[\${idx}][image]" placeholder="https://..." oninput="updatePreviewFromUrl(this, 'preview_\${idx}')" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Judul / Keterangan Banner</label>
-                                <input type="text" name="hero_slides[\${idx}][alt]" placeholder="Contoh: Banner Waspada Penipuan" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                                <label class="block text-[11px] font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Keterangan / Judul</label>
+                                <input type="text" name="hero_slides[\${idx}][alt]" placeholder="mis. Jadwal Ibadah" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                             </div>
                             <div>
-                                <label class="block text-[11px] font-medium text-gray-700 dark:text-gray-300 mb-1">Link Klik (Opsional)</label>
-                                <input type="text" name="hero_slides[\${idx}][link]" placeholder="https://... atau kosongkan" class="w-full px-3 py-1.5 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gray-950 dark:focus:ring-white">
+                                <label class="block text-[11px] font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Link Klik <span class="font-normal normal-case text-gray-400">(Opsional)</span></label>
+                                <input type="text" name="hero_slides[\${idx}][link]" placeholder="https://..." class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                             </div>
                         </div>
                     </div>
@@ -421,6 +446,7 @@
             `;
             container.appendChild(div);
             renumberSlides();
+            div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     </script>
 </body>
