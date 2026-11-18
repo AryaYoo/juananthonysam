@@ -333,12 +333,14 @@ class AdminCmsController extends Controller
             return back()->with('error', 'Judul Acara wajib diisi.');
         }
 
-        $imageUrl = $request->input('image_url', '');
+        $imageUrl = CmsService::cleanAssetPath($request->input('image_url', ''));
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
+            $uploadsDir = public_path('uploads');
+            if (!is_dir($uploadsDir)) @mkdir($uploadsDir, 0775, true);
             $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
-            $imageUrl = asset('uploads/' . $filename);
+            $file->move($uploadsDir, $filename);
+            $imageUrl = '/uploads/' . $filename;
         }
 
         $eventData = [
@@ -350,7 +352,7 @@ class AdminCmsController extends Controller
             'schedule_info' => $request->input('schedule_info', ''),
             'time_info' => $request->input('time_info', ''),
             'location' => $request->input('location', ''),
-            'image_url' => $imageUrl ?: asset('images/WorshipNight3.png'),
+            'image_url' => $imageUrl ?: '/images/WorshipNight3.png',
             'badge' => $request->input('badge', 'Special Event'),
             'is_featured' => $request->boolean('is_featured'),
             'is_active' => $request->boolean('is_active', true),
@@ -427,19 +429,21 @@ class AdminCmsController extends Controller
             return back()->with('error', 'Judul foto wajib diisi.');
         }
 
-        $imageUrl = $request->input('image_url', '');
+        $imageUrl = CmsService::cleanAssetPath($request->input('image_url', ''));
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
+            $uploadsDir = public_path('uploads');
+            if (!is_dir($uploadsDir)) @mkdir($uploadsDir, 0775, true);
             $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
-            $imageUrl = asset('uploads/' . $filename);
+            $file->move($uploadsDir, $filename);
+            $imageUrl = '/uploads/' . $filename;
         }
 
         $data = [
             'id' => $id ?: time(),
             'title' => $title,
             'category' => $request->input('category', 'Ibadah'),
-            'image_url' => $imageUrl ?: asset('images/Dokumentasi1.png'),
+            'image_url' => $imageUrl ?: '/images/Dokumentasi1.png',
             'caption' => $request->input('caption', ''),
             'sort_order' => (int) $request->input('sort_order', 1),
         ];

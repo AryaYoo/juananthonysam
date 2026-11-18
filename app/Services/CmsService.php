@@ -522,7 +522,7 @@ class CmsService
                 'schedule_info' => 'Jumat, Minggu ke-4 Tiap Bulan',
                 'time_info' => '19:00 WIB',
                 'location' => 'Sanctuary Ekklesia Surabaya - Ruko Ngaglik 2 No 15',
-                'image_url' => asset('images/WorshipNight3.png'),
+                'image_url' => '/images/WorshipNight3.png',
                 'badge' => 'Monthly Highlight',
                 'is_featured' => true,
                 'is_active' => true,
@@ -536,7 +536,7 @@ class CmsService
                 'schedule_info' => 'Setiap Rabu & Kamis Malam',
                 'time_info' => '19:00 WIB',
                 'location' => 'Multi-lokasi di Area Surabaya (Barat, Timur, Pusat)',
-                'image_url' => asset('images/MyHome1.png'),
+                'image_url' => '/images/MyHome1.png',
                 'badge' => 'Weekly Fellowship',
                 'is_featured' => true,
                 'is_active' => true,
@@ -550,7 +550,7 @@ class CmsService
                 'schedule_info' => 'Minggu ke-2 Tiap Bulan',
                 'time_info' => '16:00 WIB',
                 'location' => 'Main Hall Ekklesia Surabaya',
-                'image_url' => asset('images/EFF3.png'),
+                'image_url' => '/images/EFF3.png',
                 'badge' => 'Family Gathering',
                 'is_featured' => true,
                 'is_active' => true,
@@ -564,7 +564,7 @@ class CmsService
                 'schedule_info' => 'Juni 2027 (Jadwal Segera Diumumkan)',
                 'time_info' => '3 Hari 2 Malam',
                 'location' => 'Retreat Center Jawa Timur',
-                'image_url' => asset('images/Dokumentasi3.png'),
+                'image_url' => '/images/Dokumentasi3.png',
                 'badge' => 'Annual Camp',
                 'is_featured' => true,
                 'is_active' => true,
@@ -624,7 +624,17 @@ class CmsService
         } catch (Throwable $e) {}
 
         $data = self::read('events', ['events' => self::defaultEvents()]);
-        return $data['events'] ?? self::defaultEvents();
+        $events = $data['events'] ?? self::defaultEvents();
+
+        // Normalisasi image_url lama yang mungkin tersimpan sebagai absolute URL
+        foreach ($events as &$ev) {
+            if (isset($ev['image_url'])) {
+                $ev['image_url'] = self::cleanAssetPath($ev['image_url']);
+            }
+        }
+        unset($ev);
+
+        return $events;
     }
 
     public static function getFeaturedEvents(): array
@@ -660,7 +670,7 @@ class CmsService
                 'id' => 1,
                 'title' => 'Ekklesia Teen',
                 'category' => 'Teen',
-                'image_url' => asset('images/EkklesiaTeen.png'),
+                'image_url' => '/images/EkklesiaTeen.png',
                 'caption' => 'Generasi muda Ekklesia bertumbuh dalam iman, persekutuan, dan pelayanan bersama.',
                 'sort_order' => 1,
             ],
@@ -668,7 +678,7 @@ class CmsService
                 'id' => 2,
                 'title' => 'Dokumentasi Pelayanan 1',
                 'category' => 'Ibadah duka',
-                'image_url' => asset('images/Dokumentasi1.png'),
+                'image_url' => '/images/Dokumentasi1.png',
                 'caption' => 'Ibadah duka',
                 'sort_order' => 2,
             ],
@@ -676,7 +686,7 @@ class CmsService
                 'id' => 3,
                 'title' => 'Dokumentasi Pelayanan 2',
                 'category' => 'Ibadah',
-                'image_url' => asset('images/Dokumentasi2.png'),
+                'image_url' => '/images/Dokumentasi2.png',
                 'caption' => 'Kebersamaan dan hadirat Tuhan dalam setiap sesi pelayanan jemaat.',
                 'sort_order' => 3,
             ],
@@ -684,7 +694,7 @@ class CmsService
                 'id' => 4,
                 'title' => 'Dokumentasi Retreat',
                 'category' => 'Retreat',
-                'image_url' => asset('images/Dokumentasi3.png'),
+                'image_url' => '/images/Dokumentasi3.png',
                 'caption' => 'Kebersamaan dan sukacita jemaat dalam kegiatan retreat yang mempererat persekutuan.',
                 'sort_order' => 4,
             ],
@@ -692,7 +702,7 @@ class CmsService
                 'id' => 5,
                 'title' => 'Dokumentasi Pelayanan 4',
                 'category' => 'Ibadah',
-                'image_url' => asset('images/Dokumentasi4.png'),
+                'image_url' => '/images/Dokumentasi4.png',
                 'caption' => 'Moment persekutuan dan pelayanan yang memperlihatkan karya Tuhan di tengah jemaat.',
                 'sort_order' => 5,
             ],
@@ -700,7 +710,7 @@ class CmsService
                 'id' => 6,
                 'title' => 'Dokumentasi Pelayanan 5',
                 'category' => 'Ibadah',
-                'image_url' => asset('images/Dokumentasi5.png'),
+                'image_url' => '/images/Dokumentasi5.png',
                 'caption' => 'Kebersamaan dan sukacita persekutuan jemaat dalam hadirat Tuhan.',
                 'sort_order' => 6,
             ],
@@ -708,7 +718,7 @@ class CmsService
                 'id' => 7,
                 'title' => 'Dokumentasi Pelayanan 6',
                 'category' => 'Ibadah',
-                'image_url' => asset('images/Dokumentasi6.png'),
+                'image_url' => '/images/Dokumentasi6.png',
                 'caption' => 'Pelayanan dan dedikasi hamba Tuhan beserta jemaat dalam memuliakan nama-Nya.',
                 'sort_order' => 7,
             ],
@@ -716,7 +726,7 @@ class CmsService
                 'id' => 8,
                 'title' => 'Dokumentasi Pelayanan 7',
                 'category' => 'Ibadah',
-                'image_url' => asset('images/Dokumentasi7.png'),
+                'image_url' => '/images/Dokumentasi7.png',
                 'caption' => 'Kasih dan kebersamaan dalam persekutuan serta pelayanan jemaat Ekklesia.',
                 'sort_order' => 8,
             ],
@@ -724,7 +734,7 @@ class CmsService
                 'id' => 9,
                 'title' => 'Dokumentasi EFF 1',
                 'category' => 'EFF',
-                'image_url' => asset('images/EFF1.png'),
+                'image_url' => '/images/EFF1.png',
                 'caption' => 'Praise & Worship dan pelayanan musik dalam kebersamaan persekutuan Ekklesia Family Fellowship.',
                 'sort_order' => 9,
             ],
@@ -732,7 +742,7 @@ class CmsService
                 'id' => 10,
                 'title' => 'Dokumentasi EFF 2',
                 'category' => 'EFF',
-                'image_url' => asset('images/EFF2.png'),
+                'image_url' => '/images/EFF2.png',
                 'caption' => 'Saat teduh, doa, dan penyembahan jemaat dalam hadirat Tuhan di persekutuan EFF.',
                 'sort_order' => 10,
             ],
@@ -740,7 +750,7 @@ class CmsService
                 'id' => 11,
                 'title' => 'Dokumentasi EFF 3',
                 'category' => 'EFF',
-                'image_url' => asset('images/EFF3.png'),
+                'image_url' => '/images/EFF3.png',
                 'caption' => 'Pemberitaan firman Tuhan dan puji-pujian yang mengalirkan kuasa Tuhan dalam persekutuan EFF.',
                 'sort_order' => 11,
             ],
@@ -748,7 +758,7 @@ class CmsService
                 'id' => 12,
                 'title' => 'Dokumentasi EFF 4',
                 'category' => 'EFF',
-                'image_url' => asset('images/EFF4.png'),
+                'image_url' => '/images/EFF4.png',
                 'caption' => 'Kebersamaan dan pelayanan tim musik dalam melayani jemaat Ekklesia Family Fellowship.',
                 'sort_order' => 12,
             ],
@@ -789,7 +799,17 @@ class CmsService
         } catch (Throwable $e) {}
 
         $data = self::read('gallery', ['items' => self::defaultGalleries()]);
-        return $data['items'] ?? self::defaultGalleries();
+        $items = $data['items'] ?? self::defaultGalleries();
+
+        // Normalisasi image_url lama yang mungkin tersimpan sebagai absolute URL
+        foreach ($items as &$it) {
+            if (isset($it['image_url'])) {
+                $it['image_url'] = self::cleanAssetPath($it['image_url']);
+            }
+        }
+        unset($it);
+
+        return $items;
     }
 
     public static function getChannels(): array
