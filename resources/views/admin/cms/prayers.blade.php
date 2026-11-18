@@ -38,15 +38,6 @@
                 </div>
             </div>
 
-            @if(session('success'))
-                <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{{ session('success') }}</span>
-                </div>
-            @endif
-
             <div class="space-y-4">
                 @forelse($prayers as $p)
                     @php
@@ -106,7 +97,7 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('admin.prayers.delete', $p['id']) }}" method="POST" onsubmit="return confirm('Hapus permohonan doa ini?')">
+                                <form action="{{ route('admin.prayers.delete', $p['id']) }}" method="POST" onsubmit="return confirmDelete(event, 'Permohonan doa ini akan dihapus secara permanen.')">
                                     @csrf
                                     <button type="submit" class="p-1.5 text-xs text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition" title="Hapus">
                                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

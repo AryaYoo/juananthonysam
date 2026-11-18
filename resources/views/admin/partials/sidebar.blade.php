@@ -177,7 +177,7 @@
         </a>
 
         {{-- Logout --}}
-        <form action="{{ route('admin.logout') }}" method="POST">
+        <form action="{{ route('admin.logout') }}" method="POST" onsubmit="return confirmLogout(event)">
             @csrf
             <button type="submit"
                     class="w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs text-red-600 dark:text-red-400 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/30 transition cursor-pointer">
@@ -222,3 +222,6 @@
         document.getElementById('sidebarOverlay').classList.add('hidden');
     }
 </script>
+
+{{-- Global SweetAlert2 Alerts & Confirmations --}}
+@include('admin.partials.sweetalert')

@@ -44,15 +44,6 @@
                 </button>
             </div>
 
-            @if(session('success'))
-                <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{{ session('success') }}</span>
-                </div>
-            @endif
-
             <form action="{{ route('admin.cms.schedules.save') }}" method="POST" id="schedulesForm" class="space-y-4">
                 @csrf
 
@@ -136,13 +127,13 @@
         function removeScheduleRow(btn) {
             const container = document.getElementById('scheduleItemsContainer');
             if (container.children.length <= 1) {
-                alert('Minimal harus ada 1 jadwal.');
+                swalAlert('Minimal harus ada 1 jadwal sesi.', 'Tidak Bisa Dihapus', 'warning');
                 return;
             }
-            if (confirm('Yakin ingin menghapus jadwal ini?')) {
+            confirmAction(() => {
                 btn.closest('.schedule-card').remove();
                 renumberSchedules();
-            }
+            }, 'Jadwal sesi ini akan dihapus dari daftar.', 'Hapus Jadwal?');
         }
 
         function renumberSchedules() {

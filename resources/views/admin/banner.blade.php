@@ -55,15 +55,6 @@
                 </span>
             </div>
 
-            @if(session('banner_success'))
-                <div class="mb-5 p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    {{ session('banner_success') }}
-                </div>
-            @endif
-
             <form action="{{ route('admin.banner.save') }}" method="POST" id="bannerForm">
                 @csrf
 
@@ -205,7 +196,7 @@
 
         function clearBannerHtml() {
             if (!bannerInput) return;
-            if (confirm('Hapus seluruh konten HTML banner?')) {
+            confirmAction(() => {
                 bannerInput.value = '';
                 updateCharCount();
                 const box = document.getElementById('bannerPreviewBox');
@@ -214,7 +205,7 @@
                     const cont = document.getElementById('bannerPreviewContent');
                     if (cont) cont.innerHTML = '';
                 }
-            }
+            }, 'Seluruh konten HTML banner akan dikosongkan.', 'Hapus Konten Banner?');
         }
 
         const templates = {

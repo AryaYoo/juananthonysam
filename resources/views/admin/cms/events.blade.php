@@ -52,15 +52,6 @@
                 </div>
             </div>
 
-            @if(session('success'))
-                <div class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
-                    <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{{ session('success') }}</span>
-                </div>
-            @endif
-
             <!-- 1. DAFTAR ACARA SPESIAL -->
             <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-[#282828] shadow-2xs space-y-4">
                 <div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-[#262626]">
@@ -117,7 +108,7 @@
                                 <button type="button" onclick='editEventModal(@json($ev))' class="px-3 py-1 text-xs font-medium rounded-lg bg-white dark:bg-[#1E1E1E] border border-gray-200 dark:border-[#333] hover:bg-gray-100 dark:hover:bg-[#282828] text-gray-700 dark:text-gray-300 transition">
                                     Edit
                                 </button>
-                                <form action="{{ route('admin.cms.events.delete', $ev['id']) }}" method="POST" onsubmit="return confirm('Hapus acara ini?')">
+                                <form action="{{ route('admin.cms.events.delete', $ev['id']) }}" method="POST" onsubmit="return confirmDelete(event, 'Acara ini akan dihapus secara permanen.')">
                                     @csrf
                                     <button type="submit" class="px-3 py-1 text-xs font-medium rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition">
                                         Hapus

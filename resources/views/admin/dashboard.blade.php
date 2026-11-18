@@ -37,13 +37,6 @@
     <main class="lg:pl-64 pt-14 lg:pt-0">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
-        @if(session('success'))
-            <div class="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center justify-between">
-                <span>{{ session('success') }}</span>
-                <span class="text-[11px] opacity-70">Masuk sebagai {{ session('admin_user', 'admin') }}</span>
-            </div>
-        @endif
-
         @if(!empty($summary['is_demo_data']))
             <div class="p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/40 text-blue-800 dark:text-blue-300 text-xs flex items-start gap-2.5">
                 <svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
