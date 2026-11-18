@@ -14,6 +14,43 @@ use Throwable;
 class AdminCmsController extends Controller
 {
     // =========================================================================
+    // HELPERS
+    // =========================================================================
+
+    /**
+     * Kalau path berupa absolute URL ke domain kita sendiri, ubah jadi relative path.
+     * Contoh: https://juananthonysam.com/uploads/x.jpg → /uploads/x.jpg
+     *         https://juananthonysam.com/images/Poster1.jpg → /images/Poster1.jpg
+     *         /uploads/x.jpg → /uploads/x.jpg (tidak diubah)
+     *         https://external.com/img.jpg → https://external.com/img.jpg (tidak diubah)
+     */
+    private static function normalizeImagePath(string $path): string
+    {
+        $path = trim($path);
+        if (empty($path)) return '';
+
+        // sudah relative
+        if (str_starts_with($path, '/')) return $path;
+
+        // kalau absolute URL ke domain sendiri, ambil path-nya saja
+        $appUrl = rtrim(config('app.url', ''), '/');
+        if ($appUrl && str_starts_with($path, $appUrl)) {
+            return substr($path, strlen($appUrl)) ?: '/';
+        }
+
+        // coba juga versi HTTP/HTTPS sebaliknya
+        $alt = str_starts_with($appUrl, 'https://')
+            ? str_replace('https://', 'http://', $appUrl)
+            : str_replace('http://', 'https://', $appUrl);
+        if (str_starts_with($path, $alt)) {
+            return substr($path, strlen($alt)) ?: '/';
+        }
+
+        // external URL — simpan apa adanya
+        return $path;
+    }
+
+    // =========================================================================
     // 1. BERANDA (HOME)
     // =========================================================================
 
@@ -30,36 +67,48 @@ class AdminCmsController extends Controller
         // 0. Banner Utama (Hero Carousel Slides)
         $slidesInput = $request->input('hero_slides', []);
         $processedSlides = [];
+        $allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+
+        // Pastikan folder uploads ada
+        $uploadsDir = public_path('uploads');
+        if (!is_dir($uploadsDir)) {
+            @mkdir($uploadsDir, 0775, true);
+        }
+
         if (is_array($slidesInput)) {
             foreach ($slidesInput as $idx => $s) {
-                $imgUrl = $s['image'] ?? '';
+                $imgPath = trim($s['image'] ?? '');
 
+                // Cek upload file baru untuk slide ini
                 if ($request->hasFile("hero_slides.{$idx}.image_file")) {
                     $file = $request->file("hero_slides.{$idx}.image_file");
-                    $filename = 'banner_' . time() . '_' . $idx . '.' . $file->getClientOriginalExtension();
-                    $file->move(public_path('uploads'), $filename);
-                    $imgUrl = asset('uploads/' . $filename);
+                    if ($file->isValid()) {
+                        $ext = strtolower($file->getClientOriginalExtension() ?: 'jpg');
+                        if (!in_array($ext, $allowedExts)) {
+                            return back()->with('error', 'Format gambar Banner #' . ($idx + 1) . ' tidak didukung. Gunakan JPG, PNG, atau WebP.');
+                        }
+                        if ($file->getSize() > 10 * 1024 * 1024) {
+                            return back()->with('error', 'Ukuran gambar Banner #' . ($idx + 1) . ' terlalu besar (maksimal 10MB).');
+                        }
+                        if (!is_writable($uploadsDir)) {
+                            return back()->with('error', 'Folder "public/uploads" di server belum writable. Jalankan "chmod -R 775 public/uploads" di terminal server VPS.');
+                        }
+                        $filename = 'banner_' . time() . '_' . $idx . '.' . $ext;
+                        $file->move($uploadsDir, $filename);
+                        $imgPath = '/uploads/' . $filename;
+                    }
+                } else {
+                    $imgPath = CmsService::cleanAssetPath($imgPath);
                 }
 
-                if (!empty($imgUrl)) {
+                if (!empty($imgPath)) {
                     $processedSlides[] = [
-                        'image' => $imgUrl,
-                        'alt' => trim($s['alt'] ?? 'Banner Utama Ekklesia'),
-                        'link' => trim($s['link'] ?? ''),
+                        'image' => $imgPath,
+                        'alt'   => trim($s['alt'] ?? 'Banner Utama Ekklesia'),
+                        'link'  => trim($s['link'] ?? ''),
                     ];
                 }
             }
-        }
-
-        if ($request->hasFile('new_slide_file')) {
-            $file = $request->file('new_slide_file');
-            $filename = 'banner_' . time() . '_new.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
-            $processedSlides[] = [
-                'image' => asset('uploads/' . $filename),
-                'alt' => trim($request->input('new_slide_alt', 'Banner Baru')),
-                'link' => trim($request->input('new_slide_link', '')),
-            ];
         }
 
         if (count($processedSlides) > 0) {

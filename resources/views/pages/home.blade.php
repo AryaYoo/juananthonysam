@@ -16,10 +16,19 @@
 
             @php
                 $slides = $hero_slides ?? [
-                    ['image' => asset_v('images/Poster1.jpg'), 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
-                    ['image' => asset_v('images/Poster2.jpg'), 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
-                    ['image' => asset_v('images/Poster3.jpg'), 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
+                    ['image' => '/images/Poster1.jpg', 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
+                    ['image' => '/images/Poster2.jpg', 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
+                    ['image' => '/images/Poster3.jpg', 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
                 ];
+
+                // Normalize: kalau path relative, jadikan full URL
+                $slides = array_map(function($s) {
+                    $img = $s['image'] ?? '';
+                    if ($img && str_starts_with($img, '/')) {
+                        $s['image'] = asset(ltrim($img, '/'));
+                    }
+                    return $s;
+                }, $slides);
             @endphp
 
             @foreach($slides as $index => $slide)

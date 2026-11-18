@@ -63,17 +63,17 @@ class CmsService
         return [
             'hero_slides' => [
                 [
-                    'image' => asset('images/Poster1.jpg'),
+                    'image' => '/images/Poster1.jpg',
                     'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam',
                     'link' => '',
                 ],
                 [
-                    'image' => asset('images/Poster2.jpg'),
+                    'image' => '/images/Poster2.jpg',
                     'alt' => 'Jadwal Ibadah Ekklesia Surabaya',
                     'link' => '',
                 ],
                 [
-                    'image' => asset('images/Poster3.jpg'),
+                    'image' => '/images/Poster3.jpg',
                     'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan',
                     'link' => '',
                 ],
@@ -131,13 +131,58 @@ class CmsService
         ];
     }
 
+    /**
+     * Bersihkan path asset/gambar agar tidak hardcode domain (APP_URL).
+     * Ubah http(s)://domain.../uploads/... menjadi relative /uploads/...
+     */
+    public static function cleanAssetPath(?string $path): string
+    {
+        if (empty($path)) {
+            return '';
+        }
+        $path = trim($path);
+
+        // Jika path mengarah ke /uploads/ di server ini, ambil relative path-nya saja
+        if (preg_match('#/(uploads/[^"\'\s?#]+)#', $path, $m)) {
+            return '/' . $m[1];
+        }
+
+        // Jika path mengarah ke /images/ bawaan
+        if (preg_match('#/(images/[^"\'\s?#]+)#', $path, $m)) {
+            return '/' . $m[1];
+        }
+
+        return $path;
+    }
+
     public static function getHome(): array
     {
-        return self::read('home', self::defaultHome());
+        $data = self::read('home', self::defaultHome());
+
+        // Sanitasi hero_slides agar bebas dari domain yang salah/berubah
+        if (!empty($data['hero_slides']) && is_array($data['hero_slides'])) {
+            foreach ($data['hero_slides'] as &$slide) {
+                if (isset($slide['image'])) {
+                    $slide['image'] = self::cleanAssetPath($slide['image']);
+                }
+            }
+            unset($slide);
+        }
+
+        return $data;
     }
 
     public static function saveHome(array $data): bool
     {
+        if (!empty($data['hero_slides']) && is_array($data['hero_slides'])) {
+            foreach ($data['hero_slides'] as &$slide) {
+                if (isset($slide['image'])) {
+                    $slide['image'] = self::cleanAssetPath($slide['image']);
+                }
+            }
+            unset($slide);
+        }
+
         return self::write('home', $data);
     }
 

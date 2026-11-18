@@ -85,9 +85,9 @@
 
                         @php
                             $slides = $homeData['hero_slides'] ?? [
-                                ['image' => asset('images/Poster1.jpg'), 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
-                                ['image' => asset('images/Poster2.jpg'), 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
-                                ['image' => asset('images/Poster3.jpg'), 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
+                                ['image' => '/images/Poster1.jpg', 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
+                                ['image' => '/images/Poster2.jpg', 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
+                                ['image' => '/images/Poster3.jpg', 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
                             ];
                         @endphp
 
