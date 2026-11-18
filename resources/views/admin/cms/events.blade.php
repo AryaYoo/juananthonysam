@@ -75,7 +75,11 @@
                         <div class="p-4 rounded-xl border border-gray-200 dark:border-[#2B2B2B] bg-gray-50/50 dark:bg-[#141414] flex flex-col justify-between space-y-3">
                             <div class="flex items-start gap-3">
                                 <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-gray-200 dark:bg-[#252525]">
-                                    <img src="{{ $ev['image_url'] ?? asset('images/WorshipNight3.png') }}" alt="{{ $ev['title'] }}" class="w-full h-full object-cover">
+                                    @php
+                                        $evImg = $ev['image_url'] ?? '/images/WorshipNight3.png';
+                                        if ($evImg && str_starts_with($evImg, '/')) $evImg = asset(ltrim($evImg, '/'));
+                                    @endphp
+                                    <img src="{{ $evImg }}" alt="{{ $ev['title'] }}" class="w-full h-full object-cover">
                                 </div>
                                 <div class="min-w-0 flex-1">
                                     <div class="flex items-center gap-1.5 flex-wrap">
@@ -243,7 +247,7 @@
                     <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Poster / Gambar (Opsional)</label>
                     <input type="file" name="image_file" accept="image/*" class="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white">
                     <p class="text-[10px] text-gray-400 mt-1">Atau masukkan URL / path gambar di bawah jika tidak upload file baru</p>
-                    <input type="text" name="image_url" id="eventFormImageUrl" placeholder="{{ asset('images/WorshipNight3.png') }}" class="w-full mt-1.5 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white focus:outline-none">
+                    <input type="text" name="image_url" id="eventFormImageUrl" placeholder="/images/WorshipNight3.png atau /uploads/nama-file.jpg" class="w-full mt-1.5 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white focus:outline-none">
                 </div>
 
                 <div class="flex items-center gap-6 pt-1">
@@ -274,6 +278,7 @@
             document.getElementById('modalEventTitle').textContent = 'Tambah Acara Baru';
             document.getElementById('eventFormId').value = '';
             document.getElementById('eventFormTitle').value = '';
+            document.getElementById('eventFormCategory').value = 'Worship';
             document.getElementById('eventFormBadge').value = '';
             document.getElementById('eventFormSchedule').value = '';
             document.getElementById('eventFormTime').value = '';

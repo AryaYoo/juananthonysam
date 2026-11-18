@@ -74,7 +74,11 @@
                     @forelse($galleries as $g)
                         <div class="group relative rounded-xl overflow-hidden border border-gray-200 dark:border-[#282828] bg-gray-50/50 dark:bg-[#141414] flex flex-col justify-between">
                             <div class="relative aspect-4/3 bg-gray-200 dark:bg-[#202020] overflow-hidden">
-                                <img src="{{ $g['image_url'] ?? '' }}" alt="{{ $g['title'] ?? '' }}" class="w-full h-full object-cover">
+                                @php
+                                    $gImg = $g['image_url'] ?? '';
+                                    if ($gImg && str_starts_with($gImg, '/')) $gImg = asset(ltrim($gImg, '/'));
+                                @endphp
+                                <img src="{{ $gImg ?: asset('images/Dokumentasi1.png') }}" alt="{{ $g['title'] ?? '' }}" class="w-full h-full object-cover" onerror="this.src='{{ asset('images/Dokumentasi1.png') }}'">
                                 <span class="absolute top-2 left-2 px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase bg-black/75 text-white backdrop-blur-xs">
                                     {{ $g['category'] ?? 'Umum' }}
                                 </span>
@@ -204,7 +208,7 @@
                     <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Upload File Gambar Baru</label>
                     <input type="file" name="image_file" accept="image/*" class="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white">
                     <p class="text-[10px] text-gray-400 mt-1">Atau masukkan path / URL gambar di bawah jika tidak upload file:</p>
-                    <input type="text" name="image_url" id="photoFormImageUrl" placeholder="{{ asset('images/Dokumentasi1.png') }}" class="w-full mt-1.5 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white focus:outline-none">
+                    <input type="text" name="image_url" id="photoFormImageUrl" placeholder="/images/Dokumentasi1.png atau /uploads/nama-file.jpg" class="w-full mt-1.5 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-[#333] bg-gray-50 dark:bg-[#141414] text-gray-900 dark:text-white focus:outline-none">
                 </div>
 
                 <div class="flex items-center justify-end gap-2 pt-3 border-t border-gray-100 dark:border-[#262626]">
