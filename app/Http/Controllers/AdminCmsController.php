@@ -358,18 +358,75 @@ class AdminCmsController extends Controller
         }
 
         $current = CmsService::getIbadah($tab);
+        $allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
 
+        // 0. Banner Utama (Hero Image Slider)
+        $slidesInput = $request->input('hero_slides', []);
+        $processedSlides = [];
+
+        if (is_array($slidesInput)) {
+            foreach ($slidesInput as $idx => $s) {
+                $imgPath = trim($s['image'] ?? '');
+
+                // Cek upload file baru untuk slide ini
+                if ($request->hasFile("hero_slides.{$idx}.image_file")) {
+                    $file = $request->file("hero_slides.{$idx}.image_file");
+                    if ($file->isValid()) {
+                        $ext = strtolower($file->getClientOriginalExtension() ?: 'jpg');
+                        if (!in_array($ext, $allowedExts)) {
+                            return back()->with('error', 'Format gambar Banner #' . ($idx + 1) . ' tidak didukung. Gunakan JPG, PNG, atau WebP.');
+                        }
+                        if ($file->getSize() > 10 * 1024 * 1024) {
+                            return back()->with('error', 'Ukuran gambar Banner #' . ($idx + 1) . ' terlalu besar (maksimal 10MB).');
+                        }
+                        $imgPath = self::storeUploadedFile($file, 'ibadah_' . $tab, (string)$idx);
+                    }
+                } else {
+                    $imgPath = CmsService::cleanAssetPath($imgPath);
+                }
+
+                if (!empty($imgPath)) {
+                    $processedSlides[] = [
+                        'image' => $imgPath,
+                        'alt'   => trim($s['alt'] ?? ('Banner ' . ($current['pageName'] ?? 'Ibadah'))),
+                        'link'  => trim($s['link'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        // Quick upload (upload banner baru langsung)
+        if ($request->hasFile('new_slide_file')) {
+            $newFile = $request->file('new_slide_file');
+            if ($newFile->isValid()) {
+                $ext = strtolower($newFile->getClientOriginalExtension() ?: 'jpg');
+                if (in_array($ext, $allowedExts) && $newFile->getSize() <= 10 * 1024 * 1024) {
+                    $newPath = self::storeUploadedFile($newFile, 'ibadah_' . $tab, 'new');
+                    $processedSlides[] = [
+                        'image' => $newPath,
+                        'alt'   => trim($request->input('new_slide_alt') ?: ('Banner ' . ($current['pageName'] ?? 'Ibadah'))),
+                        'link'  => trim($request->input('new_slide_link') ?: ''),
+                    ];
+                }
+            }
+        }
+
+        if (count($processedSlides) > 0) {
+            $current['heroSlides'] = $processedSlides;
+        }
+
+        // 1. Informasi Halaman
         $current['title'] = $request->input('title', $current['title'] ?? '');
         $current['metaDescription'] = $request->input('metaDescription', $current['metaDescription'] ?? '');
         $current['marqueeText'] = $request->input('marqueeText', $current['marqueeText'] ?? '');
 
-        // Description Paragraphs
+        // 2. Description Paragraphs
         $descRaw = $request->input('descriptionParagraphs', '');
         if (is_string($descRaw)) {
             $current['descriptionParagraphs'] = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $descRaw))));
         }
 
-        // Schedule
+        // 3. Schedule
         $current['schedule'] = [
             'name' => $request->input('schedule_name', ''),
             'day' => $request->input('schedule_day', ''),
@@ -383,7 +440,7 @@ class AdminCmsController extends Controller
         CmsService::saveIbadah($tab, $current);
 
         return redirect()->route('admin.cms.ibadah', ['tab' => $tab])
-            ->with('success', "Konten halaman {$current['pageName']} berhasil diperbarui!");
+            ->with('success', "Konten dan Banner halaman {$current['pageName']} berhasil diperbarui!");
     }
 
     // =========================================================================

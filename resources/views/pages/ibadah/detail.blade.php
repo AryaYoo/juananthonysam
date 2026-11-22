@@ -20,9 +20,17 @@
                 @foreach($heroSlides as $i => $slide)
                     <div class="ibadah-slide relative h-full flex-shrink-0"
                          style="width: {{ count($heroSlides) > 0 ? (100 / count($heroSlides)) : 100 }}%;">
-                        <img src="{{ asset_v($slide['image']) }}"
-                             alt="{{ $slide['alt'] }}"
-                             class="w-full h-full object-cover object-center select-none">
+                        @if(!empty($slide['link']))
+                            <a href="{{ $slide['link'] }}" class="block w-full h-full">
+                                <img src="{{ asset_v($slide['image']) }}"
+                                     alt="{{ $slide['alt'] ?? '' }}"
+                                     class="w-full h-full object-cover object-center select-none">
+                            </a>
+                        @else
+                            <img src="{{ asset_v($slide['image']) }}"
+                                 alt="{{ $slide['alt'] ?? '' }}"
+                                 class="w-full h-full object-cover object-center select-none">
+                        @endif
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
                     </div>
                 @endforeach

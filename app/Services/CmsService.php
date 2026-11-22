@@ -25,6 +25,23 @@ class CmsService
     }
 
     /**
+     * Gabungkan default dengan data tersimpan tanpa menimpa array list numerik secara parsial.
+     */
+    public static function mergeDefaults(array $default, array $data): array
+    {
+        foreach ($default as $key => $val) {
+            if (!array_key_exists($key, $data)) {
+                $data[$key] = $val;
+            } elseif (is_array($val) && is_array($data[$key])) {
+                if (!array_is_list($val) && !array_is_list($data[$key])) {
+                    $data[$key] = self::mergeDefaults($val, $data[$key]);
+                }
+            }
+        }
+        return $data;
+    }
+
+    /**
      * Baca data JSON atau fallback ke default
      */
     public static function read(string $filename, array $default = []): array
@@ -41,7 +58,7 @@ class CmsService
         }
 
         $data = json_decode($content, true);
-        return is_array($data) ? array_replace_recursive($default, $data) : $default;
+        return is_array($data) ? self::mergeDefaults($default, $data) : $default;
     }
 
     /**
@@ -500,18 +517,47 @@ class CmsService
     public static function getIbadah(string $key): array
     {
         $all = self::read('ibadah', self::defaultIbadahAll());
-        return $all[$key] ?? self::defaultIbadahAll()[$key] ?? [];
+        $item = $all[$key] ?? self::defaultIbadahAll()[$key] ?? [];
+        if (!empty($item['heroSlides']) && is_array($item['heroSlides'])) {
+            foreach ($item['heroSlides'] as &$slide) {
+                if (isset($slide['image'])) {
+                    $slide['image'] = self::cleanAssetPath($slide['image']);
+                }
+            }
+            unset($slide);
+        }
+        return $item;
     }
 
     public static function getAllIbadah(): array
     {
-        return self::read('ibadah', self::defaultIbadahAll());
+        $all = self::read('ibadah', self::defaultIbadahAll());
+        foreach ($all as $key => &$item) {
+            if (!empty($item['heroSlides']) && is_array($item['heroSlides'])) {
+                foreach ($item['heroSlides'] as &$slide) {
+                    if (isset($slide['image'])) {
+                        $slide['image'] = self::cleanAssetPath($slide['image']);
+                    }
+                }
+                unset($slide);
+            }
+        }
+        unset($item);
+        return $all;
     }
 
     public static function saveIbadah(string $key, array $data): bool
     {
         $all = self::getAllIbadah();
-        $all[$key] = array_replace_recursive($all[$key] ?? [], $data);
+        if (isset($data['heroSlides']) && is_array($data['heroSlides'])) {
+            foreach ($data['heroSlides'] as &$slide) {
+                if (isset($slide['image'])) {
+                    $slide['image'] = self::cleanAssetPath($slide['image']);
+                }
+            }
+            unset($slide);
+        }
+        $all[$key] = $data;
         return self::write('ibadah', $all);
     }
 
