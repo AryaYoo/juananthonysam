@@ -143,12 +143,12 @@ class CmsService
         $path = trim($path);
 
         // Jika path mengarah ke /uploads/ di server ini, ambil relative path-nya saja
-        if (preg_match('#/(uploads/[^"\'\s?#]+)#', $path, $m)) {
+        if (preg_match('~/(uploads/[^"\'\s?#]+)~', $path, $m)) {
             return '/' . $m[1];
         }
 
         // Jika path mengarah ke /images/ bawaan
-        if (preg_match('#/(images/[^"\'\s?#]+)#', $path, $m)) {
+        if (preg_match('~/(images/[^"\'\s?#]+)~', $path, $m)) {
             return '/' . $m[1];
         }
 
