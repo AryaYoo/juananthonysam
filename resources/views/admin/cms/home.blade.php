@@ -118,8 +118,14 @@
                                     <div class="p-4 flex flex-col sm:flex-row gap-4">
                                         {{-- Preview --}}
                                         <div class="sm:w-48 flex-shrink-0">
+                                            @php
+                                                $slideImg = $s['image'] ?? '';
+                                                if ($slideImg && str_starts_with($slideImg, '/')) {
+                                                    $slideImg = asset(ltrim($slideImg, '/'));
+                                                }
+                                            @endphp
                                             <div class="w-full bg-gray-900 rounded-lg overflow-hidden border border-gray-300 dark:border-[#333]" style="aspect-ratio:16/9">
-                                                <img id="preview_{{ $idx }}" src="{{ $s['image'] }}" alt="{{ $s['alt'] ?? 'Preview' }}" class="w-full h-full object-cover" onerror="this.src=''">
+                                                <img id="preview_{{ $idx }}" src="{{ $slideImg ?: asset('images/Poster1.jpg') }}" alt="{{ $s['alt'] ?? 'Preview' }}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='{{ asset('images/Poster1.jpg') }}';">
                                             </div>
                                             <p class="text-[10px] text-gray-400 text-center mt-1.5">Rasio 16:9 · maks 2 MB</p>
                                         </div>
@@ -467,7 +473,7 @@
                         <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
-                        <span class="slide-label">Banner #\${count} (Baru)</span>
+                        <span class="slide-label">Banner #${count} (Baru)</span>
                     </span>
                     <button type="button" onclick="removeSlideCard(this)" class="text-xs text-red-500 hover:text-red-700 font-medium inline-flex items-center gap-1 cursor-pointer">
                         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -479,7 +485,7 @@
                 <div class="p-4 flex flex-col sm:flex-row gap-4">
                     <div class="sm:w-48 flex-shrink-0">
                         <div class="w-full bg-gray-900 rounded-lg overflow-hidden border border-gray-300 dark:border-[#333]" style="aspect-ratio:16/9">
-                            <img id="preview_\${idx}" src="" alt="Preview" class="w-full h-full object-cover">
+                            <img id="preview_${idx}" src="" alt="Preview" class="w-full h-full object-cover">
                         </div>
                         <p class="text-[10px] text-gray-400 text-center mt-1.5">Rasio 16:9 · maks 2 MB</p>
                     </div>
@@ -490,24 +496,24 @@
                                 <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
                                 </svg>
-                                <span class="text-xs text-gray-500 truncate" id="filelabel_\${idx}">Pilih file foto (JPG, PNG, WebP)</span>
-                                <input type="file" name="hero_slides[\${idx}][image_file]" accept="image/*" class="sr-only" onchange="previewSlideImage(this,'preview_\${idx}','filelabel_\${idx}')">
+                                <span class="text-xs text-gray-500 truncate" id="filelabel_${idx}">Pilih file foto (JPG, PNG, WebP)</span>
+                                <input type="file" name="hero_slides[${idx}][image_file]" accept="image/*" class="sr-only" onchange="previewSlideImage(this,'preview_${idx}','filelabel_${idx}')">
                             </label>
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Atau URL Gambar</label>
-                            <input type="text" name="hero_slides[\${idx}][image]" placeholder="https://..." oninput="updatePreviewFromUrl(this,'preview_\${idx}')"
+                            <input type="text" name="hero_slides[${idx}][image]" placeholder="https://..." oninput="updatePreviewFromUrl(this,'preview_${idx}')"
                                 class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Keterangan / Judul</label>
-                                <input type="text" name="hero_slides[\${idx}][alt]" placeholder="mis. Jadwal Ibadah"
+                                <input type="text" name="hero_slides[${idx}][alt]" placeholder="mis. Jadwal Ibadah"
                                     class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-semibold text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Link Klik <span class="font-normal normal-case text-gray-400">(Opsional)</span></label>
-                                <input type="text" name="hero_slides[\${idx}][link]" placeholder="https://..."
+                                <input type="text" name="hero_slides[${idx}][link]" placeholder="https://..."
                                     class="w-full px-3 py-2 text-xs rounded-lg border border-gray-200 dark:border-[#333] bg-white dark:bg-[#1A1A1A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400">
                             </div>
                         </div>

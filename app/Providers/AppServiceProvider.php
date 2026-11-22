@@ -41,6 +41,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Otomatis deteksi folder public_html untuk hosting cPanel
+        $this->app->bind('path.public', function () {
+            if (!empty($_SERVER['DOCUMENT_ROOT']) && is_dir($_SERVER['DOCUMENT_ROOT'])) {
+                return $_SERVER['DOCUMENT_ROOT'];
+            }
+            $cpanel = base_path('../../public_html');
+            if (is_dir($cpanel)) {
+                return realpath($cpanel) ?: $cpanel;
+            }
+            return base_path('public');
+        });
+
         $this->app->bind(
             \App\Repositories\Contracts\EventRepositoryInterface::class,
             \App\Repositories\Eloquent\EventRepository::class

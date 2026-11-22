@@ -18,6 +18,74 @@ class AdminCmsController extends Controller
     // =========================================================================
 
     /**
+     * Dapatkan daftar direktori upload yang mungkin digunakan (public/uploads dan public_html/uploads di cPanel)
+     */
+    private static function getUploadDirs(): array
+    {
+        $dirs = [];
+
+        // 1. Primary Laravel public_path('uploads')
+        $primary = public_path('uploads');
+        $dirs[] = $primary;
+
+        // 2. cPanel: $_SERVER['DOCUMENT_ROOT']/uploads
+        if (!empty($_SERVER['DOCUMENT_ROOT'])) {
+            $docRootUploads = rtrim($_SERVER['DOCUMENT_ROOT'], '/\\') . DIRECTORY_SEPARATOR . 'uploads';
+            if (!in_array($docRootUploads, $dirs)) {
+                $dirs[] = $docRootUploads;
+            }
+        }
+
+        // 3. cPanel standard folder structure: /home/username/public_html/uploads
+        $cpanelDirs = [
+            base_path('../../public_html/uploads'),
+            base_path('../public_html/uploads'),
+        ];
+        foreach ($cpanelDirs as $cd) {
+            $parent = dirname($cd);
+            if (is_dir($parent) && !in_array($cd, $dirs)) {
+                $dirs[] = $cd;
+            }
+        }
+
+        return $dirs;
+    }
+
+    /**
+     * Simpan file upload dan pastikan tersinkron ke public_html jika menggunakan cPanel
+     */
+    private static function storeUploadedFile($file, string $prefix, string $suffix = ''): string
+    {
+        $ext = strtolower($file->getClientOriginalExtension() ?: 'jpg');
+        $safeSuffix = preg_replace('/[^a-zA-Z0-9_-]/', '', (string)$suffix);
+        $filename = $prefix . '_' . time() . ($safeSuffix !== '' ? '_' . $safeSuffix : '') . '.' . $ext;
+
+        $targetDirs = self::getUploadDirs();
+        $primaryDir = $targetDirs[0];
+
+        if (!is_dir($primaryDir)) {
+            @mkdir($primaryDir, 0755, true);
+        }
+
+        $file->move($primaryDir, $filename);
+        @chmod($primaryDir . DIRECTORY_SEPARATOR . $filename, 0644);
+
+        // Salin ke direktori public_html jika ada (lingkungan cPanel)
+        for ($i = 1; $i < count($targetDirs); $i++) {
+            $otherDir = $targetDirs[$i];
+            if (!is_dir($otherDir)) {
+                @mkdir($otherDir, 0755, true);
+            }
+            if (is_dir($otherDir)) {
+                @copy($primaryDir . DIRECTORY_SEPARATOR . $filename, $otherDir . DIRECTORY_SEPARATOR . $filename);
+                @chmod($otherDir . DIRECTORY_SEPARATOR . $filename, 0644);
+            }
+        }
+
+        return '/uploads/' . $filename;
+    }
+
+    /**
      * Kalau path berupa absolute URL ke domain kita sendiri, ubah jadi relative path.
      * Contoh: https://juananthonysam.com/uploads/x.jpg → /uploads/x.jpg
      *         https://juananthonysam.com/images/Poster1.jpg → /images/Poster1.jpg
@@ -69,12 +137,6 @@ class AdminCmsController extends Controller
         $processedSlides = [];
         $allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
 
-        // Pastikan folder uploads ada
-        $uploadsDir = public_path('uploads');
-        if (!is_dir($uploadsDir)) {
-            @mkdir($uploadsDir, 0775, true);
-        }
-
         if (is_array($slidesInput)) {
             foreach ($slidesInput as $idx => $s) {
                 $imgPath = trim($s['image'] ?? '');
@@ -90,12 +152,7 @@ class AdminCmsController extends Controller
                         if ($file->getSize() > 10 * 1024 * 1024) {
                             return back()->with('error', 'Ukuran gambar Banner #' . ($idx + 1) . ' terlalu besar (maksimal 10MB).');
                         }
-                        if (!is_writable($uploadsDir)) {
-                            return back()->with('error', 'Folder "public/uploads" di server belum writable. Jalankan "chmod -R 775 public/uploads" di terminal server VPS.');
-                        }
-                        $filename = 'banner_' . time() . '_' . $idx . '.' . $ext;
-                        $file->move($uploadsDir, $filename);
-                        $imgPath = '/uploads/' . $filename;
+                        $imgPath = self::storeUploadedFile($file, 'banner', (string)$idx);
                     }
                 } else {
                     $imgPath = CmsService::cleanAssetPath($imgPath);
@@ -106,6 +163,22 @@ class AdminCmsController extends Controller
                         'image' => $imgPath,
                         'alt'   => trim($s['alt'] ?? 'Banner Utama Ekklesia'),
                         'link'  => trim($s['link'] ?? ''),
+                    ];
+                }
+            }
+        }
+
+        // Quick upload (upload banner baru langsung)
+        if ($request->hasFile('new_slide_file')) {
+            $newFile = $request->file('new_slide_file');
+            if ($newFile->isValid()) {
+                $ext = strtolower($newFile->getClientOriginalExtension() ?: 'jpg');
+                if (in_array($ext, $allowedExts) && $newFile->getSize() <= 10 * 1024 * 1024) {
+                    $newPath = self::storeUploadedFile($newFile, 'banner', 'new');
+                    $processedSlides[] = [
+                        'image' => $newPath,
+                        'alt'   => trim($request->input('new_slide_alt') ?: 'Banner Utama Ekklesia'),
+                        'link'  => trim($request->input('new_slide_link') ?: ''),
                     ];
                 }
             }
@@ -336,11 +409,10 @@ class AdminCmsController extends Controller
         $imageUrl = CmsService::cleanAssetPath($request->input('image_url', ''));
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
-            $uploadsDir = public_path('uploads');
-            if (!is_dir($uploadsDir)) @mkdir($uploadsDir, 0775, true);
-            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadsDir, $filename);
-            $imageUrl = '/uploads/' . $filename;
+            if ($file->isValid()) {
+                $suffix = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+                $imageUrl = self::storeUploadedFile($file, 'event', $suffix);
+            }
         }
 
         $eventData = [
@@ -432,11 +504,10 @@ class AdminCmsController extends Controller
         $imageUrl = CmsService::cleanAssetPath($request->input('image_url', ''));
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
-            $uploadsDir = public_path('uploads');
-            if (!is_dir($uploadsDir)) @mkdir($uploadsDir, 0775, true);
-            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadsDir, $filename);
-            $imageUrl = '/uploads/' . $filename;
+            if ($file->isValid()) {
+                $suffix = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+                $imageUrl = self::storeUploadedFile($file, 'gallery', $suffix);
+            }
         }
 
         $data = [
