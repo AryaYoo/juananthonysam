@@ -1,0 +1,527 @@
+@extends('layouts.app')
+
+@section('title', 'Beranda - Ekklesia Surabaya')
+@section('meta_description', 'Gereja Ekklesia Surabaya di bawah pimpinan Pastor Juan Anthony Sam & Ps Samuel. Tema 2026: Tahun Pemulihan bagi Kemuliaan Tuhan. Welcome Home.')
+
+@section('content')
+    <!-- =========================================================
+         1. HERO SECTION & CAROUSEL (Mobile-First, philipmantofa.com style)
+         ========================================================= -->
+    <!-- =========================================================
+         1. HERO SECTION & CAROUSEL (Poster Images 1-3)
+         ========================================================= -->
+    <section class="relative bg-black text-white overflow-hidden select-none" id="heroCarouselSection">
+        <!-- Carousel Slides Container -->
+        <div class="relative w-full h-[56.25vw] min-h-0 max-h-[780px] sm:min-h-[560px] lg:min-h-[720px] flex items-center justify-center bg-black">
+
+            @php
+                $slides = $hero_slides ?? [
+                    ['image' => '/images/Poster1.jpg', 'alt' => 'Saat Teduh Bersama - Ps Juan Anthony Sam', 'link' => ''],
+                    ['image' => '/images/Poster2.jpg', 'alt' => 'Jadwal Ibadah Ekklesia Surabaya', 'link' => ''],
+                    ['image' => '/images/Poster3.jpg', 'alt' => 'Himbauan Kehati-hatian dan Waspada Penipuan', 'link' => ''],
+                ];
+
+                // Normalize: kalau path relative, jadikan full URL
+                $slides = array_map(function($s) {
+                    $img = $s['image'] ?? '';
+                    if ($img && str_starts_with($img, '/')) {
+                        $s['image'] = asset(ltrim($img, '/'));
+                    }
+                    return $s;
+                }, $slides);
+            @endphp
+
+            @foreach($slides as $index => $slide)
+                <!-- SLIDE {{ $index + 1 }} -->
+                <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out {{ $index === 0 ? '' : 'opacity-0 pointer-events-none' }} flex items-center justify-center overflow-hidden" data-slide="{{ $index }}">
+                    @if(!empty($slide['link']))
+                        <a href="{{ $slide['link'] }}" class="w-full h-full flex items-center justify-center">
+                            <img src="{{ $slide['image'] }}" 
+                                 alt="{{ $slide['alt'] ?? 'Banner Utama Ekklesia Surabaya' }}" 
+                                 class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
+                        </a>
+                    @else
+                        <img src="{{ $slide['image'] }}" 
+                             alt="{{ $slide['alt'] ?? 'Banner Utama Ekklesia Surabaya' }}" 
+                             class="hero-parallax-img w-full h-full object-contain object-center sm:object-cover sm:scale-[1.08] will-change-transform">
+                    @endif
+                </div>
+            @endforeach
+
+            @if(count($slides) > 1)
+            <!-- Carousel Prev/Next Arrows - aligned with max-w-7xl header container -->
+            <div class="absolute inset-0 z-20 pointer-events-none flex items-center">
+                <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                    <button type="button" 
+                            id="carouselPrev" 
+                            aria-label="Slide Sebelumnya" 
+                            class="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button type="button" 
+                            id="carouselNext" 
+                            aria-label="Slide Berikutnya" 
+                            class="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 flex items-center justify-center transition-all duration-200 focus:outline-none backdrop-blur-sm shadow-lg cursor-pointer">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Slide Dots Indicator -->
+            <div class="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+                @foreach($slides as $index => $slide)
+                    <button type="button" class="carousel-dot {{ $index === 0 ? 'w-6 bg-white' : 'w-2 bg-white/40' }} h-1.5 rounded-full transition-all duration-300 cursor-pointer" data-index="{{ $index }}" aria-label="Slide {{ $index + 1 }}"></button>
+                @endforeach
+            </div>
+            @endif
+        </div>
+    </section>
+
+    <!-- =========================================================
+         1.5. PASTORAL GREETING SECTION (philipmantofa.com reference style)
+         "HELLO, THIS IS PASTOR JUAN ANTHONY SAM" (Aligned with max-w-7xl)
+         ========================================================= -->
+    <section class="bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300 overflow-hidden">
+        <!-- Outer wrapper: max-w-7xl keeps left text aligned -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+
+                <!-- Left: Greeting Text - order-1 so it's ABOVE photo on mobile -->
+                <div class="lg:col-span-7 py-14 sm:py-20 pr-0 lg:pr-12 space-y-6 text-left order-1 pastoral-slide-up">
+                    <div>
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
+                            HELLO, THIS IS PASTOR JUAN ANTHONY SAM
+                        </h2>
+                        <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4"></div>
+                    </div>
+
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-xl">
+                        Welcome home! I pray that this point of contact with us will begin your exciting adventure with the Holy Spirit and His Word.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <a href="{{ route('pastor.juan') }}" 
+                           class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] hover:bg-[#2B2B2B] dark:bg-white dark:hover:bg-gray-100 text-white dark:text-[#111111] text-xs font-normal rounded-lg transition-all shadow-sm">
+                            <span>Baca Profil Pastor Juan</span>
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/6281213131060?text=Halo%20Pastor,%20salam%20dalam%20kasih%20kristus" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-xs font-normal text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                            <span>Hubungi Pastoral via WA</span>
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Photo - full height on desktop, full-bleed width on mobile (below text) -->
+                <div class="lg:col-span-5 relative order-2 -mx-4 sm:-mx-6 lg:mx-0 h-[380px] sm:h-[460px] lg:h-auto pastoral-slide-up pastoral-slide-up--delayed">
+                    @php
+                        $pastorJuanImg = file_exists(public_path('images/juan.png'))
+                            ? asset_v('images/juan.png')
+                            : (file_exists(public_path('images/pastor-juan.png'))
+                                ? asset_v('images/pastor-juan.png')
+                                : (file_exists(public_path('images/pastor-juan.jpg'))
+                                    ? asset_v('images/pastor-juan.jpg')
+                                    : 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop'));
+                    @endphp
+                    <img src="{{ $pastorJuanImg }}"
+                         alt="Pastor Juan Anthony Sam - Ekklesia Surabaya"
+                         class="absolute inset-0 w-full h-full object-cover object-top select-none">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         2.4. SECTION TITLE: HIGHLIGHT EKKLESIA
+         ========================================================= -->
+    <section class="w-full bg-[#0A0A0A] text-white py-6 sm:py-8 border-t border-b border-white/10 flex items-center justify-center select-none" aria-label="Highlight Ekklesia">
+        <h2 class="text-sm sm:text-base md:text-lg font-normal uppercase tracking-[0.35em] text-white/90 font-['Stack_Sans_Notch',sans-serif] text-center">
+            HIGHLIGHT EKKLESIA
+        </h2>
+    </section>
+
+    <!-- =========================================================
+         2.5. VIDEO HIGHLIGHT / CINEMATIC BANNER
+         ========================================================= -->
+    @php
+        $videoSrc = file_exists(public_path('images/Video.mp4')) 
+            ? asset_v('images/Video.mp4') 
+            : (file_exists(public_path('images/video.mp4')) ? asset_v('images/video.mp4') : asset_v('images/Video.mp4'));
+    @endphp
+    <section class="relative w-full bg-black overflow-hidden select-none border-b border-gray-200 dark:border-[#242424]" aria-label="Video Highlight">
+        <div class="relative w-full aspect-[16/9] min-h-[300px] max-h-[700px] overflow-hidden">
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                preload="metadata"
+                class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none">
+                <source src="{{ $videoSrc }}" type="video/mp4">
+                Browser Anda tidak mendukung tag video.
+            </video>
+            <!-- Elegant subtle vignette / overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none"></div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         3. JADWAL IBADAH (5 Jadwal Lengkap Sesuai Permintaan)
+         ========================================================= -->
+    <x-jadwal-ibadah :schedules="$schedules" />
+
+
+
+    <!-- =========================================================
+         5. GIVING / PERSEMBAHAN M3 (Bank Danamon 3620.989.776 a.n. GKRI JEMAAT EKKLESIA)
+         Untuk lahan/bangunan, gedung, dan sarana + QRIS
+         ========================================================= -->
+    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-[#101010] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300" id="giving">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Intro -->
+                <div class="lg:col-span-5 space-y-4 reveal-on-scroll">
+                    <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">
+                        GIVING & PERSEPULUHAN
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">
+                        PERSEMBAHAN & PERSEPULUHAN
+                    </h2>
+                    <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4"></div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                        Dukungan persembahan dan persepuluhan jemaat dialokasikan untuk pekerjaan Tuhan, sarana ibadah, dan pembangunan pelayanan melalui GKRI Jemaat Ekklesia Surabaya.
+                    </p>
+                    <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">
+                        "Hendaklah masing-masing memberikan menurut kerelaan hatinya, jangan dengan sedih hati atau karena paksaan, sebab Allah mengasihi orang yang memberi dengan sukacita." &mdash; 2 Korintus 9:7
+                    </blockquote>
+                </div>
+
+                <!-- Right Giving Cards: Perpuluhan & Persembahan Images -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-on-scroll delay-200">
+                    <!-- Card 1: Perpuluhan -->
+                    <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
+                        <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
+                            <img src="{{ asset_v('images/Perpuluhan.png') }}" 
+                                 alt="Ekklesia Perpuluhan - BCA Aily Yunnita Wardhany" 
+                                 class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                        </div>
+                        <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
+                            <div>
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-light">BCA Perpuluhan</span>
+                                <span class="font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider">1870099246</span>
+                            </div>
+                            <button type="button" 
+                                    onclick="navigator.clipboard.writeText('1870099246'); alert('Nomor rekening BCA Perpuluhan (1870099246) berhasil disalin!');" 
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0"
+                                    title="Salin Nomor Rekening">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Persembahan -->
+                    <div class="group bg-white dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between theme-card">
+                        <div class="overflow-hidden bg-gray-50 dark:bg-[#141414] p-3 flex items-center justify-center">
+                            <img src="{{ asset_v('images/Persembahan.png') }}" 
+                                 alt="Ekklesia Persembahan - BCA GKRI Jemaat Ekklesia" 
+                                 class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                        </div>
+                        <div class="p-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
+                            <div>
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-light">BCA Persembahan</span>
+                                <span class="font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider">0888850123</span>
+                            </div>
+                            <button type="button" 
+                                    onclick="navigator.clipboard.writeText('0888850123'); alert('Nomor rekening BCA Persembahan (0888850123) berhasil disalin!');" 
+                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0"
+                                    title="Salin Nomor Rekening">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- =========================================================
+         5b. GIVING MISI / M3 - Bank Danamon
+         ========================================================= -->
+    <section class="py-16 sm:py-20 bg-white dark:bg-[#111111] border-b border-gray-200 dark:border-[#242424] transition-colors duration-300" id="giving-misi">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-6 reveal-on-scroll max-w-lg mx-auto lg:max-w-none w-full">
+                    <div class="group bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-[#282828] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all theme-card">
+                        <div class="p-4 flex items-center justify-center">
+                            <img src="{{ asset_v('images/PersembahanM3.png') }}" alt="Ekklesia Persembahan M3 - Bank Danamon" class="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                        </div>
+                        <div class="px-5 py-4 border-t border-gray-100 dark:border-[#222222] flex items-center justify-between gap-2 bg-white dark:bg-[#181818]">
+                            <div>
+                                <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-light">{{ $giving['bank_name'] ?? 'Danamon' }} - {{ $giving['m3_code'] ?? 'Persembahan M3' }}</span>
+                                <span class="font-mono text-sm sm:text-base font-medium text-gray-900 dark:text-white tracking-wider">{{ $giving['account_number'] ?? '3620.989.776' }}</span>
+                            </div>
+                            <button type="button" onclick="navigator.clipboard.writeText('{{ $giving['account_number_raw'] ?? '3620989776' }}'); alert('Nomor rekening ({{ $giving['account_number_raw'] ?? '3620989776' }}) berhasil disalin!');" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-normal rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-[#252525] dark:hover:bg-[#303030] text-gray-800 dark:text-gray-200 transition-colors cursor-pointer shrink-0" title="Salin Nomor Rekening">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:block lg:col-span-6 space-y-4 reveal-on-scroll delay-200">
+                    <span class="text-xs uppercase tracking-[0.25em] font-normal text-gray-500 dark:text-gray-400 block">PERSEMBAHAN MISI</span>
+                    <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif] leading-tight">GIVING M3 &mdash; MISI EKKLESIA</h2>
+                    <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-3 mb-4"></div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-light">Persembahan M3 (Misi Masa Depan) dialokasikan khusus untuk mendukung pekerjaan misi, pembangunan lahan &amp; gedung ibadah, serta memperluas jangkauan pelayanan Ekklesia bagi kemuliaan Tuhan.</p>
+                    <blockquote class="text-xs italic text-gray-500 dark:text-gray-400 border-l-2 border-gray-300 dark:border-[#333333] pl-3 py-1 font-serif font-light">"Pergilah ke seluruh dunia, beritakanlah Injil kepada segala makhluk." &mdash; Markus 16:15</blockquote>
+                    <div class="pt-2"><span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 dark:bg-[#181818] border border-gray-200 dark:border-[#282828] rounded-lg text-xs text-gray-500 dark:text-gray-400 font-light"><svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>Bank Danamon &middot; a.n. GKRI JEMAAT EKKLESIA</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Carousel Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            let current = 0;
+            let autoTimer = null;
+
+            function showSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                current = index;
+
+                slides.forEach((s, i) => {
+                    if (i === current) {
+                        s.classList.remove('opacity-0', 'pointer-events-none');
+                        s.classList.add('opacity-100');
+                    } else {
+                        s.classList.remove('opacity-100');
+                        s.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+
+                dots.forEach((d, i) => {
+                    if (i === current) {
+                        d.classList.remove('bg-white/40', 'w-2');
+                        d.classList.add('bg-white', 'w-6');
+                    } else {
+                        d.classList.remove('bg-white', 'w-6');
+                        d.classList.add('bg-white/40', 'w-2');
+                    }
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                autoTimer = setInterval(() => {
+                    showSlide(current + 1);
+                }, 6000);
+            }
+
+            function stopTimer() {
+                if (autoTimer) clearInterval(autoTimer);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    showSlide(current - 1);
+                    startTimer();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    showSlide(current + 1);
+                    startTimer();
+                });
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const idx = parseInt(e.target.getAttribute('data-index'));
+                    showSlide(idx);
+                    startTimer();
+                });
+            });
+
+            // Touch Swipe for mobile devices
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const carouselSec = document.getElementById('heroCarouselSection');
+
+            if (carouselSec) {
+                carouselSec.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                carouselSec.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    if (touchStartX - touchEndX > 50) {
+                        showSlide(current + 1);
+                        startTimer();
+                    }
+                    if (touchEndX - touchStartX > 50) {
+                        showSlide(current - 1);
+                        startTimer();
+                    }
+                }, { passive: true });
+            }
+
+            startTimer();
+
+            // Smooth Hero Parallax Scroll Effect
+            const parallaxImgs = document.querySelectorAll('.hero-parallax-img');
+            if (carouselSec && parallaxImgs.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let tickingParallax = false;
+
+                function updateHeroParallax() {
+                    const scrollY = window.scrollY;
+                    const heroHeight = carouselSec.offsetHeight || 700;
+
+                    // Only compute when hero is visible in viewport
+                    if (scrollY <= heroHeight + 50) {
+                        const translateY = scrollY * 0.35; // smooth parallax depth factor
+                        parallaxImgs.forEach(img => {
+                            img.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.08)`;
+                        });
+                    }
+                    tickingParallax = false;
+                }
+
+                window.addEventListener('scroll', () => {
+                    if (!tickingParallax) {
+                        window.requestAnimationFrame(updateHeroParallax);
+                        tickingParallax = true;
+                    }
+                }, { passive: true });
+
+                // Initial position
+                updateHeroParallax();
+            }
+        });
+    </script>
+
+    {{-- Mobile Schedule Slider --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('scheduleTrack');
+            const dots = document.querySelectorAll('.schedule-dot');
+            if (!track || dots.length === 0) return;
+
+            const total = dots.length;
+            let current = 0;
+            let timer = null;
+
+            function goTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((dot, i) => {
+                    if (i === current) {
+                        dot.classList.remove('w-2', 'bg-gray-300');
+                        dot.classList.add('w-6', 'bg-gray-800');
+                    } else {
+                        dot.classList.remove('w-6', 'bg-gray-800');
+                        dot.classList.add('w-2', 'bg-gray-300');
+                    }
+                });
+            }
+
+            function startAuto() {
+                stopAuto();
+                timer = setInterval(() => goTo(current + 1), 3500);
+            }
+
+            function stopAuto() {
+                if (timer) clearInterval(timer);
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    goTo(parseInt(dot.dataset.slide));
+                    startAuto();
+                });
+            });
+
+            // Touch swipe support
+            let touchStartX = 0;
+            const slider = document.getElementById('scheduleSlider');
+            if (slider) {
+                slider.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                slider.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].screenX;
+                    if (Math.abs(diff) > 40) {
+                        goTo(diff > 0 ? current + 1 : current - 1);
+                        startAuto();
+                    }
+                }, { passive: true });
+            }
+
+            startAuto();
+        });
+    </script>
+
+    {{-- Pastoral Greeting Slide-Up Animation --}}
+    <style>
+        .pastoral-slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .pastoral-slide-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pastoral-slide-up--delayed {
+            transition-delay: 0.2s;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const targets = document.querySelectorAll('.pastoral-slide-up');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                targets.forEach(el => observer.observe(el));
+            } else {
+                targets.forEach(el => el.classList.add('is-visible'));
+            }
+        });
+    </script>
+@endsection
+
+
