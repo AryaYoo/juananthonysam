@@ -306,7 +306,7 @@ class CmsService
                     'highlights' => ['Penyambutan Jemaat', 'Pelayanan Ruang Ibadah', 'Informasi & Keramahan'],
                 ],
                 [
-                    'name' => 'Volunteer Pelayanan',
+                    'name' => 'Ministry of Service',
                     'tag' => 'Support & Operations',
                     'desc' => 'Pelayanan operasional lapangan, logistik perlengkapan, tata panggung, serta koordinasi teknis kelancaran ibadah.',
                     'icon' => 'hands',
@@ -318,7 +318,16 @@ class CmsService
 
     public static function getProfile(): array
     {
-        return self::read('profile', self::defaultProfile());
+        $data = self::read('profile', self::defaultProfile());
+        if (!empty($data['divisions']) && is_array($data['divisions'])) {
+            foreach ($data['divisions'] as &$div) {
+                if (isset($div['name']) && $div['name'] === 'Volunteer Pelayanan') {
+                    $div['name'] = 'Ministry of Service';
+                }
+            }
+            unset($div);
+        }
+        return $data;
     }
 
     public static function saveProfile(array $data): bool

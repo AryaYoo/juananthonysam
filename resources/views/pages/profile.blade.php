@@ -176,11 +176,11 @@
                     MELAYANI BERSAMA
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-light text-gray-950 dark:text-white uppercase tracking-wider font-['Stack_Sans_Notch',sans-serif]">
-                    DIVISI PELAYANAN JEMAAT
+                    MINISTRY OF SERVICE
                 </h2>
                 <div class="w-16 h-0.5 bg-gray-900 dark:bg-white mt-4 mx-auto"></div>
                 <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-4 font-light max-w-md mx-auto">
-                    Volunteer, Creative, dan Usher siap melayani dan saling memperlengkapi tubuh Kristus.
+                    Creative, Usher, dan Ministry of Service siap melayani dan saling memperlengkapi tubuh Kristus.
                 </p>
             </div>
 
@@ -255,7 +255,7 @@
                 @endforeach
             </div>
 
-            <!-- Volunteer Callout (Clean, Elegant & High Contrast CTA) -->
+            <!-- Ministry of Service Callout (Clean, Elegant & High Contrast CTA) -->
             <div class="mt-14 sm:mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-gray-50 to-white dark:from-[#181818] dark:to-[#121212] border border-gray-200 dark:border-[#2C2C2C] text-center max-w-2xl mx-auto shadow-sm relative overflow-hidden reveal-on-scroll">
                 <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-black mb-4 shadow-md">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -263,19 +263,19 @@
                     </svg>
                 </div>
                 <h4 class="text-xl sm:text-2xl font-light text-gray-950 dark:text-white font-['Stack_Sans_Notch',sans-serif] tracking-wide">
-                    Rindu Mengambil Bagian dalam Pelayanan?
+                    Rindu Mengambil Bagian dalam Ministry of Service?
                 </h4>
                 <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 mb-6 font-light max-w-md mx-auto leading-relaxed">
-                    Bergabunglah sebagai volunteer dan kembangkan talenta Anda bersama keluarga rohani di Ekklesia Surabaya.
+                    Bergabunglah melayani dan kembangkan talenta Anda bersama keluarga rohani di Ekklesia Surabaya.
                 </p>
-                <a href="https://wa.me/6281213131060?text=Halo%20Pastoral%20Ekklesia,%20saya%20tertarik%20bergabung%20sebagai%20volunteer" 
+                <a href="https://wa.me/6281213131060?text={{ urlencode('Halo Pastoral Ekklesia, saya tertarik bergabung melayani di Ministry of Service') }}" 
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="inline-flex items-center gap-2.5 px-6 py-3 bg-[#111111] hover:bg-black dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-medium text-xs sm:text-sm rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 duration-200">
                     <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
                     </svg>
-                    <span>Daftar Volunteer via WhatsApp</span>
+                    <span>Daftar Ministry of Service via WhatsApp</span>
                 </a>
             </div>
         </div>

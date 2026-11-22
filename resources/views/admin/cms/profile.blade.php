@@ -128,8 +128,8 @@
                             </svg>
                         </span>
                         <div>
-                            <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Divisi Pelayanan Jemaat</h2>
-                            <p class="text-[11px] text-gray-500 dark:text-gray-400">Departemen pelayanan jemaat yang tampil di halaman profil</p>
+                            <h2 class="text-sm font-semibold text-gray-950 dark:text-white">Ministry of Service (Divisi Pelayanan)</h2>
+                            <p class="text-[11px] text-gray-500 dark:text-gray-400">Departemen pelayanan dan Ministry of Service yang tampil di halaman profil</p>
                         </div>
                     </div>
 
